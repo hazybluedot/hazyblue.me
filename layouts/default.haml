@@ -1,0 +1,19 @@
+%html{:lang => 'en'}
+  %head
+    %meta{:charset =>"utf-8"}
+    %title A Brand New nano Site - #{@item[:title]}
+    %link{:rel => 'stylesheet', :href => '/style.css'}
+    %meta{:name => 'generator', :content => "nanoc #{Nanoc::VERSION}"}
+  %body
+    #header
+      %h1 
+        = @item[:title]
+    #main
+      = yield
+    #sidebar
+      %h2 Teaching
+      = teach = @items.find { |i| i.identifier == '/teaching/' }
+      = link_to('Philosophy', teach)
+      <!--= link_to('Philosophy', teach.rep(:pdf))-->
+      %h2 Documentation
+      %h2 Community
