@@ -1,19 +1,21 @@
+!!! 5
 %html{:lang => 'en'}
   %head
     %meta{:charset =>"utf-8"}
     %title A Brand New nano Site - #{@item[:title]}
-    %link{:rel => 'stylesheet', :href => '/style.css'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylz/screen.css', :media => 'screen'} 
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylz/solarized.css', :media => 'screen'}
     %meta{:name => 'generator', :content => "nanoc #{Nanoc::VERSION}"}
   %body
-    #header
-      %h1 
-        = @item[:title]
     #main
-      = yield
+      = find_and_preserve(yield)
     #sidebar
-      %h2 Teaching
-      = teach = @items.find { |i| i.identifier == '/teaching/' }
-      = link_to('Philosophy', teach)
+      %h2 About
+      - teach = @items.find { |i| i.identifier == '/teaching/' }
+      = link_to teach[:title], teach.path 
       <!--= link_to('Philosophy', teach.rep(:pdf))-->
-      %h2 Documentation
-      %h2 Community
+      %h2 Recent Posts
+      - sorted_articles.each do |post|
+        %ul= link_to post[:title], post.path
+      %h2 Recent Tweets
+        

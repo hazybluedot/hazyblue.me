@@ -1,6 +1,10 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
+# Compass requirements
+require 'compass'
+Compass.add_project_configuration('config.rb')
+
 # A few helpful tips about the Rules file:
 #
 # * The string given to #compile and #route are matching patterns for
@@ -14,13 +18,41 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+compile '/stylz/*/' do
+  case item[:extension]
+  when 'sass'
+    filter :sass, Compass.sass_engine_options
+  when 'css'
+    #nothing
+  end
+end
+
+compile '/js/*' do
+  # Change this to mod your coffee files and write a corresponding route
+  # file
+end
+
 compile '/stylesheet/' do
   # don’t filter or layout
 end
 
+route '/stylz/*/' do
+  item.identifier.chop + '.css'
+end
+
+route '/js/*' do
+  item.identifier.chop + item[:extension]
+end
+
 compile '/teaching/*' do
-  filter :kramdown
+  filter :redcarpet
   layout 'default'
+end
+
+compile '/posts/*' do
+  filter :redcarpet, :options => {:fenced_code_blocks => true}
+  filter :colorize_syntax, :default_colorizer => :pygmentsrb
+  layout 'post'
 end
 
 compile '*' do
@@ -34,6 +66,12 @@ end
 
 route '/stylesheet/' do
   '/style.css'
+end
+
+route '/posts/*' do
+  y,m,d,slug = /([0-9]+)\-([0-9]+)\-([0-9]+)\-([^\/]+)/
+    .match(item.identifier).captures
+  "/#{y}/#{m}/#{slug}/index.html"
 end
 
 route '*' do
