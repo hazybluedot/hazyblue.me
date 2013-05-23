@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>A Brand New nano Site - Welcome to the blog</title>
+    <link href='/stylz/screen.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='/stylz/solarized.css' media='screen' rel='stylesheet' type='text/css'>
+    <meta content='nanoc 3.6.3' name='generator'>
+  </head>
+  <body>
+    <div id='main'>
+      <div class='post'>
+        <h1>Welcome to the blog</h1>
+        <aside>Posted at: May 21, 2013</aside>
+        <article>
+          <p>Welcome to my blog!</p>
+          
+          <p>It is filled with wonderous bloggy things. Mostly geeky things.</p>
+          
+          <h2>some code</h2>
+          
+          <p>Look at my awesome code:</p>
+          
+          <pre><code class="language-ruby"><span class="k">def</span> <span class="nf">meow</span>&#x000A;    <span class="nb">puts</span> <span class="s1">'Meow... meow! ow!'</span>&#x000A;<span class="k">end</span></code></pre>
+          
+          <pre><code class="ruby">def bowwow&#x000A;   puts 'Ruff. Just the way...!'&#x000A;end&#x000A;</code></pre>
+          
+          <p>That was fun!</p>
+        </article>
+      </div>
+      <!-- START: Livefyre Embed -->
+      <div id='livefyre-comments'></div>
+      <script src='http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js' type='text/javascript'></script>
+      <script>
+        (function () {
+        var articleId = fyre.conv.load.makeArticleId(null);
+        fyre.conv.load({}, [{
+            el: 'livefyre-comments',
+            network: "livefyre.com",
+            siteId: "334118",
+            articleId: articleId,
+            signed: false,
+            collectionMeta: {
+            articleId: articleId,
+            url: fyre.conv.load.makeCollectionUrl(),
+            }
+            }], function() {});
+            }());
+      </script>
+      <!-- END: Livefyre Embed -->
+    </div>
+    <div id='sidebar'>
+      <h2>About</h2>
+      <a href="/teaching/">Teaching Philosophy</a>
+      <!--= link_to('Philosophy', teach.rep(:pdf))-->
+      <h2>Recent Posts</h2>
+      <ul><a href="/2013/05/new-site/">New Site, New Framework</a></ul>
+      <ul><a href="/2013/05/welcome/">Welcome to the blog</a></ul>
+      <h2>Recent Tweets</h2>
+    </div>
+  </body>
+</html>
