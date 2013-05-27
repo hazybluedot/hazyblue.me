@@ -18,10 +18,14 @@ Compass.add_project_configuration('config.rb')
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '/stylz/*/' do
+sass_options = Compass.sass_engine_options
+
+compile '/stylesheets/*/' do
   case item[:extension]
   when 'sass'
     filter :sass, Compass.sass_engine_options
+  when 'scss'
+    filter :sass, sass_options.merge(:syntax => :scss)
   when 'css'
     #nothing
   end
@@ -32,7 +36,7 @@ compile '/js/*' do
   # file
 end
 
-route '/stylz/*/' do
+route '/stylesheets/*/' do
   item.identifier.chop + '.css'
 end
 
@@ -49,6 +53,10 @@ compile '/posts/feed/' do
   filter :erb
 end
 
+compile '/assets/*' do
+  #don't filter
+end
+
 compile '/posts/*' do
   filter :redcarpet, :options => {:fenced_code_blocks => true}
   filter :colorize_syntax, :default_colorizer => :pygmentsrb
@@ -62,10 +70,6 @@ compile '*' do
     filter :erb
     layout 'default'
   end
-end
-
-route '/stylesheet/' do
-  '/style.css'
 end
 
 route '/posts/feed/' do

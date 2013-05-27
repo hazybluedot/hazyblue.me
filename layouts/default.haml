@@ -3,8 +3,8 @@
   %head
     %meta{:charset =>"utf-8"}
     %title A Brand New nano Site - #{@item[:title]}
-    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylz/screen.css', :media => 'screen'} 
-    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylz/solarized.css', :media => 'screen'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/screen.css', :media => 'screen'} 
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/solarized.css', :media => 'screen'}
     %meta{:name => 'generator', :content => "nanoc #{Nanoc::VERSION}"}
   %body
     #main
@@ -18,4 +18,5 @@
       - sorted_articles.each do |post|
         %ul= link_to post[:title], post.path
       %h2 Recent Tweets
-        
+      %h2 Follow
+      = link_to '/assets/Feed-icon.svg.png', '/blog.xml'
