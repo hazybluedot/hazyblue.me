@@ -5,22 +5,25 @@ span {
 pre {
     /* font-size: 90%; */
     line-height: 1.2em;
+    font-size: 13px;
     font-family: "Courier 10 Pitch", Courier, monospace; 
 
-    white-space: pre; 
-    white-space: pre-wrap; /* css-3 */
-    white-space: -moz-pre-wrap !important;
-    white-space: -pre-wrap; /* Opera 4-6 */
-    white-space: -o-pre-wrap; /* Opera 7 */
-    word-wrap: break-word; /* Internet Explorer 5.5+ */
+    margin-bottom: 1.625em;
+    overflow: auto;
+    padding: 0.75em 1.625em;
+
+    width: 500px;
 
     height:1%;
-    width: auto;
 
     display: block;
     clear: both;
+}
+
+pre:not([class]) {
 
     /* color: #555555; */
+    font-size: 16px;
     padding: 1em 1em; 
     margin: auto 40px auto 40px;
     background: #002b36; /* #f4f4f4; */
