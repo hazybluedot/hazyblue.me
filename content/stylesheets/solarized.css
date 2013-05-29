@@ -1,6 +1,7 @@
 span {
     display: inline-block;
 }
+
 pre {
     /* font-size: 90%; */
     line-height: 1.2em;
@@ -18,6 +19,7 @@ pre {
 
     display: block;
     clear: both;
+
     /* color: #555555; */
     padding: 1em 1em; 
     margin: auto 40px auto 40px;
@@ -29,7 +31,7 @@ code {
     line-height: 1.2em;
     font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 
-    display: inline; 
+    display: inline;
     background: #002b36; 
 }
 
