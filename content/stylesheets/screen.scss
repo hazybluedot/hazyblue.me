@@ -95,3 +95,23 @@ a {
         line-height: 20px;
     }
 }
+
+
+blockquote {
+           font-family: Georgia, "Bitstream Charter", serif;
+           font-style: italic;
+           font-weight: normal;
+           margin: 0 3em;
+}
+
+blockquote em, blockquote i, blockquote cite {
+           font-style: normal;
+}
+
+blockquote cite {
+           color: #666;
+           font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+           font-weight: 300;
+           letter-spacing: 0.05em;
+           text-transform: uppercase;
+}
