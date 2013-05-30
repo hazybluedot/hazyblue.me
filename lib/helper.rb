@@ -18,6 +18,9 @@ module PostHelper
     return content
   end
 
+  def image_tag(image)
+    content = "<img src='#{image}' />"
+  end
 end
 
 include PostHelper
