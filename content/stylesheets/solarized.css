@@ -12,7 +12,7 @@ pre {
     overflow: auto;
     padding: 0.75em 1.625em;
 
-    width: 500px;
+    width: 500pt;
 
     height:1%;
 
@@ -30,7 +30,7 @@ pre:not([class]) {
     border: solid 1px #e1e1e1
 } 
 
-code { 
+code pre:not([class]) { 
     line-height: 1.2em;
     font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 
