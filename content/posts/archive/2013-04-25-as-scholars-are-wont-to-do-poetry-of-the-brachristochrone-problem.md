@@ -2,6 +2,7 @@
 title: ! 'As Scholars are Wont to do: Poetry of the brachristochrone problem'
 created_at: Fri, 26 Apr 2013 00:39:15 +0000
 kind: article
+published: true
 tags:
 - brachristochrone
 - essence
@@ -68,6 +69,8 @@ and rears its head again in
 > traced out by a point acted on only by gravity, which starts at A
 > and reaches B in the shortest time. <cite>-
 > [The bracristochrone problem](http://www-history.mcs.st-and.ac.uk/HistTopics/Brachistochrone.html)</cite>
+
+![Brachistochrone problem](/assets/posts/Brachistochrone.png)
 
 The problem itself is older than Bernoulli: Galileo had conducted his
 own exploration in 1638 and incorrectly deduce the solution to be the

@@ -2,6 +2,7 @@
 title: Making Space
 created_at: Wed, 15 May 2013 22:11:08 +0000
 kind: article
+published: true
 tags:
 - community
 - illich
@@ -23,6 +24,8 @@ focus of mine has been the lack of a space in my own field (Electrical
 & Computer Engineering) to facilitate making connections between the
 work that goes on in the department, both teaching and research, and
 the outside world.
+
+<!-- more -->
 
 I also became interested in many of the ideas Ivan Illich presented in
 [chapter 6](http://deschoolingsociety.digress.it/learning-webs/) of
