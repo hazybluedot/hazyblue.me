@@ -45,7 +45,7 @@ route '/js/*' do
 end
 
 compile '/teaching/*' do
-  filter :redcarpet
+  filter :kramdown
   layout 'default'
 end
 
@@ -63,6 +63,11 @@ compile '/posts/*' do
   layout 'post'
 end
 
+compile '/' do
+  filter :haml
+  layout 'default'
+end
+
 compile '*' do
   if item.binary?
     # don’t filter binary items
@@ -73,7 +78,7 @@ compile '*' do
 end
 
 route '/posts/feed/' do
-  '/blog.xml'
+  '/feed.xml'
 end
 
 route '/posts/*' do
