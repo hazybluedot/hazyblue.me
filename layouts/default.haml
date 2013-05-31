@@ -3,23 +3,37 @@
   %head
     %meta{:charset =>"utf-8"}
     %title A Brand New nano Site - #{@item[:title]}
-    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/screen.css', :media => 'screen'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/screen.css', :media => 'screen,projection'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/link_icons.css', :media => 'screen,projection'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/print.css', :media => 'print'}    
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/solarized.css', :media => 'screen'}
+    /[if lt IE 8]
+      %link{:href => "/output/stylesheets/ie.css", :media => 'screen, projection', :rel => 'stylesheet', :type => 'text/css'}
+
     %meta{:name => 'generator', :content => "nanoc #{Nanoc::VERSION}"}
-  %body
-    #main
-      = find_and_preserve(yield)
-    #sidebar
-      %h2 About
-      - teach = @items.find { |i| i.identifier == '/teaching/' }
-      = link_to teach[:title], teach.path 
-      <!--= link_to('Philosophy', teach.rep(:pdf))-->
-      %h2 Recent Posts
-      - sorted_articles.each do |post|
-        - if post[:published]
-          %ul= link_to post[:title], post.path
-      %h2 Recent Tweets
-      %h2 Follow
-      %a{:href => '/feed.xml'}
-        %img{:src => '/assets/Feed-icon.svg.png'}
-      
+  %body{:class => 'bp two-col light'}
+    #container
+      #header
+        \#!/dkm
+      #sidebar
+        %h2 About
+        - teach = @items.find { |i| i.identifier == '/teaching/' }
+        = link_to teach[:title], teach.path 
+        <!--= link_to('Philosophy', teach.rep(:pdf))-->
+        %h2 Recent Posts
+        - sorted_articles.each do |post|
+          - if post[:published]
+            %ul= link_to post[:title], post.path
+        %h2 imported posts
+        - sorted_articles.each do |post|
+          - if not post[:published]
+            %ul= link_to post[:title], post.path
+            
+        %h2 Recent Tweets
+        %h2 Follow
+        %a{:href => '/feed.xml'}
+          %img{:src => '/assets/Feed-icon.svg.png'}
+      #content
+        = find_and_preserve(yield)
+      #footer
+        a dkm production

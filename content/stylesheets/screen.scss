@@ -1,169 +1,103 @@
-/*
-  Welcome to Compass.
-  In this file you should write your main styles. (or centralize your imports)
-  Import this file using the following HTML or equivalent:
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
 
-@import "compass/reset";
-@import "compass/typography/links/link-colors";
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
 
-* { 
-    margin: 0;
-    padding: 0;
-    font: { family: Georgia, Palatino, Times, 'Times New Roman', sans-serif; }
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// To generate css equivalent to the blueprint css but with your
+// configuration applied, uncomment:
+// @include blueprint
+
+// If you are doing a lot of stylesheet concatenation, it is suggested
+// that you scope your blueprint styles, so that you can better control
+// what pages use blueprint when stylesheets are concatenated together.
+body.bp {
+  @include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  // Remove the scaffolding when you're ready to start doing visual design.
+  // Or leave it in if you're happy with how blueprint looks out-of-the-box
 }
 
-body {
-    background: #fff;
+form.bp {
+  @include blueprint-form;
+  // You'll probably want to remove the scaffolding once you start styling your site.
+  @include blueprint-scaffolding;
 }
 
-a {
-    text-decoration: none;
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body.two-col {
+  #container {
+    @include container;
+  }
+  #header, #footer {
+    @include column($blueprint-grid-columns);
+  }
+  #sidebar {
+    // One third of the grid columns, rounding down. With 24 cols, this is 8.
+    $sidebar-columns: floor($blueprint-grid-columns / 3);
+    @include column($sidebar-columns);
+    @include accentize($orange);
+  }
+  #content {
+    // Two thirds of the grid columns, rounding up.
+    // With 24 cols, this is 16.
+    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
+    // true means it's the last column in the row
+    @include column($content-columns, true);
+  }
 }
 
-a { 
-    @include link-colors(#f30, #f90, #f90, #f30);
+aside {
+    color: $base01;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $base0;
 }
 
-#main {
-    position: absolute;
-    top: 40px;
-    left: 280px;
-    width: 500px;
-
-    h1 {
-        font: {
-            size: 20px;
-            weight: normal;
-        }
-        line-height: 40px;
-        letter-spacing: -1px
-    }
-    p {
-        margin: 20px 0; 
-        font: {
-            size: 15px
-        }
-        line-height: 20px;
-    }
-    ul, ol {
-        margin: 20px;
-    }
-    li {
-        font: {
-            size: 15px
-        }
-        line-height: 20px;
-    }
-    ul li {
-        list-style-type: square;
-    }
-    strong {
-        font: {
-            weight: bold;
-        }
-    }
-
-    .content {
-        width: 800px;
-        background: #f5f5f5;
-        border: 1px solid #ddd;
-        border-top: none;
-        margin: 0 auto;
-        padding: 60px 20px 0 60px;
-    }
-
-    .post {
-        aside {
-            color: #888;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #aaa;
-        }
-        article {
-            margin: 10px 0 60px 0;
-        }
-    }
+span {
+    display: inline-block;
 }
 
-#sidebar {
-    position: absolute;
-    top: 40px;
-    left: 20px;
-    width: 200px;
-    padding: 20px 20px 0 0;
-    border-right: 1px solid #ccc;
-    text-align: right;
+pre {
+    @include border-radius(25px);
+    /* font-size: 90%; */
+    line-height: 1.2em;
+    font-size: 13px;
+    font-family: "Courier 10 Pitch", Courier, monospace; 
 
-    h2 {
-        text: {
-            transform: uppercase;
-            size: 13px;
-        }
-        color: #333;
-        letter-spacing: 1px;
-        line-height: 20px;
-    }
-    ul {
-        list-style-type: square;
-        margin: 20px 0;
-    }
-    ol {
-        list-style-type: none;
-    }
-    li {
-        font: {
-            size: 14px;
-        }
-        line-height: 20px;
-    }
+    margin-bottom: 1.625em;
+    overflow: auto;
+    padding: 0.75em 1.625em;
+
+    width: 500pt;
+
+    height:1%;
+
+    display: block;
+    clear: both;
 }
 
-ol {
-    list-style-type: decimal;
-    ol {
-        list-style: upper-alpha;
-        ol {
-            list-style: lower-roman;
-            ol {
-                list-style: lower-alpha;
-            }
-        }
-    }
+pre:not([class]) {
+    /* color: #555555; */
+    font-size: 16px;
+    padding: 1em 1em; 
+    margin: auto 40px auto 40px;
+    background: #002b36; /* #f4f4f4; */
+    border: solid 1px #e1e1e1
+} 
+
+code pre:not([class]) { 
+    line-height: 1.2em;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+
+    display: inline;
+    background: #002b36; 
 }
 
-blockquote {
-    font-family: Georgia, "Bitstream Charter", serif;
-    font-style: italic;
-    font-weight: normal;
-    margin: 0 3em;
-    cite {
-        color: #666;
-        font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-    }
-    em, blockquote i, blockquote cite {
-        font-style: normal;
-    }
-}
-
-sup,
-sub {
-    font-size: 10px;
-    height: 0;
-    line-height: 1;
-    position: relative;
-    vertical-align: baseline;
-}
-
-
-sup {
-    bottom: 1ex;
-}
-sub {
-    top: .5ex;
-}
-small {
-    font-size: smaller;
-}
