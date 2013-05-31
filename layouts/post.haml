@@ -5,23 +5,21 @@
     %article
       = find_and_preserve(yield)
 
-  <!-- START: Livefyre Embed -->
-  #livefyre-comments
-  %script{:type => 'text/javascript', :src => 'http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js'}
+
+  #disqus_thread
   %script{:type => 'text/javascript'}
     :plain
-      (function () {
-      var articleId = fyre.conv.load.makeArticleId(null);
-      fyre.conv.load({}, [{
-      el: 'livefyre-comments',
-      network: "livefyre.com",
-      siteId: "334118",
-      articleId: articleId,
-      signed: false,
-      collectionMeta: {
-      articleId: articleId,
-      url: fyre.conv.load.makeCollectionUrl(),
-      }
-      }], function() {});
-      }());
-  <!-- END: Livefyre Embed -->
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'hazybluedot'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  %noscript 
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  %a{:href => 'http://disqus.com', :class => 'dsq-brlink'}
+    comments powered by <span class="logo-disqus">Disqus</span>
+  
