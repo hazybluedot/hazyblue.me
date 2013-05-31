@@ -1,0 +1,34 @@
+---
+title: List of Projects Past
+created_at: Fri, 12 Oct 2012 19:30:39 +0000
+kind: article
+tags:
+- ECE2524
+- examples
+- meta
+- projects
+---
+
+I wanted to generate a list of Unix projects from last semester to provide a reference for what has been done before. The first complete list I found was in the forum of last semester's Scholar site. There wasn't a "download" option, and given the formatting I predicted that I'd spend more time writing a program to parse the raw HTML file and properly match up titles to urls than I'd save by just doing an old fashioned copy and paste operation for the 19 projects. So that's what I did, and ended up with a file one title/url per line formatted like this: [code light="true"] Snake Game https://github.com/ccwertz7/2524snake Go, Dog, Go https://github.com/rokthewok/ECE2524-Final-Project ... [/code] Just white space separating the title and the url. I wanted to generate a nicely formatted list of links to each project and also filter out any urls that were no longer valid, so I wrote a short python script that read in lines of test, split them at the 'http' of a possible url treating everythign to the left of the split as the title and then used the urllib module to check for a 200 status before printing out a markdown formated line: [code light="true"] [Snake Game](https://github.com/ccwertz7/2524snake) [Go, Dog, Go](https://github.com/rokthewok/ECE2524-Final-Project) [/code] I have uploaded the source for [this program](https://github.com/hazybluedot/ece2524/blob/master/examples/url_200filter.py) to the [examples](https://github.com/hazybluedot/ece2524/tree/master/examples) directory in my [ece2524](https://github.com/hazybluedot/ece2524) repository on github.  After checking the output of my program I decided that I'd like to create a bulleted list by preceding each line with a '- ' (this is standard Markdown syntax).  Rather than change my python script, which is already on the verge of being too specific to be useful for much else, I just piped the output through a simple sed command to tack on the dash: [code light="true" language="bash"] url\_200filter.py  Spring2012ProjectList.html [/code] To generate the HTML code that I then pasted here:
+
+  - [Snake Game](https://github.com/ccwertz7/2524snake)
+  - [Go, Dog, Go](https://github.com/rokthewok/ECE2524-Final-Project)
+  - [Battleship Game](https://github.com/rc2524/Battleship-game)
+  - [Settlers of Catan](https://github.com/lubbs65/Catan)
+  - [Pyramid of Unix](https://github.com/rogpog13/ECE2524_LostPyramidOfUnix)
+  - [Guessing Game](https://github.com/cabotzj/guessing_game)
+  - [Timer Application](https://github.com/tavispa/Timer_Application)
+  - [Dodge the ASCII Characters Game](https://github.com/cfol103/Terminal_Game)
+  - [Millionaire Game](https://github.com/gomezfx/ECE2524_Millionaire)
+  - [Terminal Game](https://github.com/cfol103/Terminal_Game)
+  - [Checkers Game](https://github.com/alexsupp/CheckersGame)
+  - [Text Adventure Game](https://github.com/gecock14/UnixFinalProject)
+  - [Monopoly](https://github.com/lnr0626/Monopoly)
+  - [Hangman](https://github.com/JCAMP17/Hangman-Final-Project)
+  - [ECECalculator](https://github.com/patrickto2/ECECalculator)
+  - [Class Catcher](https://github.com/hessionb/ece2524)
+  - [Conway's Game of Life](https://github.com/MattyBo5/Game-of-Life)
+  - [Tic Tac Toe](https://github.com/crimsondynamo329/Tic-Tac-Toe)
+  - [Leaderboards Hub](https://github.com/0x5654/ece2524)
+
+ While you are thinking about project ideas keep in mind that the goal of the project is to apply and demonstrate understanding of the Unix design philosophy.  A project doesn't need to be terribly complex to show this, but if you have a complex idea that you would really like to explore it may be sufficient to just implement a piece of it for this project.  I look forward to hearing about your ideas and discussing some details next week!
