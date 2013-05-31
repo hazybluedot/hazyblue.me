@@ -2,8 +2,11 @@
 # -*- coding: utf-8 -*-
 
 # Compass requirements
-require 'compass'
-Compass.add_project_configuration('config.rb')
+unless defined? LOADED_DEFAULT_CONFIG
+  LOADED_DEFAULT_CONFIG = true
+  require 'compass'
+  Compass.add_project_configuration 'config.rb' 
+end
 
 # A few helpful tips about the Rules file:
 #
@@ -55,6 +58,12 @@ end
 
 compile '/assets/*' do
   #don't filter
+end
+
+compile '/posts/archive/*' do
+  filter :kramdown, :options => {:fenced_code_blocks => true}
+  filter :colorize_syntax, :default_colorizer => :pygmentsrb
+  layout 'archive_post'
 end
 
 compile '/posts/*' do
