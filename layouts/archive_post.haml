@@ -1,0 +1,11 @@
+- render 'post' do
+  - if not item[:extension] == 'md'
+    .error
+      This post has not been edited since the automatic import. Errors are likely.
+  - else
+    .notice
+      This post was imported from the old WordPress site. It is possible that some content is missing, or formatting is screwy. If you see something that doesn't look quite right, please #{link_to 'let me know', 'mailto:darmacz@gmail.com'}.
+
+
+  = find_and_preserve(yield)
+

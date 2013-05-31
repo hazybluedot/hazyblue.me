@@ -1,0 +1,27 @@
+- render 'default' do
+  .post
+    %h1 #{item[:title]}
+    %aside Posted at: #{get_pretty_date(item)}
+    %article
+      = find_and_preserve(yield)
+
+  <!-- START: Livefyre Embed -->
+  #livefyre-comments
+  %script{:type => 'text/javascript', :src => 'http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js'}
+  %script{:type => 'text/javascript'}
+    :plain
+      (function () {
+      var articleId = fyre.conv.load.makeArticleId(null);
+      fyre.conv.load({}, [{
+      el: 'livefyre-comments',
+      network: "livefyre.com",
+      siteId: "334118",
+      articleId: articleId,
+      signed: false,
+      collectionMeta: {
+      articleId: articleId,
+      url: fyre.conv.load.makeCollectionUrl(),
+      }
+      }], function() {});
+      }());
+  <!-- END: Livefyre Embed -->
