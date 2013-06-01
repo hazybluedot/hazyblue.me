@@ -6,7 +6,7 @@
   - twitter_url = "#{ @config[:base_url] }"
 - else
   - twitter_title = "#{ @item[:title] }"
-  - twitter_description = "#{ excerptize(decode_html_entities(strip_html(strip_more(@item.compiled_content(:snapshot =>:filtered_contents))).gsub(/\n/, ' ')), :length => 200)}"
+  - twitter_description = "#{ @item[:description] }"
   - twitter_url = "#{ @config[:base_url] }#{ @item.path }"
 
 %meta{:name => 'twitter:title', :content => "#{twitter_title}" }
