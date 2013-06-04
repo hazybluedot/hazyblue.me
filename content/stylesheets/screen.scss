@@ -24,12 +24,13 @@ body.bp {
   @include blueprint-interaction;
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
+  @include blueprint-scaffolding;
 }
 
 form.bp {
   @include blueprint-form;
   // You'll probably want to remove the scaffolding once you start styling your site.
-  @include blueprint-scaffolding;
+  // @include blueprint-scaffolding;
 }
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
@@ -39,6 +40,7 @@ body.two-col {
   }
   #header, #footer {
     @include column($blueprint-grid-columns);
+    height: 40px;
   }
   #sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.
@@ -52,6 +54,9 @@ body.two-col {
     $content-columns: ceil(2 * $blueprint-grid-columns / 3);
     // true means it's the last column in the row
     @include column($content-columns, true);
+    a { 
+        text-decoration: none;
+    }
   }
 }
 

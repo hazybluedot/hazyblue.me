@@ -37,7 +37,10 @@ $vmargin: 20px;
 {
     backgorund-color:$rebase02;
     #container { background-color:$rebase03; }
-    #header { background-color:$rebase01; }
+    #header { 
+        background-color:$rebase01; 
+        color: $violet;
+    }
     color:$rebase0;
     * { color:$rebase0; }
     h1,h2,h3,h4,h5,h6 { color:$rebase1; border-color: $rebase0; }
