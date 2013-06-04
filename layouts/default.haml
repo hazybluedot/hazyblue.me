@@ -2,7 +2,7 @@
 %html{:lang => 'en'}
   %head
     %meta{:charset =>"utf-8"}
-    %title A Brand New nano Site - #{@item[:title]}
+    %title #{@config[:site_title]} - #{@item[:title]}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/screen.css', :media => 'screen,projection'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/link_icons.css', :media => 'screen,projection'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/print.css', :media => 'print'}    
@@ -31,7 +31,8 @@
   %body{:class => 'bp two-col light'}
     #container
       #header
-        \#!/dkm
+        %span#title #{ @config[:site_title] }
+        %span#subtitle #{ @config[:site_subtitle] }
       #sidebar
         %h2 About
         - teach = @items.find { |i| i.identifier == '/teaching/' }
