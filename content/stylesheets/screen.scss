@@ -44,6 +44,7 @@ body.two-col {
     .title {
         font-size: 25px;
         virtical-align: middle;
+        a { text-decoration: none; }
     }
     #subtitle {
         display: block;
@@ -51,6 +52,9 @@ body.two-col {
         font-style: italic;
     }
     padding: 1em;
+  }
+  #footer {
+      text-align: center;
   }
   #sidebar {
     // One third of the grid columns, rounding down. With 24 cols, this is 8.

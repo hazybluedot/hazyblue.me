@@ -32,8 +32,9 @@
     #container
       #header
         .title
-          %span#title #{ @config[:site_title] }
-          %span#subtitle #{ @config[:site_subtitle] }
+          %a{:href => '/'}
+            %span#title #{ @config[:site_title] }
+            %span#subtitle #{ @config[:site_subtitle] }
       #sidebar
         %h2 About
         - teach = @items.find { |i| i.identifier == '/teaching/' }
