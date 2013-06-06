@@ -1,0 +1,64 @@
+---
+title: Semester in Review
+created_at: Mon, 24 Dec 2012 17:15:58 +0000
+kind: article
+tags:
+- curriculum
+- ECE2524
+- future
+- review
+- teaching
+---
+
+Well, as I'm about 6 hours in* into a 14 hour bus+train journey to Massachusetts I figured this would be a good time to reflect and respond to the past semester which seems to have flown bye.
+
+The Blogs
+=========
+
+ I _really_enjoyed the blog assignment. Even though I wasn't able to write a reply to every post I felt a lot more in sync with how the class as a whole was progressing. When there was confusion or frustration regarding a particular assignment, or just towards the class in general, I was able to respond quickly (I hope!). I feel I learned much more about how the material in ECE2524 was connected both to other courses and to events that interested you outside of coursework (open source gaming, personal server setups, commentary on Ubuntu as a general purpose OS). There are a couple things I plan to change with the blog assignment with the end goal of adding a little more structure to the syndicated class blog, and hopefully encouraging more of a discussion.
+  - enforce "category" and "tag" rules. If you look down the right sidebar of the [mother blog](http://blogs.lt.vt.edu/ece2524)you will see a list of all the categories posts have been made under. The current list is too long and not focused enough to be of any amount of use to someone trying to sift through the many posts for a particular topic. Most of the words used for "categories" should have been "tags" instead, so spending a little time up front talking about the difference I think would be helpful in the long-term organization and usefulness as an archival tool of the blog. Some categories I've thought of are:
+    - Introspective: reflect on the course itself, whether it be assignments, discussions or structure.
+    - Extrospective: explore connections between course material and using *nix systems or applying Unix design philosophy to other courses or events.
+    - Social Network: comment on and continue the discussion taking place at VTLUUG and VTCSEC meetings.
+    - Instructional: Discussing personal setups and/or workflows. Posts here will have sort of a "tutorial" or "howto" feel.
+There are a couple optional assignments I want to offer that would be linked to blog posts:
+    - Learn a Language: There are many benefits to learning a new programming language. From _The Pragmatic Programmer_, Tip #8 "Invest Regularly in Your Knowledge Portfolio":
+> Throughout the semester those opting to do this assignment would document their progress with their language of choice and share any new ways of thinking or problem solving gained by thinking outside their language comfort zone.
+    - Explore an Environment: An assignment suggested (I need to go through the list to recall who made it) has participants try out an alternative desktop environment and/or window manager. Learners participating in this assignment would make regular blog posts documenting their experience with a particular DE.
+    - VTLUUG/VTCSEC: There were some issues with the attendance implementation at VTLUUG (in particular) and VTCSEC meetings that frustrated a lot of people and made my life a little more difficult. In addition, an attendance count isn't really a good metric for the success of this assignment since the purpose isn't simply to sit in a room for an hour, but to engage with a larger community. Next semester credit will be counted towards the VTLUUG/VTCSEC assignment for blog posts containing targeted discussion and thoughts of the specific topics covered at each meeting.
+
+Assignments
+===========
+
+ I noticed several people commented that the Inventory Management assignment was about the time when python and the motivation behind assignments started to "click". I don't mind that it takes a few assignments in before connections start clicking, but I would like to try and provide more motivation up front about where each assignment is headed, so that earlier along there is at least a notion of "this is going somewhere". So I've been penciling out a clear, focused progression of assignments that goes from basic text parsing up to something like Inventory Management. That project in particular I am also going to make into a group project so that there is some exposure to using git as a collaborative tool before the final project. It also easily breaks up into sub-modules:
+  - Data Parser
+  - Command Parser
+  - Controller
+
+ As the name implies the two parsers make use of text parsing concepts, while the controller is more of an exercise in logical program flow. I think with clear enough specs on what the internal data structures should look like, the three parts should be able to be written mostly independently and then combined into one project. I would also like to start C/C++ development earlier in the semester. I am going to try and restructure exercises and lecture slides so that C/C++ and Python assignments are interwoven throughout the semester. I hope that this will prevent the feeling that I got that the semester was split into two distinct phases, the "python" phase and "C++" phase. That way the content can follow a logical flow and touching on the merits of each language. A brief example of what I'm thinking about:
+  - simple line parsing (one primitive type, e.g. double/int per line)
+    - in python
+    - in bash
+    - in C++
+  - processing command line arguments
+    - in python
+    - in bash
+    - in C++
+  - parsing text lines into an array structure
+    - you get the picture
+  - parsing text lines into a hierarchical structure (e.g. command parser)
+    - probably drop bash for this case
+  - manipulating lists
+    - python list comprehension
+    - C++ stl algorithms
+  - Inventory Management (python)
+
+ And I am toying with the idea creating a similar progression (overlapping mostly) that will cover fork/exec, basic IPC with pipe and lead to a simple shell. As I mentioned in the "Think about it" of the pipeline assignment, all were missing to create a basic shell program was a string parser that would parse something like "generator | consumer" into an array. Along those lines, I may adjust example code in the "Make a Makefile" assignment to use flex/bison to generate a simple command parser instead of an arithmetic parser. As those of you familiar with bash are aware, as the complexity of the algorithms and data structures we work with increase, at some point bash will become overly cumbersome. At this point, it will be relegated to the task of writing unit tests of sorts for each assignment (Thanks to [George](http://unixramblingz.blogspot.com/) for [the suggested assignment](https://github.com/dyreshark/IntroUNIX/tree/master/MakeYourOwnAssignment).) This will make bash a more integral part of the course material, there was a notable lack of bash this past semester, which I regret.
+Classroom Time
+==============
+
+ I've been doing a lot of thinking about how to use the classroom time effectively in a way that makes everyone want to come. I think it's really important that everyone shows up regularly, not just those that feel they need some extra guidance, but also those who have been programming in a *nix environment for 10 years. It's really important because both the novice and expert can learn a lot from each other if they're in the same room. It also makes my job easier. There are 60 people enrolled in the class in the Spring: it will be nearly impossible for me to check with everyone individually every time there is a typo in an entered command. Getting a second set of eyes looking at everyone's commands and code will help people avoid extended debugging sessions and make people more aware of common typos and bugs. To that end I would like to do more collaborative discussions in the classroom, and less of me talking. Regarding assignments, I'd like them due and committed to a network accessible git repo at the beginning of class. Then, in class people will pair up, fork each others' assignment, review, make edits, and initiate a pull request so that the original author can merge in any bug fixes. The grade for the assignment will be determined by a combination of the functionality of the original commit **and** the merged changes. This probably won't take place after every assignment, but at least a view of them. Depending on how efficient we become at fork/review/merge, I'd like to have more discussions like the one we had about the Process Object assignment. I will try to come up with 3 or 4 "make you think" type questions for each assignment and then in class break up into groups, each discussing one question in depth, then come together as a full class and share the response each group had.
+Reflection
+==========
+
+ I think this post turned into more of a "What I plan to do next semester" more than the reflection I had intended. Because it's probably already too long I'll try and come to a close. The first semester I taught this course I pretty much followed the supplied lecture slides and exercises that were given to me. The second semester suffered from "all this stuff should be changed but I don't have any rhyme or reason to it" syndrome (not unlike second system syndrome that Raymond talks about with regard to Multix). The next couple semesters, ending on the most recent, I have been tweaking and polishing and streamlining. There were still some bumps this past semester that I would like to eliminate (issues with VTLUUG attendance, problems submitting the midterm, lack of clarity on some of the assignments, much too long a delay on returning some of the graded assignments, to name a few), but I'm optimistic that the next revision will address many of them and hopefully provide a smoother and more enjoyable experience for all. Remind me to write another post about my vision for the class :) *and now I'm 10 hours in... only 4 more to go!

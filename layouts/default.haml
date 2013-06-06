@@ -2,20 +2,60 @@
 %html{:lang => 'en'}
   %head
     %meta{:charset =>"utf-8"}
-    %title A Brand New nano Site - #{@item[:title]}
-    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylz/screen.css', :media => 'screen'} 
-    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylz/solarized.css', :media => 'screen'}
+    %title #{@config[:site_title]} - #{@item[:title]}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/screen.css', :media => 'screen,projection'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/link_icons.css', :media => 'screen,projection'}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/print.css', :media => 'print'}    
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/solarized.css', :media => 'screen'}
+    /[if lt IE 8]
+      %link{:href => "/output/stylesheets/ie.css", :media => 'screen, projection', :rel => 'stylesheet', :type => 'text/css'}
+    %meta{:name => 'twitter:card', :content => 'summary'}
+    %meta{:name => 'twitter:creator:id', :content => "#{ @config[:author_twitter_id] }"}
+    - if @item[:kind] == 'article_list'
+      - twitter_title = "#{ @config[:site_title] }"
+      - twitter_description = "#{ @config[:site_subtitle] }"
+      - twitter_url = "#{ @config[:base_url] }"
+    - else
+      - twitter_title = "#{ @item[:title] }"
+      - twitter_description = "#{ @item[:description] }"
+      - twitter_url = "#{ @config[:base_url] }#{ @item.path }"
+
+    %meta{:name => 'twitter:title', :content => "#{twitter_title}" }
+    %meta{:name => 'twitter:description', :content => "#{twitter_description}" }
+    %meta{:name => 'twitter:url', :content => "#{twitter_url}" }
+
+    - if @item[:image]
+      %meta{:name => 'twitter:image', :content => '#{ @config[:base_url] }#{ @item[:image] }'}
+    - render '_twitter_card'
     %meta{:name => 'generator', :content => "nanoc #{Nanoc::VERSION}"}
-  %body
-    #main
-      = find_and_preserve(yield)
-    #sidebar
-      %h2 About
-      - teach = @items.find { |i| i.identifier == '/teaching/' }
-      = link_to teach[:title], teach.path 
-      <!--= link_to('Philosophy', teach.rep(:pdf))-->
-      %h2 Recent Posts
-      - sorted_articles.each do |post|
-        %ul= link_to post[:title], post.path
-      %h2 Recent Tweets
-        
+  %body{:class => 'bp two-col light'}
+    #container
+      #header
+        %span#title #{ @config[:site_title] }
+        %span#subtitle #{ @config[:site_subtitle] }
+      #sidebar
+        %h2 About
+        - teach = @items.find { |i| i.identifier == '/teaching/' }
+        = link_to teach[:title], teach.path 
+        <!--= link_to('Philosophy', teach.rep(:pdf))-->
+        %h2 Recent Posts
+        - sorted_articles.each do |post|
+          - if post[:published]
+            %ul= link_to post[:title], post.path
+        -#
+          %h2 imported posts
+          - sorted_articles.each do |post|
+            - if not post[:published]
+              %ul= link_to post[:title], post.path
+            
+        %h2 Follow
+        %a{:href => '/feed.xml'}
+          %img{:src => '/assets/Feed-icon.svg.png'}
+        = link_to('Follow @hazybluedot', 'https://twitter.com/hazybluedot', :class => 'twitter-follow-button', 'data-show-count'.to_sym => 'false')
+        :javascript
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}
+
+      #content
+        = find_and_preserve(yield)
+      #footer
+        a dkm production
