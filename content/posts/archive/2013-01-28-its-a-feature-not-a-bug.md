@@ -32,6 +32,8 @@ Internet, Naughton says
 >  data packets at one end and do its best to deliver them to their
 >  destinations.
 
+<!-- more -->
+
 The result of this was a general purpose
 network from which sprang a diverse collection of services and
 applications (including the World Wide Web, see item number 2), some

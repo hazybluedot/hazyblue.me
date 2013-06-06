@@ -31,6 +31,8 @@ stable and reliable for the (relatively) extrodinary conditions of low
 Earth orbit than a product produced by a major software giant. Plus
 one for open source collaboration and peer networks!
 
+<!-- more -->
+
 But there's another reason to be excited. And it's a reason that would
 not necessarily apply
 ([mostly](https://www.youtube.com/watch?v=7XTHdcmjenI#t=9m08s)) to,

@@ -34,6 +34,8 @@ of marble to reveal the sculpture hidden within, poets and
 philosophers carve away at the layers of representation in an attempt
 to reveal the essence of a concept encased within.
 
+<!-- more -->
+
 It occurred to me that the same process is occurring in the sciences
 as well, although usually the bricks of representation[^david], are
 mathematical symbols rather than linguistic. In a moment of
