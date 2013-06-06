@@ -30,11 +30,10 @@ class YouTubeFilter < Nanoc::Filter
   def run(content, params={})
 #    content.gsub(/[a-z]+/, 'nanoc rules')
     content.each_line.map do |line|
+      url = line.gsub('\_','_')
       youtube_id = nil
-      if line[/^\s*https?:\/\/youtu\.be\/([^\?]*)/]
+      if url[/^\s*(?:https?:\/\/)?(?:www\.)?(?:youtube\.com(?:\/(?:watch(?:\?(?:\w+=\w+&)+|\?)v=?))|youtu\.be\/)(.+)/]
         youtube_id = $1
-      elsif line[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
-        youtube_id = $5
       end
       
       if youtube_id
