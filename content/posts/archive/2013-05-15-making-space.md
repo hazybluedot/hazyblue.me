@@ -73,7 +73,7 @@ involved with the version 3.2 release, each contributing an average of
 linxfoundation's website summarizes how this tremendous feat is
 possible:
 
- http://youtu.be/yVpbFMhOAwE?t=1m43s 
+http://youtu.be/yVpbFMhOAwE?t=1m43s 
 
 There is a fairly simple and effective hierarchy in place: individual
 developers submit patches to senior kernel developer who in turn
@@ -124,7 +124,7 @@ status, a role I would associate with Illich's notion of an "elder".
 
 ### couchsurfing.org
 
- http://www.youtube.com/watch?feature=player\_embedded&v=Lr\_VNUTvOeQ 
+http://www.youtube.com/watch?feature=player\_embedded&v=Lr\_VNUTvOeQ 
 
 Up until this point the sites I've surveyed have been what we would
 generally refer to "virtual" spaces. The communities and interactions
