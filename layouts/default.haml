@@ -31,8 +31,9 @@
   %body{:class => 'bp two-col light'}
     #container
       #header
-        %span#title #{ @config[:site_title] }
-        %span#subtitle #{ @config[:site_subtitle] }
+        .title
+          %span#title #{ @config[:site_title] }
+          %span#subtitle #{ @config[:site_subtitle] }
       #sidebar
         %h2 About
         - teach = @items.find { |i| i.identifier == '/teaching/' }
