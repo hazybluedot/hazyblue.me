@@ -44,8 +44,9 @@
 
       #sidebar
         %h2 About
-        - teach = @items.find { |i| i.identifier == '/teaching/' }
-        = link_to teach[:title], teach.path 
+        -# teach = @items.find { |i| i.identifier == '/teaching/' }
+        -# = link_to teach[:title], teach.path 
+        coming soon
         <!--= link_to('Philosophy', teach.rep(:pdf))-->
         %h2 Recent Posts
         %ul
