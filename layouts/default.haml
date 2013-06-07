@@ -32,17 +32,26 @@
     #container
       #header
         .title
-          %span#title #{ @config[:site_title] }
-          %span#subtitle #{ @config[:site_subtitle] }
+          %a{:href => '/'}
+            %span#title #{ @config[:site_title] }
+            %span#subtitle #{ @config[:site_subtitle] }
+      #nav
+        %ul
+          %li Blog
+          %li Teach
+          %li Learn
+          %li Connect
+
       #sidebar
         %h2 About
         - teach = @items.find { |i| i.identifier == '/teaching/' }
         = link_to teach[:title], teach.path 
         <!--= link_to('Philosophy', teach.rep(:pdf))-->
         %h2 Recent Posts
-        - sorted_articles.each do |post|
-          - if post[:published]
-            %ul= link_to post[:title], post.path
+        %ul
+          - sorted_articles.each do |post|
+            - if post[:published]
+              %li= link_to post[:title], post.path
         -#
           %h2 imported posts
           - sorted_articles.each do |post|
