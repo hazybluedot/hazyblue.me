@@ -56,6 +56,10 @@ html, .light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base
     background-color: $base03;
 }
 
+#nav {
+    background-color: $base02;
+}
+
 html * {
     color-profile: sRGB;
     rendering-intent: auto;

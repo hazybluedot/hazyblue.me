@@ -7,6 +7,7 @@
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/link_icons.css', :media => 'screen,projection'}
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/print.css', :media => 'print'}    
     %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/solarized.css', :media => 'screen'}
+    %link{:rel => 'alternate', :type => 'application/rss+xml', :href => "#{ @config[:base_url]}/feed.xml", :title => "#{ @config[:site_title] } - Feed"}
     /[if lt IE 8]
       %link{:href => "/output/stylesheets/ie.css", :media => 'screen, projection', :rel => 'stylesheet', :type => 'text/css'}
     %meta{:name => 'twitter:card', :content => 'summary'}
@@ -35,15 +36,24 @@
           %a{:href => '/'}
             %span#title #{ @config[:site_title] }
             %span#subtitle #{ @config[:site_subtitle] }
+      -#nav
+        %ul
+          %li Blog
+          %li Teach
+          %li Learn
+          %li Connect
+
       #sidebar
         %h2 About
-        - teach = @items.find { |i| i.identifier == '/teaching/' }
-        = link_to teach[:title], teach.path 
+        -# teach = @items.find { |i| i.identifier == '/teaching/' }
+        -# = link_to teach[:title], teach.path 
+        coming soon
         <!--= link_to('Philosophy', teach.rep(:pdf))-->
         %h2 Recent Posts
-        - sorted_articles.each do |post|
-          - if post[:published]
-            %ul= link_to post[:title], post.path
+        %ul
+          - sorted_articles.each do |post|
+            - if post[:published]
+              %li= link_to post[:title], post.path
         -#
           %h2 imported posts
           - sorted_articles.each do |post|
