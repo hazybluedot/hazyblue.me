@@ -16,7 +16,7 @@ learned from Morningstar and Farmer, there is a danger of
 over-designing the space and often the users don't end up using the
 space in the way the designer intended. So we shouldn't
 over-design. But there should probably be some kind of structure,
-right? Or why create the space at all? <cite>- my brain</cite>
+right? Or why create the space at all? <cite>my brain</cite>
 
 These are some of the thoughts that were going through my head as I
 set out to plan my final project. Throughout the semester a common
@@ -178,7 +178,7 @@ others. Unlike references, vouching is intended to ONLY apply to
 people who have met face-to-face, though the enforcement of that rule
 is left to the community itself.
 
-### 5 illichvillich.net
+### illichvillich.net
 
 The greatest challenge I have faced in the creation of a space for
 learning has been to identify which aspects of the previously

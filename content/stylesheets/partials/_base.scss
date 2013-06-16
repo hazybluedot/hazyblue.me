@@ -3,10 +3,13 @@
 
 // Font Sizes --------------------------------------------------------------
 //$relative-font-sizing : false;
-$base-font-size       : 13px;
+$base-font-size       : 16px;
 $base-line-height     : 20px;
 
 $border-radius: 3px;
+
+$blueprint-font-size: $base-font-size;
+$blueprint-font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 
 // Grid --------------------------------------------------------------
 $total-cols         : 16;
@@ -40,11 +43,15 @@ $vmargin: 20px;
 @mixin rebase($rebase03,$rebase02,$rebase01,$rebase00,$rebase0,$rebase1,$rebase2,$rebase3) 
 {
     backgorund-color:$rebase02;
-    #container { background-color:$rebase03; }
-    #header { 
-        background-color:$rebase01; 
-        color: $violet;
+    #container { 
+        background-color:$rebase03; 
+        >header { 
+            background-color:$rebase01; 
+            color: $violet;
+        }
     }
+
+
     color:$rebase0;
     * { color:$rebase0; }
     h1,h2,h3,h4,h5,h6 { color:$rebase1; border-color: $rebase0; }

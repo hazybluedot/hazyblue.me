@@ -2,9 +2,10 @@
   %article
     %header
       %h1 #{item[:title]}
-      Published on 
-      %time{:pubdate => true, :datetime => "#{item[:created_at]}"}
-        = get_pretty_date(item)
+      %p
+        Published on 
+        %time{:pubdate => true, :datetime => "#{item[:created_at]}"}
+          = get_pretty_date(item)
     = find_and_preserve(yield)
     %footer
       = link_to('Tweet', 'https://twitter.com/share', :class => 'twitter-share-button', 'data-via'.to_sym => 'hazybluedot') 

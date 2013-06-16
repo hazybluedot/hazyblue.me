@@ -19,9 +19,9 @@ Among Them" and coming across this brilliant bit of prose:
 > As scholars are wont to do, I will blame the vagaries of
 > translation, figurative language, and mutations introduced by
 > centuries of interpretation for this apparent lapse and proceed to
-> advocate my own view. <cite>- Brenda Laurel, "The Six Elements and
-> Causal Relations Among Them"</cite>
+> advocate my own view. <cite>Brenda Laurel</cite>
 
+[^laruel_elements]: "The Six Elements and Causal Relations Among Them"
 
 Which, should be noted, already inspired
 [a previous post](http://blogs.lt.vt.edu/shebang/2013/03/20/we-are-the-medium-directors-cut/).
