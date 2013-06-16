@@ -3,7 +3,7 @@
 
 // Font Sizes --------------------------------------------------------------
 //$relative-font-sizing : false;
-$base-font-size       : 16px;
+$base-font-size       : 14px;
 $base-line-height     : 20px;
 
 $border-radius: 3px;
@@ -45,34 +45,24 @@ $vmargin: 20px;
     backgorund-color:$rebase02;
     #container { 
         background-color:$rebase03; 
-        >header { 
-            background-color:$rebase01; 
-            color: $violet;
-        }
     }
 
     color:$rebase0;
     * { color:$rebase0; }
-    h1,h2,h3,h4,h5,h6 { color:$rebase1; border-color: $rebase0; }
-    a, a:active, a:visited { color: $rebase1; }
+    h1,h2,h3,h4,h5,h6 { color:$rebase2; border-color: $rebase0; }
+    a { @include link-colors($rebase1); }
 }
 
 @mixin accentize($accent) {
-    a, a:active, a:visited, code.url { color: $accent; }
+    code.url { color: $accent; }
+
+    a { @include link-colors($accent); }
     h1,h2,h3,h4,h5,h6 {color:$accent}
 }
 
 /* light is default mode, so pair with general html definition */
 html, .light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03)}
 .dark  { @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3)}
-
-header { 
-    background-color: $base03;
-}
-
-#nav {
-    background-color: $base02;
-}
 
 html * {
     color-profile: sRGB;

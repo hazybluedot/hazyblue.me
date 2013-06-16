@@ -21,6 +21,18 @@
     @include span-columns($total-columns);
 }
 
+@mixin rebase-headings($multiplier: 3, $line-height: 2) {
+    $heading: 1;
+    @while $heading <= 6 {
+        h#{$heading} {
+            @include adjust-font-size-to($base-font-size * $multiplier, $lines:$line-height);
+        }
+        $multiplier: $multiplier - 0.5;
+        $heading: $heading + 1;
+        $line-height: $line-height - ( 1 / 6 );
+    }
+}
+
 // extend this class to show your grid.
 .grid {
     @include susy-grid-background;
@@ -31,15 +43,38 @@
 @include blueprint-typography;
 
 body {
+    a {
+        @include link-colors($blue);
+    }
+    a {
+        @include hover-link;
+    }
+
     #container {
         @include container;
         //@extend .grid;
         @include clearfix;
         //@extend .grid;
         >header, >footer {
-            @include top-bar($base01, 40px);
+            @include bars($base03);
             @include full;
-            height: 40px;
+            height: 60px;
+            z-index: 15;
+            @include rem(padding-top, 10px);
+            a {
+                &:hover { text-decoration: none; }
+            }
+            h1,h2 {
+                color: $base1;
+                padding-right: 10px;
+            }
+            h1 {
+                @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
+            }                
+            h2 {
+                @include adjust-font-size-to($base-font-size * 1, $lines:1);
+                font-style: italic;
+            }
         }
 
         aside {
@@ -47,7 +82,6 @@ body {
             h1 {
                 //@include trailer;
                 @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
-                color: #ff0000;
             }
             $sidebar-columns: floor($total-columns / 3);
             @include span-columns($sidebar-columns);
@@ -68,33 +102,24 @@ body {
         a { 
             text-decoration: none;
         }
-        $multiplier: 3;
-        $heading: 1;
-        $line-height: 2;
-        @while $heading <= 6 {
-            h#{$heading} {
-                @include adjust-font-size-to($base-font-size * $multiplier, $lines:$line-height);
-            }
-            $multiplier: $multiplier - 0.5;
-            $heading: $heading + 1;
-            $line-height: $line-height - ( 1 / 6 );
-        }
+        
+        @include rebase-headings(3,2);
+    }
+
+    %alert {
+        @include border-radius(5px);       
+        padding: .75em;
+        @include leader;
+    }
+
+    .notice {
+        @extend %alert;
+        //background: lighten($yellow, 20%);
+    }
+
+    .error {
+        @extend %alert;
+        //background: $red;
     }
 }
-
-%alert {
-    @include border-radius(5px);       
-    padding: .75em;
-}
-
-.notice {
-    @extend %alert;
-    //background: lighten($yellow, 20%);
-}
-
-.error {
-    @extend %alert;
-    //background: $red;
-}
-
-@import "partials/article"
+    @import "partials/article"
