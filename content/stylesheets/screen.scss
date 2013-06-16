@@ -1,65 +1,88 @@
 // This import applies a global reset to any page that imports this stylesheet.
-@import "blueprint/reset";
+@import "compass";
+@import "compass/reset";
+
+@import "compass/css3";
+@import "compass/utilities";
+@import "blueprint/typography";
 
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
 
-// Import all the default blueprint modules so that we can access their mixins.
-@import "blueprint";
+@mixin susy-grid-background {
+    @include grid-background($total-cols, $col-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
+}
 
-// Import the non-default scaffolding module.
-@import "blueprint/scaffolding";
+@mixin full {
+    @include span-columns($total-columns);
+}
 
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
+// extend this class to show your grid.
+.grid {
+    @include susy-grid-background;
+}
+
+@include establish-baseline;
 
 // If you are doing a lot of stylesheet concatenation, it is suggested
 // that you scope your blueprint styles, so that you can better control
 // what pages use blueprint when stylesheets are concatenated together.
 body.bp {
-  @include blueprint-typography(true);
-  font-family: 'Average Sans', sans-serif;
-  
-  @include blueprint-utilities;
-  @include blueprint-debug;
-  @include blueprint-interaction;
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
-  @include blueprint-scaffolding;
+    //@include blueprint-typography(true);
 }
 
 form.bp {
-  @include blueprint-form;
-  // You'll probably want to remove the scaffolding once you start styling your site.
-  // @include blueprint-scaffolding;
+    //@include blueprint-form;
+    // You'll probably want to remove the scaffolding once you start styling your site.
+    // @include blueprint-scaffolding;
 }
 
 // Page layout can be done using mixins applied to your semantic classes and IDs:
-body.two-col {
-  #container {
-    @include container;
-  }
-  #header, #footer {
-    @include column($blueprint-grid-columns);
-    height: 40px;
-  }
-  #sidebar {
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns);
-    @include accentize($orange);
-  }
-  #content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    // true means it's the last column in the row
-    @include column($content-columns, true);
-    a { 
-        text-decoration: none;
+body {
+    #container {
+        @include container;
+        @extend .grid;
+        @include clearfix;
     }
-  }
+    #header, #footer {
+        @include span-columns($total-columns);
+        height: 40px;
+    }
+    #sidebar {
+        // One third of the grid columns, rounding down. With 24 cols, this is 8.
+        $sidebar-columns: floor($total-columns / 3);
+        @include span-columns($sidebar-columns);
+        @include accentize($orange);
+        h1 {
+            @include trailer;
+            @include leader;
+            @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
+        }
+
+    }
+    #content {
+        h1 {
+            @include trailer;
+            @include leader;
+            @include adjust-font-size-to($base-font-size * 2, $lines:1.5);
+        }
+
+        p {
+            &:first-child {
+                @include leader;  
+            }
+            @include trailer;
+            @include full;
+        }
+        // Two thirds of the grid columns, rounding up.
+        // With 24 cols, this is 16.
+        $content-columns: ceil(2 * $total-columns / 3);
+        // true means it's the last column in the row
+        @include span-columns($content-columns omega);
+        a { 
+            text-decoration: none;
+        }
+    }
 }
 
 article,section {
@@ -81,7 +104,7 @@ pre {
     @include border-radius(25px);
     /* font-size: 90%; */
     line-height: 1.2em;
-    font-size: 13px;
+    font-size: em(13px);
     font-family: "Courier 10 Pitch", Courier, monospace; 
 
     margin-bottom: 1.625em;
@@ -98,7 +121,7 @@ pre {
 
 pre:not([class]) {
     /* color: #555555; */
-    font-size: 16px;
+    font-size: em(16px);
     padding: 1em 1em; 
     margin: auto 40px auto 40px;
     background: #002b36; /* #f4f4f4; */
