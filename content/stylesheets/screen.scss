@@ -1,115 +1,100 @@
 // This import applies a global reset to any page that imports this stylesheet.
+@import "compass";
+@import "compass/reset";
+
+@import "compass/css3";
+@import "compass/utilities";
+
 @import "blueprint/reset";
+@import "blueprint";
+@import "blueprint/typography";
 
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
+@import "partials/bars";
 
-// Import all the default blueprint modules so that we can access their mixins.
-@import "blueprint";
-
-// Import the non-default scaffolding module.
-@import "blueprint/scaffolding";
-
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
-
-// If you are doing a lot of stylesheet concatenation, it is suggested
-// that you scope your blueprint styles, so that you can better control
-// what pages use blueprint when stylesheets are concatenated together.
-body.bp {
-  @include blueprint-typography(true);
-  font-family: 'Average Sans', sans-serif;
-  
-  @include blueprint-utilities;
-  @include blueprint-debug;
-  @include blueprint-interaction;
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
-  @include blueprint-scaffolding;
+@mixin susy-grid-background {
+    @include grid-background($total-cols, $col-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
 }
 
-form.bp {
-  @include blueprint-form;
-  // You'll probably want to remove the scaffolding once you start styling your site.
-  // @include blueprint-scaffolding;
+@mixin full {
+    @include span-columns($total-columns);
 }
 
-// Page layout can be done using mixins applied to your semantic classes and IDs:
-body.two-col {
-  #container {
-    @include container;
-  }
-  #header, #footer {
-    @include column($blueprint-grid-columns);
-    height: 40px;
-  }
-  #sidebar {
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns);
-    @include accentize($orange);
-  }
-  #content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    // true means it's the last column in the row
-    @include column($content-columns, true);
-    a { 
-        text-decoration: none;
+// extend this class to show your grid.
+.grid {
+    @include susy-grid-background;
+}
+@include establish-baseline;
+
+@include blueprint;
+@include blueprint-typography;
+
+body {
+    #container {
+        @include container;
+        //@extend .grid;
+        @include clearfix;
+        //@extend .grid;
+        >header, >footer {
+            @include top-bar($base01, 40px);
+            @include full;
+            height: 40px;
+        }
+
+        aside {
+            // One third of the grid columns, rounding down. With 24 cols, this is 8.
+            h1 {
+                //@include trailer;
+                @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
+                color: #ff0000;
+            }
+            $sidebar-columns: floor($total-columns / 3);
+            @include span-columns($sidebar-columns);
+            @include accentize($orange);
+            section {
+                @include leader;
+            }
+        }
     }
-  }
-}
 
-article,section {
-    padding-top: 20px;
-    
-    header {
-        color: $base01;
-        padding-bottom: 8px;
-        border-bottom: 1px solid $base0;
-        margin-bottom: 8px;
+    section#content {
+        // Two thirds of the grid columns, rounding up.
+        // With 24 cols, this is 16.
+        $content-columns: ceil(2 * $total-columns / 3);
+        // true means it's the last column in the row
+        @include span-columns($content-columns omega);
+
+        a { 
+            text-decoration: none;
+        }
+        $multiplier: 3;
+        $heading: 1;
+        $line-height: 2;
+        @while $heading <= 6 {
+            h#{$heading} {
+                @include adjust-font-size-to($base-font-size * $multiplier, $lines:$line-height);
+            }
+            $multiplier: $multiplier - 0.5;
+            $heading: $heading + 1;
+            $line-height: $line-height - ( 1 / 6 );
+        }
     }
 }
 
-span {
-    display: inline-block;
+%alert {
+    @include border-radius(5px);       
+    padding: .75em;
 }
 
-pre {
-    @include border-radius(25px);
-    /* font-size: 90%; */
-    line-height: 1.2em;
-    font-size: 13px;
-    font-family: "Courier 10 Pitch", Courier, monospace; 
-
-    margin-bottom: 1.625em;
-    overflow: auto;
-    padding: 0.75em 1.625em;
-
-    width: 500pt;
-
-    height:1%;
-
-    display: block;
-    clear: both;
+.notice {
+    @extend %alert;
+    //background: lighten($yellow, 20%);
 }
 
-pre:not([class]) {
-    /* color: #555555; */
-    font-size: 16px;
-    padding: 1em 1em; 
-    margin: auto 40px auto 40px;
-    background: #002b36; /* #f4f4f4; */
-    border: solid 1px #e1e1e1
-} 
-
-code pre:not([class]) { 
-    line-height: 1.2em;
-    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-
-    display: inline;
-    background: #002b36; 
+.error {
+    @extend %alert;
+    //background: $red;
 }
 
+@import "partials/article"

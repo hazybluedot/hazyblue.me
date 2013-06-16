@@ -85,6 +85,8 @@ compile '*' do
   else
     if item[:extension] == 'haml'
       filter :haml
+    elsif item[:extension] == 'md'
+      filter :kramdown
     else
       filter :erb
     end

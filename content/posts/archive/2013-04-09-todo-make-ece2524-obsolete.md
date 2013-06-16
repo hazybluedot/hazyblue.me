@@ -27,6 +27,8 @@ enforced in the form of a prereq) to be an introduction to more
 advanced software engineering courses, so it has the general feel of a
 programming course.
 
+<!-- more -->
+
 I think programming (and *nix OS usage and philosophy) is too
 important to delegate off to a 2 credit course and treat separately
 from the rest of the engineering curriculum, an idea that was
