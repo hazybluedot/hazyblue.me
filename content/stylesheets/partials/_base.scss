@@ -1,18 +1,25 @@
 // Here is where you can define your constants for your application and to configure the blueprint framework.
 // Feel free to delete these if you want keep the defaults:
 
-$blueprint-grid-columns: 24;
-$blueprint-container-size: 950px;
-$blueprint-grid-margin: 10px;
-
-// Use this to calculate the width based on the total width.
-// Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
-$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin;
+// Font Sizes --------------------------------------------------------------
+//$relative-font-sizing : false;
+$base-font-size       : 16px;
+$base-line-height     : 20px;
 
 $border-radius: 3px;
-@import "compass/css3";
-@import "compass/utilities";
 
+$blueprint-font-size: $base-font-size;
+$blueprint-font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+// Grid --------------------------------------------------------------
+$total-cols         : 16;
+$col-width          : 4em;
+$gutter-width       : 1em;
+$side-gutter-width  : $gutter-width;
+
+@import "susy";
+
+// Solarized Color Scheme
 $base03: #002b36;
 $base02: #073642;
 $base01: #586e75;
@@ -36,7 +43,14 @@ $vmargin: 20px;
 @mixin rebase($rebase03,$rebase02,$rebase01,$rebase00,$rebase0,$rebase1,$rebase2,$rebase3) 
 {
     backgorund-color:$rebase02;
-    #container { background-color:$rebase03; }
+    #container { 
+        background-color:$rebase03; 
+        >header { 
+            background-color:$rebase01; 
+            color: $violet;
+        }
+    }
+
     color:$rebase0;
     * { color:$rebase0; }
     h1,h2,h3,h4,h5,h6 { color:$rebase1; border-color: $rebase0; }
@@ -52,7 +66,7 @@ $vmargin: 20px;
 html, .light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03)}
 .dark  { @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3)}
 
-#header { 
+header { 
     background-color: $base03;
 }
 
