@@ -1,0 +1,84 @@
+blockquote {
+    font-style: italic;
+    margin:1.5em 10px;
+    padding:.5em 10px;
+    quotes:"\201C""\201D""\2018""\2019";
+    &:before {
+        color:#ccc;
+        content:open-quote;
+        font-size:4em;
+        line-height:.1em;
+        margin-right:.25em;
+        vertical-align:-.4em;
+    }
+ 
+    p {
+        display: inline;
+    }
+
+    cite {
+        color: #999999;
+        font-size: em(14px);
+        display: block;
+        margin-top: em(5px);
+        &:before {
+            content: "\2014 \2009";
+        }
+    }
+}
+
+section#content {
+    article,section {
+        padding-top: 20px;
+        
+        header {
+            color: $base01;
+            padding-bottom: 8px;
+            border-bottom: 1px solid $base0;
+            margin-bottom: 8px;
+            
+            @include trailer;
+        }
+        
+        p {
+            &:first-child {
+                @include leader;  
+            }
+            @include trailer;
+        }
+    }
+}
+
+/*
+  span {
+  display: inline-block;
+  }
+  */
+
+pre {
+    //@include border-radius(5px);
+    //@include squish(1, 1);
+
+    font-size: em(13px);
+    font-family: "Courier 10 Pitch", Courier, monospace; 
+
+    overflow: auto;
+
+    display: block;
+    clear: both;
+}
+
+pre:not([class]) {
+    font-size: em(16px);
+    padding: 0.75em 1em; 
+    background: $base02;
+    border: solid 1px #e1e1e1
+} 
+
+code pre:not([class]) { 
+    line-height: 1.2em;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+
+    display: inline;
+    /* background: #002b36; */
+}
