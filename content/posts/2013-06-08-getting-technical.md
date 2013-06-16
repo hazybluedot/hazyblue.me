@@ -12,8 +12,7 @@ tags:
 ---
 
 Some personal interests seem to wax and wane, but remain ever-present
-in my mind. Lurking. Waiting for the right moment to make you look
-back and go, 'huh'.
+in my mind. Lurking. Waiting for the right moment to make my brain think.
 
 I remember creating my first web page in the very early years of the
 web. Luckily it has long been removed from the internet, for it was a
@@ -50,7 +49,7 @@ structure and presentation. The result can look like alphabet soup
 when you find out that what you see in your web browser is made
 possible by HTML, CSS, JavaScript, PHP, CGI, SQL, to name a few.
 
-## In the beginning
+## In the beginning, there was SGML
 
 Hypertext Markup Language (HTML) was developed by Tim Berners-Lee at
 CERN in 1989. The purpose was to provide a means to link bits of
@@ -105,7 +104,12 @@ this problem nicely by allowing raw HTML mixed in with the markdown.
 
 ## Make it work
 
-A website, such as a blog, is composed of many different HTML pages. If I store the content for each as a markdown file, I don't want to have to run the `markdown` command umpteen times to create my site. This is where static site generators like [nanoc](http://nanoc.ws) come in. I just modify the compile rule in nanoc's `Rules` file to look like this:
+A website, such as a blog, is composed of many different HTML
+pages. If I store the content for each as a markdown file, I don't
+want to have to run the `markdown` command umpteen times to create my
+site. This is where static site generators like
+[nanoc](http://nanoc.ws) come in. I just modify the compile rule in
+nanoc's `Rules` file to look like this:
 
 ~~~ ruby
 compile '/posts/*' do
@@ -145,9 +149,7 @@ A more complete HTML page might look like something like this:
     <meta charset='utf-8'>
     <title>#!/hazy/blue/. - Getting Technical</title>
     <link href='/stylesheets/screen.css' media='screen,projection' rel='stylesheet' type='text/css'>
-    <link href='/stylesheets/link_icons.css' media='screen,projection' rel='stylesheet' type='text/css'>
     <link href='/stylesheets/print.css' media='print' rel='stylesheet' type='text/css'>
-    <link href='/stylesheets/solarized.css' media='screen' rel='stylesheet' type='text/css'>
     <link href='http://www.hazyblue.me/feed.xml' rel='alternate' title='#!/hazy/blue/. - Feed' type='application/rss+xml'>
   </head>
   <body class='bp two-col light'>
@@ -191,7 +193,17 @@ A more complete HTML page might look like something like this:
 ~~~
 
 There's a LOT of extra information before we even get to the article
-content, and most of it is going to be the same on every page. Because software developers are strong advocates of the DRY principal, and computers are great at highly repetitive tasks, it is not surprising that there are tools to assist with this clerical work.
+content, and most of it is going to be the same on every page. Because
+software developers are strong advocates of the DRY principal, and
+computers are great at highly repetitive tasks, it is not surprising
+that there are tools to assist with this clerical work. Generally,
+what we would like to do here is referred to as templating. We would
+like to create one template of all the boiler plate HTML that should
+be included on each page, and specify place holders where actual
+content will appear. Since `nanoc` is written in `ruby`, the natural
+way to do this is with [Embedded Ruby][erb], or [`erb`][erb]. Let's
+take a look at just the sidebar portion of the above HTML code and see
+what it would look like as a template written with `erb`:
 
 ~~~ erb
 <div id='sidebar'>
@@ -210,13 +222,27 @@ a dkm production
 </div>
 ~~~
 
-Most of this is the boilerplate HTML code that needs to be on every
-page. The interesting bits are the pieces of ruby code between the
-`<%=` and `%>` tags.
+The interesting bits are the pieces of ruby code between the `<%=` and
+`%>` tags. Then running these pieces of code the ruby interpreter will
+replace everything between the `<%` and `%>` with the result generated
+by running the code inside those brackets. Ruby is designed to be easy
+to read, so without any prior experience with the language you can
+easily tell that the first bit of code will generate a sorted list of
+articles (the type `article` is a piece of meta data the Nanoc
+Blogging Helper associates with files that should be interpreted as
+blog posts, rather than regular pages), putting a link to each on in a
+list item (`li`) HTML element.
 
-But I'm lazy and error prone, and want to protect against silly typos, so I decided to use [`haml`](http://www.haml.info) instead of [`erb`][erb] as my templating language:
+This is pretty nice, I just specify that structure in a single file,
+and it is used on every page I create, whether it's 1 or 100.
+
+But I'm lazy and error prone, and want to protect against silly typos,
+so I decided to use [`haml`](haml) instead of [`erb`][erb] as my
+templating language. Haml uses indentation level to indicate blocks,
+rather than a closing tag, so the template looks a little cleaner:
 
 [erb]: http://ruby-doc.org/docs/ProgrammingRuby/html/web.html#S2
+[haml]: http://www.haml.info
 
 ~~~ haml
 #sidebar
@@ -231,4 +257,27 @@ But I'm lazy and error prone, and want to protect against silly typos, so I deci
   a dkm production
 ~~~
 
+the structure of the generated HTML is represented by the indentation
+level of each line of Haml, so it is easy by just looking at the
+template to see that `sidebar`, `content` and `footer` are all the
+same structural level, and the `ul` containing the list of sorted
+articles is contained inside the `sidebar` section. Haml also makes a
+few assumptions based on common templating patterns and will treate
+`#sidebar` as a `div` element with `id` attribute equal to `sidebar`,
+the equivalent of `<div id='sidebar'>` in the `erb` example. This
+handy assumption helps clean up the template and save typing. Every
+character I *don't* need to type is one less I could potentially make
+a mistake on!
+
+## Once more, with style
+
+My content is written in markdown, and pages are structured with haml
+templates. But what about things like fonts, colors and margins?
+Continuing on the same theme, style information is stored in a
+separate file and applied to each page automatically.
+
+Cascading Stylesheets (CSS) were invented in 1994[^css]
+
+
 [^1]: [A history of HTML](http://www.w3.org/People/Raggett/book4/ch02.html)
+[^css]: [The CSS saga](http://www.w3.org/Style/LieBos2e/history/Overview.html)
