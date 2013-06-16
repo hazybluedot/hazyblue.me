@@ -19,6 +19,8 @@
 // what pages use blueprint when stylesheets are concatenated together.
 body.bp {
   @include blueprint-typography(true);
+  font-family: 'Average Sans', sans-serif;
+  
   @include blueprint-utilities;
   @include blueprint-debug;
   @include blueprint-interaction;
@@ -60,10 +62,15 @@ body.two-col {
   }
 }
 
-aside {
-    color: $base01;
-    padding-bottom: 8px;
-    border-bottom: 1px solid $base0;
+article,section {
+    padding-top: 20px;
+    
+    header {
+        color: $base01;
+        padding-bottom: 8px;
+        border-bottom: 1px solid $base0;
+        margin-bottom: 8px;
+    }
 }
 
 span {

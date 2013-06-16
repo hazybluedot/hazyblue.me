@@ -23,12 +23,17 @@ end
 
 sass_options = Compass.sass_engine_options
 
+compile '/stylesheets/partials/*/' do
+ # Don’t compile partials
+end
+
 compile '/stylesheets/*/' do
   case item[:extension]
   when 'sass'
     filter :sass, Compass.sass_engine_options
   when 'scss'
     filter :sass, sass_options.merge(:syntax => :scss)
+    filter :relativize_paths, :type => :css
   when 'css'
     #nothing
   end
@@ -74,16 +79,15 @@ compile '/posts/*' do
   layout 'post'
 end
 
-compile '/' do
-  filter :haml
-  layout 'default'
-end
-
 compile '*' do
   if item.binary?
     # don’t filter binary items
   else
-    filter :erb
+    if item[:extension] == 'haml'
+      filter :haml
+    else
+      filter :erb
+    end
     layout 'default'
   end
 end
