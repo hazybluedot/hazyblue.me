@@ -47,14 +47,26 @@ $vmargin: 20px;
     h1,h2,h3,h4,h5,h6 {color:$accent}
 }
 
-%content_colors {
+@mixin content_colors($lightfont, $darkfont) {
+    color:$darkfont;
+    * { color:$darkfont; }
+
     $link-color: $yellow;
     a { @include link-colors($link-color, $link-color, $link-color, $link-color); }
+    blockquote {
+        color: $darkfont;
+        &:before {
+            color: $orange;
+        }
+        cite {
+            color: $orange;
+        }
+    }
 }
 
 @mixin rebase($rebase03,$rebase02,$rebase01,$rebase00,$rebase0,$rebase1,$rebase2,$rebase3) 
 {
-    @extend %content_colors;
+    @include content_colors($rebase0, $rebase1);
     backgorund-color:$rebase02;
     #container { 
         background-color:$rebase03; 
@@ -63,14 +75,11 @@ $vmargin: 20px;
         }
     }
 
-    color:$rebase0;
-    * { color:$rebase0; }
     h1,h2,h3,h4,h5,h6 { 
         color:$rebase2; border-color: $rebase0; 
         a {
             @include link-colors($rebase2, $rebase2, $rebase2, $rebase2);
         }
-        //a { @include link-colors($rebase1); }
     } 
 }
 
