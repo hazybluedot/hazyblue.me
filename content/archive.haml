@@ -2,12 +2,18 @@
 title: Archive
 ---
 
-%section
-  %h1 Archive
-  %ul
-    - sorted_articles.each do |post|
-      %li
-        = link_to post[:title], post.path
-        %time{:pubdate => true, :datetime => "#{post[:created_at]}"}
-          = get_pretty_date(post)
+%section.archive
+  %h1 Once upon a time...
+  - grouped_articles.each do |yearmonth, articles_this_month|
+    - month_header = "#{yearmonth.last} #{yearmonth.first}"
+    %section
+      %h2
+        = month_header
+      
+      %ul
+        - articles_this_month.each do |post|
+          %li
+            = link_to post[:title], post.path
+            %time{:pubdate => true, :datetime => "#{post[:created_at]}"}
+              = get_pretty_date(post)
 

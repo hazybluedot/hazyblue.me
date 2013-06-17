@@ -27,9 +27,9 @@ module PostHelper
   end
 
   def grouped_articles
-    sorted_articles.group_by do |a|
-      [ Date.parse(a[:created_at]).year, Date.parse(a[:created_at]).month ]
-    end.sort
+    sorted_articles.group_by do |post|
+      [ attribute_to_time(post[:created_at]).strftime('%Y'), attribute_to_time(post[:created_at]).strftime('%B') ]
+    end
   end
 end
 

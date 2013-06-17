@@ -48,6 +48,17 @@ section#content {
         }
     }
 }
+section#content {
+    section.archive {
+        @include rebase-headings(1.5,.75);
+        ul {
+            @include no-bullets;
+        }
+        time {
+            @include rem(padding-left, 15px);
+        }
+    }
+}
 
 /*
   span {

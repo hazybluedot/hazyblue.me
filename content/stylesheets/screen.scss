@@ -29,11 +29,9 @@
 @include blueprint;
 
 body {
+    @extend %light;
     a {
-        @include link-colors($blue);
-    }
-    a {
-        @include hover-link;
+        text-decoration: none;
     }
 
     #container {
@@ -78,43 +76,40 @@ body {
             @include accentize($orange);
         }
     /*
-        nav#about {
-            @include full;
-            ul {
-                @include horizontal-list;
-            }
-            @include accentize($orange);
-        }
-        */
-    }
-
-    Section#content {
-        // Two thirds of the grid columns, rounding up.
-        // With 24 cols, this is 16.
-        $content-columns: ceil(2 * $total-columns / 3);
-        @include span-columns($content-columns omega);
-
-        a { 
-            text-decoration: none;
-        }
-        
-        @include rebase-headings(3,2);
-    }
-
-    %alert {
-        @include border-radius(5px);       
-        padding: .75em;
-        @include leader;
-    }
-
-    .notice {
-        @extend %alert;
-        //background: lighten($yellow, 20%);
-    }
-
-    .error {
-        @extend %alert;
-        //background: $red;
+      nav#about {
+      @include full;
+      ul {
+      @include horizontal-list;
+      }
+      @include accentize($orange);
+      }
+      */
     }
 }
-    @import "partials/article"
+
+section#content {
+    // Two thirds of the grid columns, rounding up.
+    // With 24 cols, this is 16.
+    $content-columns: ceil(2 * $total-columns / 3);
+    @include span-columns($content-columns omega);
+
+    @include rebase-headings(3,2);
+}
+
+%alert {
+    @include border-radius(5px);       
+    padding: .75em;
+    @include leader;
+}
+
+.notice {
+    @extend %alert;
+    //background: lighten($yellow, 20%);
+}
+
+.error {
+    @extend %alert;
+    //background: $red;
+}
+
+@import "partials/article"
