@@ -36,27 +36,25 @@
         %a{:href => '/'}
           %h1 #{ @config[:site_title] }
           %h2 #{ @config[:site_subtitle] }
-      %aside
-        %section#about
+      %nav#about
           %h1 About
           - teach = @items.find { |i| i.identifier == '/teaching/' }
           -#= link_to teach[:title], teach.path 
           comming soon
           -#= link_to('Philosophy', teach.rep(:pdf))-->
-        %section#recent
-          %h1 Recent Posts
-          %nav
-            %ul
-              - sorted_articles.each do |post|
-                - if post[:published]
-                  %li= link_to post[:title], post.path
-        %section#follow
-          %h1 Follow
-          %a{:href => '/feed.xml'}
-            %img{:src => '/assets/Feed-icon.svg.png'}
-          = link_to('Follow @hazybluedot', 'https://twitter.com/hazybluedot', :class => 'twitter-follow-button', 'data-show-count'.to_sym => 'false')
-          :javascript
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}
+      %nav#recent
+        %h1 Recent Posts
+        %ul
+          - sorted_articles.each do |post|
+            - if post[:published]
+              %li= link_to post[:title], post.path
+      %nav#follow
+        %h1 Follow
+        %a{:href => '/feed.xml'}
+          %img{:src => '/assets/Feed-icon.svg.png'}
+        = link_to('Follow @hazybluedot', 'https://twitter.com/hazybluedot', :class => 'twitter-follow-button', 'data-show-count'.to_sym => 'false')
+        :javascript
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}
 
       %section#content
         = find_and_preserve(yield)
