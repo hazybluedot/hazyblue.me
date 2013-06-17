@@ -28,6 +28,7 @@ task :new_post, :title do |t, args|
     post.puts 'kind: article'
     post.puts 'published: false'
     post.puts "---\n\n"
+    post.puts "<!-- more -->\n\n"
   end
 end
 

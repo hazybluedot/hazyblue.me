@@ -40,29 +40,52 @@ $fontstack: "ff-din-web-pro-1","ff-din-web-pro-2",sans-serif;
 $hmargin: 70px;
 $vmargin: 20px;
 
-@mixin rebase($rebase03,$rebase02,$rebase01,$rebase00,$rebase0,$rebase1,$rebase2,$rebase3) 
-{
-    backgorund-color:$rebase02;
-    #container { 
-        background-color:$rebase03; 
-    }
-
-    color:$rebase0;
-    * { color:$rebase0; }
-    h1,h2,h3,h4,h5,h6 { color:$rebase2; border-color: $rebase0; }
-    a { @include link-colors($rebase1); }
-}
-
 @mixin accentize($accent) {
     code.url { color: $accent; }
 
-    a { @include link-colors($accent); }
+    a { @include link-colors($accent, $accent, $accent, $accent); }
     h1,h2,h3,h4,h5,h6 {color:$accent}
 }
 
+@mixin content_colors($lightfont, $darkfont) {
+    color:$darkfont;
+    * { color:$darkfont; }
+
+    $link-color: $yellow;
+    a { @include link-colors($link-color, $link-color, $link-color, $link-color); }
+    blockquote {
+        color: $darkfont;
+        &:before {
+            color: $orange;
+        }
+        cite {
+            color: $orange;
+        }
+    }
+}
+
+@mixin rebase($rebase03,$rebase02,$rebase01,$rebase00,$rebase0,$rebase1,$rebase2,$rebase3) 
+{
+    @include content_colors($rebase0, $rebase1);
+    backgorund-color:$rebase02;
+    #container { 
+        background-color:$rebase03; 
+        a:hover {
+            background-color:$rebase02; 
+        }
+    }
+
+    h1,h2,h3,h4,h5,h6 { 
+        color:$rebase2; border-color: $rebase0; 
+        a {
+            @include link-colors($rebase2, $rebase2, $rebase2, $rebase2);
+        }
+    } 
+}
+
 /* light is default mode, so pair with general html definition */
-html, .light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03)}
-.dark  { @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3)}
+%light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03)}
+%dark  { @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3)}
 
 html * {
     color-profile: sRGB;

@@ -69,7 +69,7 @@ and rears its head again in
 
 > Given two points A and B in a vertical plane, what is the curve
 > traced out by a point acted on only by gravity, which starts at A
-> and reaches B in the shortest time. <cite>-
+> and reaches B in the shortest time. <cite>
 > [The bracristochrone problem](http://www-history.mcs.st-and.ac.uk/HistTopics/Brachistochrone.html)</cite>
 
 ![Brachistochrone problem](/assets/posts/Brachistochrone.png)
@@ -87,10 +87,10 @@ follows:
 >      geometrical optics,
 >   2. the solution based on the classical
 >      calculus of variations,
->   3. the optimal control method, and, finally,  
+>   3. the optimal control method, and, finally,
 >   4. the differential-geometric approach
 >
-> <cite>- Sussmann & Willems</cite>
+> <cite>Sussmann & Willems</cite>
 
  [place holder for a more in-depth summary...ran out of time tonight] 
 

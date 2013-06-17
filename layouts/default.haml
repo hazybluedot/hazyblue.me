@@ -30,7 +30,7 @@
       %meta{:name => 'twitter:image', :content => '#{ @config[:base_url] }#{ @item[:image] }'}
     - render '_twitter_card'
     %meta{:name => 'generator', :content => "nanoc #{Nanoc::VERSION}"}
-  %body{:class => 'two-col light'}
+  %body
     #container
       %header
         %a{:href => '/'}
@@ -39,19 +39,8 @@
       %section#content
         = find_and_preserve(yield)
       %nav#about
-        %h1 About
-        - teach = @items.find { |i| i.identifier == '/teaching/' }
-        -#= link_to teach[:title], teach.path 
-        comming soon
-        -#= link_to('Philosophy', teach.rep(:pdf))-->
-      %nav#recent
-        %h1 Recent Posts
-        %ul
-          - sorted_articles.each do |post|
-            - if post[:published]
-              %li= link_to post[:title], post.path
-      %nav#follow
-        %h1 Follow
+        = link_to('Archive', '/archive/')
+      %nav#social
         %a{:href => '/feed.xml'}
           %img{:src => '/assets/Feed-icon.svg.png'}
         = link_to('Follow @hazybluedot', 'https://twitter.com/hazybluedot', :class => 'twitter-follow-button', 'data-show-count'.to_sym => 'false')

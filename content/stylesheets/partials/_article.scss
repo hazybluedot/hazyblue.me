@@ -2,9 +2,9 @@ blockquote {
     font-style: italic;
     margin:1.5em 10px;
     padding:.5em 10px;
-    quotes:"\201C""\201D""\2018""\2019";
+    //quotes:"\201C""\201D""\2018""\2019";
+    quotes:"\201C""\201D";
     &:before {
-        color:#ccc;
         content:open-quote;
         font-size:4em;
         line-height:.1em;
@@ -17,7 +17,6 @@ blockquote {
     }
 
     cite {
-        color: #999999;
         font-size: em(14px);
         display: block;
         margin-top: em(5px);
@@ -32,7 +31,6 @@ section#content {
         padding-top: 20px;
         
         header {
-            color: $base01;
             padding-bottom: 8px;
             border-bottom: 1px solid $base0;
             margin-bottom: 8px;
@@ -45,6 +43,17 @@ section#content {
                 @include leader;  
             }
             @include trailer;
+        }
+    }
+}
+section#content {
+    section.archive {
+        @include rebase-headings(1.5,.75);
+        ul {
+            @include no-bullets;
+        }
+        time {
+            @include rem(padding-left, 15px);
         }
     }
 }
@@ -80,5 +89,4 @@ code pre:not([class]) {
     font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 
     display: inline;
-    /* background: #002b36; */
 }

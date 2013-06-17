@@ -25,6 +25,12 @@ module PostHelper
   def image_tag(image)
     content = "<img src='#{image}' />"
   end
+
+  def grouped_articles
+    sorted_articles.group_by do |post|
+      [ attribute_to_time(post[:created_at]).strftime('%Y'), attribute_to_time(post[:created_at]).strftime('%B') ]
+    end
+  end
 end
 
 class YouTubeFilter < Nanoc::Filter
