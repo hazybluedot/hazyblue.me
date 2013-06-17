@@ -47,7 +47,7 @@
       %nav#recent
         %h1 Recent Posts
         %ul
-          - sorted_articles.each do |post|
+          - sorted_articles[0,5].each do |post|
             - if post[:published]
               %li= link_to post[:title], post.path
       %nav#follow
