@@ -1,0 +1,12 @@
+---
+title: Archive
+---
+
+%section
+  %ul
+    - sorted_articles.each do |post|
+      %li
+        = link_to post[:title], post.path
+        %time{:pubdate => true, :datetime => "#{post[:created_at]}"}
+          = get_pretty_date(post)
+
