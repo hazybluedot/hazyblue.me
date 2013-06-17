@@ -129,7 +129,7 @@ $ nanoc co
 
 I get a set of HTML files!
 
-# But Wait, There's More
+## But Wait, There's More
 
 The alert reader may have noted that as snazzy as the markdown to HTML
 conversion is, it doesn't really cover everything needed to put
