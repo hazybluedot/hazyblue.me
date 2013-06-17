@@ -7,11 +7,11 @@
 
 @import "blueprint/reset";
 @import "blueprint";
-@import "blueprint/typography";
 
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
 @import "partials/bars";
+@import "partials/typography";
 
 @mixin susy-grid-background {
     @include grid-background($total-cols, $col-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true);
@@ -21,26 +21,12 @@
     @include span-columns($total-columns);
 }
 
-@mixin rebase-headings($multiplier: 3, $line-height: 2) {
-    $heading: 1;
-    @while $heading <= 6 {
-        h#{$heading} {
-            @include adjust-font-size-to($base-font-size * $multiplier, $lines:$line-height);
-        }
-        $multiplier: $multiplier - 0.5;
-        $heading: $heading + 1;
-        $line-height: $line-height - ( 1 / 6 );
-    }
-}
-
 // extend this class to show your grid.
 .grid {
     @include susy-grid-background;
 }
-@include establish-baseline;
 
 @include blueprint;
-@include blueprint-typography;
 
 body {
     a {
