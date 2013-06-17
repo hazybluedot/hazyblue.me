@@ -1,5 +1,5 @@
 ---
-title: ! 'And Now You''re an Anstronaut: Open Source Treks to The Final Frontier'
+title: ! 'And Now You''re an Astronaut: Open Source Treks to The Final Frontier'
 created_at: Wed, 15 May 2013 17:09:32 +0000
 kind: article
 published: true
@@ -16,7 +16,7 @@ tags:
 - vtclis13
 ---
 
-There have [been](http://blogs.lt.vt.edu/leonp/2013/05/08/here-comes-linux/) a [couple](https://blogs.lt.vt.edu/hussaino/2013/05/15/linux-dominating-space/) of blog posts recently referencing the recent switch [NASA](http://www.nasa.gov/) made from Windows to [Debian 6](http://www.debian.org/), a [GNU/Linux](http://www.gnu.org/gnu/linux-and-gnu.html) distribution, as the OS running on the laptops abord the [International Space Station](http://www.nasa.gov/mission_pages/station/main/index.html). It's worth noting that Linux is no stranger to the ISS, as it has been a part of ground control operations [since the beginning](http://www.linux-magazine.com/w3/issue/12/Linux_on_the_International_Space_Station.pdf%20).
+There have [been](http://blogs.lt.vt.edu/leonp/2013/05/08/here-comes-linux/) a [couple](https://blogs.lt.vt.edu/hussaino/2013/05/15/linux-dominating-space/) of blog posts recently referencing the recent switch [NASA](http://www.nasa.gov/) made from Windows to [Debian 6](http://www.debian.org/), a [GNU/Linux](http://www.gnu.org/gnu/linux-and-gnu.html) distribution, as the OS running on the laptops aboard the [International Space Station](http://www.nasa.gov/mission_pages/station/main/index.html). It's worth noting that Linux is no stranger to the ISS, as it has been a part of ground control operations [since the beginning](http://www.linux-magazine.com/w3/issue/12/Linux_on_the_International_Space_Station.pdf%20).
 
 The reasons for the space-side switch [are quoted](http://www.zdnet.com/to-the-space-station-and-beyond-with-linux-7000014958/) as
 
@@ -27,7 +27,7 @@ The reasons for the space-side switch [are quoted](http://www.zdnet.com/to-the-s
 This is satisfying to many Open Source/Linux fans in its own right: a
 collaborative open source project has
 [once again](http://en.wikipedia.org/wiki/Internet) proved itself more
-stable and reliable for the (relatively) extrodinary conditions of low
+stable and reliable for the (relatively) extraordinary conditions of low
 Earth orbit than a product produced by a major software giant. Plus
 one for open source collaboration and peer networks!
 
@@ -43,7 +43,7 @@ which the software is released. Linux, and the GNU tools, which
 together make up a fully functional operating system, are released
 under the
 [GNU General Public License](http://www.gnu.org/copyleft/gpl.html). Unlike
-many licenses used for commersial software, the GPL esures that
+many licenses used for commercial software, the GPL ensures that
 software licenses under its terms remains free for users to use,modify
 and redistribute. There are certainly some strong criticisms and
 [ongoing debate](https://blogs.oracle.com/roumen/entry/sun_s_criticism_of_gpl)
