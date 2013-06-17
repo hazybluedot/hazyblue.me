@@ -25,6 +25,12 @@ module PostHelper
   def image_tag(image)
     content = "<img src='#{image}' />"
   end
+
+  def grouped_articles
+    sorted_articles.group_by do |a|
+      [ Date.parse(a[:created_at]).year, Date.parse(a[:created_at]).month ]
+    end.sort
+  end
 end
 
 class YouTubeFilter < Nanoc::Filter
