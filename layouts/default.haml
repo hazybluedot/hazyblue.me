@@ -37,11 +37,11 @@
           %h1 #{ @config[:site_title] }
           %h2 #{ @config[:site_subtitle] }
       %nav#about
-          %h1 About
-          - teach = @items.find { |i| i.identifier == '/teaching/' }
-          -#= link_to teach[:title], teach.path 
-          comming soon
-          -#= link_to('Philosophy', teach.rep(:pdf))-->
+        %h1 About
+        - teach = @items.find { |i| i.identifier == '/teaching/' }
+        -#= link_to teach[:title], teach.path 
+        comming soon
+        -#= link_to('Philosophy', teach.rep(:pdf))-->
       %nav#recent
         %h1 Recent Posts
         %ul
