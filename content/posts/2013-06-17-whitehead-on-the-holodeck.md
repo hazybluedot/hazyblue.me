@@ -14,8 +14,9 @@ tags:
 <!-- more -->
 
 In exploring the possibilities for interactive narrative and new forms
-of expression in the digital age, Murray looks into the past at the
-bardic traditions common before written language (emphasis my own):
+of expression in the digital age, Janet Murray looks to the past at
+the bardic traditions common before written language (emphasis my
+own):
 
 > The stories are composed anew for each recitation and are therefore
 > multiform, with no single canonical version. Every performance of a
@@ -35,7 +36,9 @@ whole."[^murray]
 So formulaic in fact that Vladimir Propp, a Russian formalist, was
 able to reduce 450 Russian fairy tales into variants of a single story
 by utilizing 25 basic plot events, which Murray refers to as "Propp's
-essential morphemes", some of which are (Try and find original source: Propp, Morphology of the Folktale)
+essential morphemes", some of which are [^propp]
+
+[^propp]: Propp, Morphology of the Folk Tale
 
 (A)
 : The villain causes harm or injury to a member of the family.
@@ -51,7 +54,7 @@ essential morphemes", some of which are (Try and find original source: Propp, Mo
 
 an onward. Most of the elements will be familiar to anyone from any
 culture, as many of the themes are common to all story
-traditions. Propp goes on to show that ore than just an encyclopedic
+traditions. Propp goes on to show that more than just an encyclopedic
 store of the essential morphemes are needed and in fact there are a
 set of rules that dictate how they are combined, when a substitution
 is allowed, and the order in which subplots may occur.
@@ -63,19 +66,21 @@ Rather than restrict the storyteller,
 > multiple different story sequences without becoming
 > confused. <cite>Janet Murray</cite>
 
-To some extent existing educational curricula already define something
-that looks like an algorithm for a larger narrative. The curriculum
-defines which educational modules must be part of the larger degree,
-and defines a sequence that should be followed.  How the content is
-presented in each course is largely up to the instructor, the
-bard. However, because the larger story, that of the degree, is not
-told by a single bard the resulting experience is one of disjointed
-"scraps of information", the very things Afred Whitehead says have
-nothing to do with education:
+To some extent, existing educational curricula already define
+something that looks like an algorithm for a larger narrative. The
+curriculum defines which educational modules must be part of the
+larger degree, and defines a sequence that should be followed.  How
+the content is presented in each course is largely up to the
+instructor, the bard. However, because the larger story, that of the
+degree, is not told by a single bard the resulting experience for the
+audience is one of disjointed "scraps of information", the very things
+Afred Whitehead says have nothing to do with education:
 
 > Culture is activity of thought, and receptiveness to beauty and
 > human feeling. Scraps of information have nothing to do with it. A
 > merely well-informed man is the most useless bore on God's
-> earth. <cite>A.N. Whitehead</cite>
+> earth. <cite>A.N. Whitehead[^aims_of_education]</cite>
+
+[^aims_of_education]: Whitehead, The Aims of Education
 
 where "culture" is the desired outcome of an education.
