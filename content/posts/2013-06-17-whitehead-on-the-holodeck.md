@@ -74,13 +74,52 @@ the content is presented in each course is largely up to the
 instructor, the bard. However, because the larger story, that of the
 degree, is not told by a single bard the resulting experience for the
 audience is one of disjointed "scraps of information", the very things
-Afred Whitehead says have nothing to do with education:
+Alfred Whitehead says have nothing to do with education:
 
 > Culture is activity of thought, and receptiveness to beauty and
 > human feeling. Scraps of information have nothing to do with it. A
 > merely well-informed man is the most useless bore on God's
-> earth. <cite>A.N. Whitehead[^aims_of_education]</cite>
+> earth. <cite>A.N. Whitehead[^aims_of_education1]</cite>
 
-[^aims_of_education]: Whitehead, The Aims of Education
 
-where "culture" is the desired outcome of an education.
+Whitehead dicusses three stages of mental growth
+
+The Stage of Romance
+: a sense of wonder
+
+The Stage of Precision
+: formalizing
+
+The Stage of Generalization 
+: a period of synthesis and return to romanticism
+
+and suggests that these stages occur in a natural cycle when allowed
+to, such as in the development of language. He also suggests that
+these stages provide the framework for general education:
+
+> Education should consist in a continual repetition of such
+> cycles. Each lesson in its minor way should form an eddy cycle
+> issuing in its own subordinate process. Longer periods should issue
+> in definite attainments, which then form the starting-grounds for
+> fresh cycles. <cite>A.F. Whitehead[^aims_of_education2]</cite>
+
+[^aims_of_education1]: A.F. Whitehead, The Aims of Education
+[^aims_of_education2]: A.F. Whitehead, The Aims of Education, p. 19
+
+Propp reverse engineered a set of rules that dictate how predefined
+story elements may be combined to form a customizable, coherent fairy
+tale. Could we do something similar for university courses using
+Whitehead's three stage cycle as a blueprint?
+
+If we look at the resolution of the university course, then while
+students are experience the stage of romance in one course they may be
+practicing the skills associated with teh stage of precion in another
+while generalizing a course topic to other subjects in yet a third. Of
+course this type of synergy between courses would require close
+communication between instructors, or at least more communication than
+currently takes place. Since the solution to that problem likely would
+require some administrative changes I want to focus at the level of an
+individual course instead. One in which a single instructor has
+control over lesson structure.
+
+At this level, 
