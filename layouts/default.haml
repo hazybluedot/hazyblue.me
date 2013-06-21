@@ -43,8 +43,9 @@
       %nav#social
         %a{:href => '/feed.xml'}
           %img{:src => '/assets/Feed-icon.svg.png'}
-        = link_to('Follow @hazybluedot', 'https://twitter.com/hazybluedot', :class => 'twitter-follow-button', 'data-show-count'.to_sym => 'false')
-        :javascript
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}
+        .twitter_image_text
+          %a{:href => 'https://twitter.com/hazybluedot'}
+            %img{:src => '/assets/twitter-bird-light-bgs.png', :width => '32'}
+              @#{ @config[:twitter_username] }
       %footer
         a dkm production

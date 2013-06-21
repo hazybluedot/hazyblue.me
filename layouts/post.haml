@@ -8,9 +8,8 @@
           = get_pretty_date(item)
     = find_and_preserve(yield)
     %footer
-      = link_to('Tweet', 'https://twitter.com/share', :class => 'twitter-share-button', 'data-via'.to_sym => 'hazybluedot') 
-      %script 
-        :plain
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script', 'twitter-wjs');
-
+      .twitter_image_text
+        %a{:href => tweet_this_url(item), :target => '_blank'}
+          %img{:src => '/assets/twitter-bird-light-bgs.png', :width => '32'}
+            Tweet This
 

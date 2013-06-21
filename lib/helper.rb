@@ -3,6 +3,8 @@ include Nanoc::Helpers::Blogging
 include Nanoc::Helpers::LinkTo
 include Nanoc::Helpers::Rendering
 
+require 'uri'
+
 module PostHelper
 
   def get_pretty_date(post)
@@ -26,12 +28,22 @@ module PostHelper
     content = "<img src='#{image}' />"
   end
 
+  def image_link(image, href)
+    "<a href='#{href}'><img src='#{image}' /></a>"
+  end
+
   def grouped_articles
     sorted_articles.group_by do |post|
       [ attribute_to_time(post[:created_at]).strftime('%Y'), attribute_to_time(post[:created_at]).strftime('%B') ]
     end
   end
+
+  def tweet_this_url(post)
+    post_url = URI::encode(url_for(post))
+    "https://twitter.com/intent/tweet?original_referer=#{post_url}&text=#{post[:title]}&url=#{post_url}&via=hazybluedot"
+  end
 end
+
 
 class YouTubeFilter < Nanoc::Filter
   identifier :youtube

@@ -112,4 +112,10 @@ section#content {
     //background: $red;
 }
 
+.twitter_image_text {
+    img {
+        vertical-align: middle;
+    }
+}
+
 @import "partials/article"
