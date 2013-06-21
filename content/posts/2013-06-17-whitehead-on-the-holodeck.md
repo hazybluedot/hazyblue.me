@@ -111,15 +111,19 @@ story elements may be combined to form a customizable, coherent fairy
 tale. Could we do something similar for university courses using
 Whitehead's three stage cycle as a blueprint?
 
-If we look at the resolution of the university course, then while
-students are experience the stage of romance in one course they may be
-practicing the skills associated with teh stage of precion in another
-while generalizing a course topic to other subjects in yet a third. Of
-course this type of synergy between courses would require close
-communication between instructors, or at least more communication than
-currently takes place. Since the solution to that problem likely would
-require some administrative changes I want to focus at the level of an
-individual course instead. One in which a single instructor has
-control over lesson structure.
+If we look at the resolution of the university course each course
+would have to connect with others in the same term such that while
+students are experience the stage of romance in one they may be
+practicing the skills associated with the stage of precion in another
+while generalizing a topic to other subjects in yet a third. The
+generalization of a topic would lead directly into the stage of
+romance of one or more new topics. This type of synergy between
+courses would require close communication between instructors, or at
+least more communication than currently takes place. Since the
+solution to that particular problem likely would require some
+administrative changes I want to focus at the level of an individual
+course instead, one in which a single instructor has more direct
+control over content and delviery and subtopics.
 
-At this level, 
+At this level, topics of one area of study may be distributed
+throughout the semester.
