@@ -1,27 +1,34 @@
-blockquote {
-    font-style: italic;
-    margin:1.5em 10px;
-    padding:.5em 10px;
-    //quotes:"\201C""\201D""\2018""\2019";
-    quotes:"\201C""\201D";
-    &:before {
-        content:open-quote;
-        font-size:4em;
-        line-height:.1em;
-        margin-right:.25em;
-        vertical-align:-.4em;
-    }
- 
-    p {
-        display: inline;
-    }
-
-    cite {
-        font-size: em(14px);
-        display: block;
-        margin-top: em(5px);
+article {
+    blockquote {
+        font-style: italic;
+        margin:1.5em 10px;
+        padding:.5em 10px;
+        //quotes:"\201C""\201D""\2018""\2019";
+        quotes:"\201C""\201D";
         &:before {
-            content: "\2014 \2009";
+            content:open-quote;
+            font-size:4em;
+            line-height:.1em;
+            margin-right:.25em;
+            vertical-align:-.4em;
+        }
+        
+        p {
+            display: inline;
+        }
+        
+        em {
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        cite {
+            font-size: em(14px);
+            display: block;
+            margin-top: em(5px);
+            &:before {
+                content: "\2014 \2009";
+            }
         }
     }
 }
