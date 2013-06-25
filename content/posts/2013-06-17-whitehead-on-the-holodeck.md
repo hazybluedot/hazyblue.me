@@ -1,6 +1,6 @@
 ---
-title: "Whitehead on the Holodeck"
-created_at: 2013-06-17 16:40:05 -0400
+title: "LEGOs, Whitehead, and the Holodeck"
+created_at: 2013-06-25 16:40:05 -0400
 kind: article
 published: false
 tags:
@@ -11,12 +11,32 @@ tags:
  - murray
 ---
 
+There are many reasons LEGOs [cost as much as they do](http://www.dailyfinance.com/2011/08/24/why-are-legos-so-expensive/), one is the precious manufacturing that allows the bricks to be assembled and disassembled with ease:
+
+> Simonsen explained why the level of LEGO production quality has to
+> be so high, mentioning in particular what the company calls "clutch
+> power," i.e., the ability of its bricks to snap together tightly
+> while also being easy to separate, thereby readily allowing for de-
+> and reconstruction. Speaking of the machines that make the bricks,
+> Simonsen said, "It takes a very low tolerance for all our bricks to
+> have that clutch power." This precision has apparently paid off:
+> "All the bricks that have been produced since 1958 can be put
+> together
+> still. <cite>[Why are LEGOs So Expensive?](http://www.dailyfinance.com/2011/08/24/why-are-legos-so-expensive/)</cite>
+
+In a similar way, rules dictating the form and structure of folk tales enabled bards to tell and pass down stories through generations. Though each telling is different from another, and can be tailored to the individual temperaments of the audience and bard, the essence remains intact.
+
+Ancient bards and their bag of tricks is one area explored by Janet Murray in her expedition through the future landscape of narratives in cyberspace in _Hamlet on The Holodeck_.
+
+Given the unique combinations of traits exhibited by the computer: encyclopedic knowledge base, navigable space, agency, the medium is esspecially suited for _interactive_ narratives: stories in which the reader is more of an active participant. Think [Choose Your Own Adventure](http://en.wikipedia.org/wiki/Choose_Your_Own_Adventure) without the limitations of the physical pages and structure of a book.
+
+As I was reading about the future of interactive narrative, and reminiscing about my own experiences with Choose Your Own Adventure, I realized that an interactive narrative is a really good framework for thinking about a curriculum. There may be a high level plot that covers some important points, but specific details and crucially, the path taken from start to end should be left to the participant.
+
 <!-- more -->
 
 In exploring the possibilities for interactive narrative and new forms
-of expression in the digital age, Janet Murray looks to the past at
-the bardic traditions common before written language (emphasis my
-own):
+Janet Murray looks to the past at the bardic traditions used to
+preserve stories before written language (emphasis my own):
 
 > The stories are composed anew for each recitation and are therefore
 > multiform, with no single canonical version. Every performance of a
@@ -66,8 +86,12 @@ Rather than restrict the storyteller,
 > multiple different story sequences without becoming
 > confused. <cite>Janet Murray</cite>
 
+This idea really clicked for me. I like the at-first-glance
+paradoxical conclusion, that making restrictions can provide freedom, just like the rigorously enforced dimensions of LEGO bricks.
+
 To some extent, existing educational curricula already define
-something that looks like an algorithm for a larger narrative. The
+something like an algorithm for a larger narrative, or
+structured blocks that can be assembled in a variety of ways. The
 curriculum defines which educational modules must be part of the
 larger degree, and defines a sequence that should be followed.  How
 the content is presented in each course is largely up to the
