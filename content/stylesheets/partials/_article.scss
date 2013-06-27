@@ -30,6 +30,7 @@ article {
                 content: "\2014 \2009";
             }
         }
+        
     }
 }
 
@@ -51,8 +52,16 @@ section#content {
             }
             @include trailer;
         }
+        dd {
+            @include trailer;
+        }
+        ul {
+            list-style-type: circle;
+            @include trailer;
+        }
     }
 }
+
 section#content {
     section.archive {
         @include rebase-headings(1.5,.75);
@@ -97,3 +106,4 @@ code pre:not([class]) {
 
     display: inline;
 }
+
