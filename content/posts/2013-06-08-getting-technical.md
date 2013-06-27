@@ -2,7 +2,7 @@
 title: "Getting Technical"
 created_at: 2013-06-08 18:38:39 -0400
 kind: article
-published: true
+published: false
 tags:
  - nanoc
  - css
