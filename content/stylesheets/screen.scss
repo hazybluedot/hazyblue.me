@@ -2,11 +2,8 @@
 @import "compass";
 @import "compass/reset";
 
-@import "compass/css3";
-@import "compass/utilities";
-
-@import "blueprint/reset";
-@import "blueprint";
+//@import "compass/css3";
+//@import "compass/utilities";
 
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
@@ -26,8 +23,6 @@
     @include susy-grid-background;
 }
 
-@include blueprint;
-
 body {
     @extend %light;
     a {
@@ -42,22 +37,22 @@ body {
         >header, >footer {
             @include bars($base03);
             @include full;
-            height: 60px;
-
-            @include rem(padding-top, 10px);
+            @include trailer;
+            //@include rem(padding-top, 10px);
             a {
                 &:hover { text-decoration: none; }
             }
             h1,h2 {
                 color: $base1;
-                padding-right: 10px;
+                padding-right: 1em;
             }
             h1 {
-                @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
+                @include adjust-font-size-to($base-font-size * 2, $lines:2);
             }                
             h2 {
                 @include adjust-font-size-to($base-font-size * 1, $lines:1);
                 font-style: italic;
+                @include trailer;
             }
         }
 
@@ -118,4 +113,5 @@ section#content {
     }
 }
 
-@import "partials/article"
+@import "partials/article";
+@import "partials/solarized";

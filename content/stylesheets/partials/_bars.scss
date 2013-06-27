@@ -1,0 +1,69 @@
+// full browser width bars: http://css-tricks.com/full-browser-width-bars/
+// rem @mixin: https://github.com/ry5n/rem
+
+
+@mixin bars($color, $bars: both) {
+    
+    position: relative;
+    background: $color;
+    
+    @if $bars == left {
+        &:before {
+            content: "";
+            position: absolute;
+            background: $color;
+            top: 0;
+            bottom: 0;
+            @include rem(width, 9999px);
+            right: 100%;
+        }
+    }
+    @else if $bars == right {
+        &:after {
+            content: "";
+            position: absolute;
+            background: $color;
+            top: 0;
+            bottom: 0;
+            @include rem(width, 9999px);
+            left: 100%;
+        }
+    }
+    @else if $bars == both {
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            background: $color;
+            top: 0;
+            bottom: 0;
+            @include rem(width, 9999px);
+        }
+        &:before { right: 100%; }
+        &:after { left: 100%; }
+    }
+}
+
+// Top shadow / Top Bar
+
+@mixin top-bar($top-bar-color, $top-bar-height, $top-bar-box-shadow: none, $top-bar-z-index: 10, $top-bar-position: absolute) {
+    
+    &:before {
+        content: "";
+        position: $top-bar-position;
+        top: 0;
+        left: 0;
+        width: 100%;
+        @include rem(height, $top-bar-height);
+        background: $top-bar-color;
+        z-index: $top-bar-z-index;
+        
+        @if $top-bar-box-shadow != none {
+            @include rem(box-shadow, $top-bar-box-shadow);
+        }
+        
+        @else {
+            box-shadow: none;
+        }
+        
+    }
+}
