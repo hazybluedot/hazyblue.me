@@ -59,6 +59,9 @@ section#content {
             list-style-type: circle;
             @include trailer;
         }
+        em {
+            text-style: italic;
+        }
     }
 }
 
