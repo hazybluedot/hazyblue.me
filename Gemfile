@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'builder'
 gem 'mime-types'
+gem 'systemu'
 gem 'rack'
 gem 'adsf'
 gem 'albino'
