@@ -57,6 +57,7 @@ section#content {
         }
         ul {
             list-style-type: circle;
+            padding-left: 1em;
             @include trailer;
         }
         em {
