@@ -5,6 +5,8 @@
 //@import "compass/css3";
 //@import "compass/utilities";
 
+@import "blueprint";
+
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
 @import "partials/bars";
@@ -22,6 +24,8 @@
 .grid {
     @include susy-grid-background;
 }
+
+@include blueprint;
 
 body {
     @extend %light;
