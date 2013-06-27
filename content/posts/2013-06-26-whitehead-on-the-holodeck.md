@@ -37,7 +37,7 @@ Bards and their bag of tricks is one area explored in _Hamlet on The Holodeck_, 
 Murray's expedition through the future landscape of narratives in
 cyberspace.
 
-Siting that digital environments are:
+Noting that digital environments are:
 
 - procedural
 - participatory
