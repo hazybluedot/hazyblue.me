@@ -2,11 +2,6 @@
 @import "compass";
 @import "compass/reset";
 
-//@import "compass/css3";
-//@import "compass/utilities";
-
-@import "blueprint";
-
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
 @import "partials/bars";
@@ -25,8 +20,6 @@
     @include susy-grid-background;
 }
 
-@include blueprint;
-
 body {
     @extend %light;
     a {
@@ -35,7 +28,6 @@ body {
 
     #container {
         @include container;
-        //@extend .grid;
         @include clearfix;
         //@extend .grid;
         >header, >footer {
@@ -99,16 +91,22 @@ section#content {
     @include border-radius(5px);       
     padding: .75em;
     @include leader;
+    @include trailer;
+}
+
+@mixin alert_box($color) {
+    @extend %alert;
+    background: lighten($color, 50%);
+    @include single-box-shadow($color);
+    
 }
 
 .notice {
-    @extend %alert;
-    //background: lighten($yellow, 20%);
+    @include alert_box($yellow);
 }
 
 .error {
-    @extend %alert;
-    //background: $red;
+    @include alert_box($red);
 }
 
 .twitter_image_text {

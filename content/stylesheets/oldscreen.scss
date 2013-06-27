@@ -1,0 +1,169 @@
+/*
+  Welcome to Compass.
+  In this file you should write your main styles. (or centralize your imports)
+  Import this file using the following HTML or equivalent:
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/typography/links/link-colors";
+
+* { 
+    margin: 0;
+    padding: 0;
+    font: { family: Georgia, Palatino, Times, 'Times New Roman', sans-serif; }
+}
+
+body {
+    background: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+a { 
+    @include link-colors(#f30, #f90, #f90, #f30);
+}
+
+#main {
+    position: absolute;
+    top: 40px;
+    left: 280px;
+    width: 500px;
+
+    h1 {
+        font: {
+            size: 20px;
+            weight: normal;
+        }
+        line-height: 40px;
+        letter-spacing: -1px
+    }
+    p {
+        margin: 20px 0; 
+        font: {
+            size: 15px
+        }
+        line-height: 20px;
+    }
+    ul, ol {
+        margin: 20px;
+    }
+    li {
+        font: {
+            size: 15px
+        }
+        line-height: 20px;
+    }
+    ul li {
+        list-style-type: square;
+    }
+    strong {
+        font: {
+            weight: bold;
+        }
+    }
+
+    .content {
+        width: 800px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        border-top: none;
+        margin: 0 auto;
+        padding: 60px 20px 0 60px;
+    }
+
+    .post {
+        aside {
+            color: #888;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #aaa;
+        }
+        article {
+            margin: 10px 0 60px 0;
+        }
+    }
+}
+
+#sidebar {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    width: 200px;
+    padding: 20px 20px 0 0;
+    border-right: 1px solid #ccc;
+    text-align: right;
+
+    h2 {
+        text: {
+            transform: uppercase;
+            size: 13px;
+        }
+        color: #333;
+        letter-spacing: 1px;
+        line-height: 20px;
+    }
+    ul {
+        list-style-type: square;
+        margin: 20px 0;
+    }
+    ol {
+        list-style-type: none;
+    }
+    li {
+        font: {
+            size: 14px;
+        }
+        line-height: 20px;
+    }
+}
+
+ol {
+    list-style-type: decimal;
+    ol {
+        list-style: upper-alpha;
+        ol {
+            list-style: lower-roman;
+            ol {
+                list-style: lower-alpha;
+            }
+        }
+    }
+}
+
+blockquote {
+    font-family: Georgia, "Bitstream Charter", serif;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0 3em;
+    cite {
+        color: #666;
+        font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+    em, blockquote i, blockquote cite {
+        font-style: normal;
+    }
+}
+
+sup,
+sub {
+    font-size: 10px;
+    height: 0;
+    line-height: 1;
+    position: relative;
+    vertical-align: baseline;
+}
+
+
+sup {
+    bottom: 1ex;
+}
+sub {
+    top: .5ex;
+}
+small {
+    font-size: smaller;
+}

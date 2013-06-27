@@ -12,8 +12,11 @@
     }
 }
 
-//@include blueprint-typography;
 @include establish-baseline;
+
+body {
+    font-family: $blueprint-font-family;
+}
 
 article,section {
     sub, sup {

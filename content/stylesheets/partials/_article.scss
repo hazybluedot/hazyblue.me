@@ -1,4 +1,4 @@
-article {
+article,section {
     blockquote {
         @include leader;
         @include trailer;
@@ -41,7 +41,7 @@ article {
 section#content {
     article,section {
         header {
-            border-bottom: 1px solid $base0;
+            @include trailing-border(1px, 1);
             @include leader;
             @include trailer;
         }
