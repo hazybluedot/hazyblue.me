@@ -66,6 +66,9 @@ section#content {
 section#content {
     section.archive {
         @include rebase-headings(1.5,.75);
+        h1,h2 {
+            @include trailer;
+        }
         ul {
             @include no-bullets;
         }
