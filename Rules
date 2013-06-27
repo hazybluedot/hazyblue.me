@@ -27,6 +27,10 @@ compile '/stylesheets/partials/*/' do
  # Don’t compile partials
 end
 
+route '/stylesheets/partials/*/' do
+nil
+end
+
 compile '/stylesheets/*/' do
   case item[:extension]
   when 'sass'
