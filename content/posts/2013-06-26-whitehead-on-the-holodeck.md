@@ -115,7 +115,9 @@ Rather than restrict the storyteller,
 This idea really clicked for me. At first glance it seems like a
 paradox: restriction of action provides freedom. But often the paradox
 is just an illusion: the rigorously enforced dimensions of LEGO bricks
-enable, rather then hinder, the creative freedom of the builder.  And it is interesting to note that rule creative narrative has played in the success of the iconic interconnecting bricks:
+enable, rather then hinder, the creative freedom of the builder.  And
+it is interesting to note the role creative narrative has played in
+the success of the iconic interconnecting bricks:
 
 > Sales of these products have been huge for Lego. More important, the
 > experience has taught the company that what kids wanted to do with
@@ -182,12 +184,12 @@ these stages provide the framework for general education:
 [^aims_of_education1]: A.F. Whitehead, The Aims of Education, p. 1
 [^aims_of_education2]: A.F. Whitehead, The Aims of Education, p. 19
 
-Propp reverse engineered a set of rules that dictate how predefined
-story elements may be combined to form a customizable, coherent fairy
-tale, which in the oral tradition, is tailored to the particular
-personalities of audience and performer. Could we do something similar
-for university courses using Whitehead's three stage cycle as a
-blueprint?
+Propp reverse engineered Russian folk tails to obtain a set of rules
+that dictate how predefined story elements may be combined to form a
+coherent story, which in the oral tradition, is tailored to the
+particular personalities of audience and performer. Could we do
+something similar for university courses using Whitehead's three stage
+cycle as a blueprint?
 
 Starting from the third in the cycle, the stage of generalization
 specifically addresses the question of interconnections. It is in this
