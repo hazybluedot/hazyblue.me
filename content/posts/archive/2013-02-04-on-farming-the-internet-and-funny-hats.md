@@ -2,6 +2,7 @@
 title: On Farming, the Internet and Funny Hats
 created_at: Tue, 05 Feb 2013 04:59:48 +0000
 kind: article
+published: true
 tags:
 - farming
 - food
@@ -14,7 +15,7 @@ tags:
 
 This is a picture of me wearing a hat I made:
 
-![a "Scott Pilgrim" hat I made](/images/meinhat-300x225.jpg)
+![a "Scott Pilgrim" hat I made](/assets/posts/meinhat-300x225.jpg)
 
 It was made from the same pattern used to make the hat used in the
 movie Scott Pilgrim vs. The World: The woman who did the work
@@ -37,7 +38,7 @@ risotto I had some lentil soup (which I'm sorry to say only came from
 the organic section of Food Lion) served in a bowl that was hand made
 by a friend.
 
-![](notemptybowls-300x225.jpg)
+![](/assets/posts/notemptybowls-300x225.jpg)
 
 In his 1986 essay "A Defense of the Family Farm", Berry writes
 
