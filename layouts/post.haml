@@ -12,4 +12,27 @@
         %a{:href => tweet_this_url(item), :target => '_blank'}
           %img{:src => '/assets/twitter-bird-light-bgs.png', :width => '32'}
             Tweet This
+      #comments
+        - comments_for_post(item).each do | comment |
+          %section
+            .comment_author
+              = comment[:author]
+            .comment_date
+              = comment[:date]
+            .comment_body
+              = comment[:comment]
 
+      #comment_form
+        %form{:name=> 'comments', :method => 'post'}
+          %fieldset
+            %ol
+              %li
+                %label{:for => "comment[name]"} Name:
+                %input{:type => "text", :name => "comment[name]", :class => "text"}
+              %li
+                %label{:for => "comment[mail]"} Mail:
+                %input{:type => "text", :name => "comment[mail]", :class => "text"}
+              %li
+                %label{:for => "comment[body]"} Message:
+                %textarea{:name => "comment[body]"}
+            %input{:type => "submit", :value => "Send", :class => "button"}
