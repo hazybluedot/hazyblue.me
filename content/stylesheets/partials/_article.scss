@@ -1,40 +1,48 @@
-blockquote {
-    font-style: italic;
-    margin:1.5em 10px;
-    padding:.5em 10px;
-    //quotes:"\201C""\201D""\2018""\2019";
-    quotes:"\201C""\201D";
-    &:before {
-        content:open-quote;
-        font-size:4em;
-        line-height:.1em;
-        margin-right:.25em;
-        vertical-align:-.4em;
-    }
- 
-    p {
-        display: inline;
-    }
+article,section {
+    blockquote {
+        @include leader;
+        @include trailer;
+        font-style: italic;
 
-    cite {
-        font-size: em(14px);
-        display: block;
-        margin-top: em(5px);
+        padding-left: 1em;
+        padding-right: 1em;
+
+        //quotes:"\201C""\201D""\2018""\2019";
+        quotes:"\201C""\201D";
         &:before {
-            content: "\2014 \2009";
+            content:open-quote;
+            font-size:4em;
+            line-height:.1em;
+            margin-right:.25em;
+            vertical-align:-.4em;
         }
+        
+        p {
+            display: inline;
+        }
+        
+        em {
+            font-style: normal;
+            font-weight: bold;
+        }
+
+        cite {
+            font-size: em(14px);
+            display: block;
+            margin-top: em(5px);
+            &:before {
+                content: "\2014 \2009";
+            }
+        }
+        
     }
 }
 
 section#content {
     article,section {
-        padding-top: 20px;
-        
         header {
-            padding-bottom: 8px;
-            border-bottom: 1px solid $base0;
-            margin-bottom: 8px;
-            
+            @include trailing-border(1px, 1);
+            @include leader;
             @include trailer;
         }
         
@@ -44,11 +52,23 @@ section#content {
             }
             @include trailer;
         }
+        dd {
+            @include trailer;
+        }
+        ul {
+            list-style-type: circle;
+            padding-left: 1em;
+            @include trailer;
+        }
     }
 }
+
 section#content {
     section.archive {
         @include rebase-headings(1.5,.75);
+        h1,h2 {
+            @include trailer;
+        }
         ul {
             @include no-bullets;
         }
@@ -90,3 +110,4 @@ code pre:not([class]) {
 
     display: inline;
 }
+

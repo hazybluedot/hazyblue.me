@@ -3,7 +3,7 @@
     %header
       %h1 #{item[:title]}
       %p
-        Published on 
+        Published 
         %time{:pubdate => true, :datetime => "#{item[:created_at]}"}
           = get_pretty_date(item)
     = find_and_preserve(yield)

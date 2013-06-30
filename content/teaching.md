@@ -1,7 +1,36 @@
 ---
 title: Teaching Philosophy
-Tags: teaching
+tags:
+  - teaching
 ---
+
+## The Bard
+
+In _Hamlet on the Holodeck_ Janet Murray explores what interactive narrative may look like in the near future. A university education should be thought of as an interactive narrative and a teacher has the role of the bard from the oral traditions of story telling.
+
+## Eddy Cycles
+Alfred N. Whitehead talks of three stages of mental growth in his essay _The Rhythm of Education_:
+
+The Stage of Romance
+: a sense of wonder
+
+The Stage of Precision
+: formalizing
+
+The Stage of Generalization 
+: a period of synthesis and return to romanticism
+
+these stages occur in a natural cycle when allowed to, such as in the
+development of language. I agree with his conclusion that they should
+also be applied to education in general:
+
+> Education should consist in a continual repetition of such
+> cycles. Each lesson in its minor way should form an eddy cycle
+> issuing in its own subordinate process. Longer periods should issue
+> in definite attainments, which then form the starting-grounds for
+> fresh cycles. <cite>A.F. Whitehead[^aims_of_education]</cite>
+
+[^aims_of_education]: A.F. Whitehead, Aims of Education, p. 19
 
 My concept of learning extends beyond memorizing equations and values.  Mastery of technical material is demonstrated by the application of the tools on a new, never-before seen problem.  More than the "plug and chug" approach that I became so used to during my undergraduate career, real mastery is the ability to see connections between different types of problems and apply tools learned in the context of one domain to another.  For instance, differential equations are common occurrences in engineering applications, it is important to see the similarities in structure between equations even when applied to different problems: the solution to a time varying system or as a tool to solve an optimization problem.  Mastery of high level engineering tools leads to mastery of the basics, not for the sake of mastering the basics as individual islands of knowledge, but as necessary building blocks to a larger whole.
 

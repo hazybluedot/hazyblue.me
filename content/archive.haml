@@ -12,8 +12,9 @@ title: Archive
       
       %ul
         - articles_this_month.each do |post|
-          %li
-            = link_to post[:title], post.path
-            %time{:pubdate => true, :datetime => "#{post[:created_at]}"}
-              = get_pretty_date(post)
+          - if post[:published]
+            %li
+              = link_to post[:title], post.path
+              %time{:pubdate => true, :datetime => "#{post[:created_at]}"}
+                = get_pretty_date(post)
 
