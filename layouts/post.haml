@@ -31,18 +31,20 @@
               = Kramdown::Document.new(comment['comment']).to_html
 
         #comment_form
-          %form{:name=> 'comments', :method => 'POST', :action => "#{@config['action_url']}/commentsubmit.php"}
+          %form{:name=> 'comments', :method => 'POST', :action => "#{@config['action_url']}/assets/commentsubmit.php"}
             %h1
               Leave a Comment
+            %input{:type => 'hidden', :name => 'post_id', :value => "#{item.identifier}"}
+            %input{:type => 'hidden', :name => 'return_url', :value => "#{url_for(item)}"}
             %fieldset
               %ol
                 %li
-                  %label{:for => "comment[name]"} Name:
-                  %input{:type => "text", :name => "comment[name]", :class => "text"}
+                  %label{:for => "name"} Name:
+                  %input{:type => "text", :name => "name", :class => "text"}
                 %li
-                  %label{:for => "comment[mail]"} Mail:
-                  %input{:type => "text", :name => "comment[mail]", :class => "text"}
+                  %label{:for => "mail"} E-Mail:
+                  %input{:type => "text", :name => "mail", :class => "text"}
                 %li
-                  %label{:for => "comment[body]"} Message:
-                  %textarea{:name => "comment[body]"}
+                  %label{:for => "comment"} Message:
+                  %textarea{:name => "comment"}
               %input{:type => "submit", :value => "Send", :class => "button"}
