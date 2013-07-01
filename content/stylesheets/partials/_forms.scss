@@ -19,5 +19,9 @@ form {
     }
     li {
         //clear: both;
+        .hint {
+            @include pad(1,1);
+            font-style: italic;
+        }
     }
 }

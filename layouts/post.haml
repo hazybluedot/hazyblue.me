@@ -42,9 +42,18 @@
                   %label{:for => "name"} Name:
                   %input{:type => "text", :name => "name", :class => "text"}
                 %li
-                  %label{:for => "mail"} E-Mail:
-                  %input{:type => "text", :name => "mail", :class => "text"}
+                  %label{:for => "mail"} E-Mail*:
+                  %input{:type => "text", :name => "mail", :class => "text", :placeholder => "optional"}
+                  .hint
+                    Will not be displayed anywhere on the page
                 %li
                   %label{:for => "comment"} Message:
                   %textarea{:name => "comment"}
+              :markdown
+                All comments are hand moderated.
+                
+                You may use [Markdown](http://daringfireball.net/projects/markdown/) formatting if you wish.  
+                Approved comments will be parsed with [kramdown](http://kramdown.rubyforge.org/).
+                
+                *email address is used only for contact purposes and for loading a gavatar image. It will not be displayed with the comment.
               %input{:type => "submit", :value => "Send", :class => "button"}
