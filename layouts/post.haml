@@ -11,28 +11,38 @@
       .twitter_image_text
         %a{:href => tweet_this_url(item), :target => '_blank'}
           %img{:src => '/assets/twitter-bird-light-bgs.png', :width => '32'}
-            Tweet This
-      #comments
-        - comments_for_post(item).each do | comment |
-          %section
-            .comment_author
-              = comment[:author]
-            .comment_date
-              = comment[:date]
-            .comment_body
-              = comment[:comment]
+          Tweet This
+        #comments
+          - comments = comments_for_post(item)
+          - count_line = "#{comments.length} comments on #{item[:title]}"
+          = count_line
+          - comments.each do | comment |
+            %article.comment
+              %header
+                .vcard
+                  %span.photo
+                    = comment['gravatar_image']
+                  %span.fn
+                    = comment['author']
+                  on 
+                  %time{:pubdate => true, :datetime => "#{comment['created_at']}"}
+                    = attribute_to_time(comment['created_at']).strftime('%B %-d, %Y at %l:%M %P')
+                  said: 
+              = Kramdown::Document.new(comment['comment']).to_html
 
-      #comment_form
-        %form{:name=> 'comments', :method => 'post'}
-          %fieldset
-            %ol
-              %li
-                %label{:for => "comment[name]"} Name:
-                %input{:type => "text", :name => "comment[name]", :class => "text"}
-              %li
-                %label{:for => "comment[mail]"} Mail:
-                %input{:type => "text", :name => "comment[mail]", :class => "text"}
-              %li
-                %label{:for => "comment[body]"} Message:
-                %textarea{:name => "comment[body]"}
-            %input{:type => "submit", :value => "Send", :class => "button"}
+        #comment_form
+          %form{:name=> 'comments', :method => 'POST', :action => "#{@config['action_url']}/commentsubmit.php"}
+            %h1
+              Leave a Comment
+            %fieldset
+              %ol
+                %li
+                  %label{:for => "comment[name]"} Name:
+                  %input{:type => "text", :name => "comment[name]", :class => "text"}
+                %li
+                  %label{:for => "comment[mail]"} Mail:
+                  %input{:type => "text", :name => "comment[mail]", :class => "text"}
+                %li
+                  %label{:for => "comment[body]"} Message:
+                  %textarea{:name => "comment[body]"}
+              %input{:type => "submit", :value => "Send", :class => "button"}

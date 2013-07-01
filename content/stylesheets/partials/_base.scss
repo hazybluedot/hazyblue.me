@@ -19,6 +19,8 @@ $side-gutter-width  : $gutter-width;
 
 @import "susy";
 
+$content-columns: ceil(2 * $total-columns / 3);
+
 // Solarized Color Scheme
 $base03: #002b36;
 $base02: #073642;

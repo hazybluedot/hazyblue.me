@@ -1,0 +1,23 @@
+@import "blueprint/form";
+
+form {
+    @include blueprint-form;
+    background-color: $base2;
+    margin:auto;
+    position:relative;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    padding:10px;
+    @include single-box-shadow();
+
+    label {
+        //@include span-columns(1, $content-columns);
+    }
+    input,textarea {
+        //@include span-columns($content-columns - 1 omega, $content-columns);
+    }
+    li {
+        //clear: both;
+    }
+}

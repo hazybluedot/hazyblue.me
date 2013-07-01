@@ -111,3 +111,27 @@ code pre:not([class]) {
     display: inline;
 }
 
+#comments {
+    article.comment {
+        //@include leader;
+        //@include horizontal-borders(1px);
+        //@include single-box-shadow(black, 1px, 1px);
+        //@include pad(1,1);
+        //border: 1px;
+        header {
+            @include span-columns($content-columns);
+            .photo {
+                @include span-columns(2, $content-columns);
+            }
+            img {
+                display: inline;
+            }
+            .fn {
+                display: block;
+            }
+        }
+        p {
+            clear: both;
+        }
+    }
+}

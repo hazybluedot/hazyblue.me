@@ -81,7 +81,6 @@ body {
 section#content {
     // Two thirds of the grid columns, rounding up.
     // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $total-columns / 3);
     @include span-columns($content-columns omega);
 
     @include rebase-headings(3,2);
@@ -116,4 +115,5 @@ section#content {
 }
 
 @import "partials/article";
+@import "partials/forms";
 @import "partials/solarized";

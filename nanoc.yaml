@@ -4,7 +4,8 @@
 text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'php', 'rb', 'sass', 'scss', 'txt', 'xhtml', 'xml' ]
 
 # config
-base_url: http://www.hazyblue.me
+base_url: 'http://www.hazyblue.me'
+action_url: 'http://action.hazyblue.me'
 site_title: '#!/hazy/blue/.'
 site_subtitle: 'open to interpretation'
 twitter_username: 'hazybluedot'
@@ -77,7 +78,7 @@ watcher:
   # because recompiling the site will cause these directories to change, which
   # will cause the site to be recompiled, which will cause these directories
   # to change, which will cause the site to be recompiled again, and so on.
-  dirs_to_watch: [ 'content', 'layouts', 'lib' ]
+  dirs_to_watch: [ 'content', 'layouts', 'lib', 'comments' ]
 
   # A list of single files to watch for changes. As mentioned above, don’t put
   # any files from the “output/” or “tmp/” directories in here.
