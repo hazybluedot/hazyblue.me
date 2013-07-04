@@ -8,7 +8,7 @@ base_url: 'http://www.hazyblue.me'
 action_url: 'http://action.hazyblue.me'
 site_title: '#!/hazy/blue/.'
 site_subtitle: 'open to interpretation'
-twitter_username: 'hazybluedot'
+twitter_username: '@hazybluedot'
 github_username: 'hazybluedot'
 
 # The path to the directory where all generated files will be written to. This
