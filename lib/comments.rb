@@ -3,6 +3,13 @@ require 'nanoc/toolbox'
 include Nanoc::Toolbox::Helpers::Gravatar
 
 module StaticComments
+  def comment_author_link(comment)
+    if comment['website']
+      link_to(comment['author'], comment['website'])
+    else
+      comment['author']
+    end
+  end
   # Find all the comments for a post
   def comments_for_post(post)
     # puts "Looking for comments in #{post.identifier}"
@@ -10,7 +17,7 @@ module StaticComments
     Dir["comments#{post.identifier.chop}/*"].select{ |i| i[/.*[^~]$/] }.sort.each do |comment_file|
       meta, content = parse(comment_file)
       meta['comment'] = content
-      meta['email'] = 'nobody@hazyblue.me' unless meta['email']
+      meta['email'] = 'nobody@hazyblue.me' unless meta['email'] and meta['email'].length > 0
       meta['gravatar_image'] = gravatar_image(meta['email'], :size => '75', :default_icon => 'monsterid')
       meta['gravatar_url'] = gravatar_url(meta['email'])
 

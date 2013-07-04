@@ -17,10 +17,14 @@ article,section {
             vertical-align:-.4em;
         }
         
-        p {
+        p:first-of-type {
             display: inline;
         }
-        
+
+        p:nth-of-type(2) {
+            @include leader;
+        }
+
         em {
             font-style: normal;
             font-weight: bold;
