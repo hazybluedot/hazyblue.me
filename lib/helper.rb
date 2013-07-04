@@ -4,15 +4,45 @@ include Nanoc::Helpers::LinkTo
 include Nanoc::Helpers::Rendering
 
 require 'uri'
+require 'summarize'
 
 module PostHelper
-
   def get_pretty_date(post)
     attribute_to_time(post[:created_at]).strftime('%B %-d, %Y')
   end
 
-  def time_tag(post)
-    "<time pubtime datetime='#{post[:created_at]}'>#{get_pretty_date(post)}</time>"
+  def get_pub_datetime(post)
+    DateTime.parse(attribute_to_time(post[:created_at]).strftime('%B %-d, %Y %H:%M %z')).rfc3339
+  end
+
+  def get_post_raw_start(post)
+    raw_content = post.raw_content
+    if raw_content =~ /\s<!-- more -->\s/
+      raw_content.partition('<!-- more -->').first
+    else
+      raw_content
+    end
+  end
+
+  def get_post_topics(post)
+    encoding_options = {
+      :invalid           => :replace,  # Replace invalid byte sequences
+      :undef             => :replace,  # Replace anything not defined in ASCII
+      :replace           => '',        # Use a blank for those replacements
+      :universal_newline => true       # Always break lines with \n
+    }
+    post.raw_content.encode(Encoding.find('ASCII'), encoding_options).summarize(:topics => true)
+  end
+
+  def get_post_summary(post)
+    encoding_options = {
+      :invalid           => :replace,  # Replace invalid byte sequences
+      :undef             => :replace,  # Replace anything not defined in ASCII
+      :replace           => '',        # Use a blank for those replacements
+      :universal_newline => true       # Always break lines with \n
+    }
+    raw_content = get_post_raw_start(post)
+    Kramdown::Document.new(raw_content).to_html.encode(Encoding.find('ASCII'), encoding_options).summarize(:ratio => 25)
   end
 
   def get_post_start(post)
