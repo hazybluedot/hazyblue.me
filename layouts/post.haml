@@ -4,7 +4,7 @@
       %h1 #{item[:title]}
       %p
         Published 
-        %time{:pubdate => true, :datetime => "#{item[:created_at]}"}
+        %time{:pubdate => true, :datetime => get_pub_datetime(item)}
           = get_pretty_date(item)
     = find_and_preserve(yield)
     %footer
@@ -21,14 +21,14 @@
               %header
                 .vcard
                   %span.photo
-                    = comment['gravatar_image']
+                    = comment[:gravatar_image]
                   %span.fn
                     = comment_author_link(comment)
                   on 
-                  %time{:pubdate => true, :datetime => "#{comment['created_at']}"}
-                    = attribute_to_time(comment['created_at']).strftime('%B %-d, %Y at %l:%M %P')
+                  %time{:pubdate => true, :datetime => get_pub_datetime(comment)}
+                    = attribute_to_time(comment[:created_at]).strftime('%B %-d, %Y at %l:%M %P')
                   said: 
-              = Kramdown::Document.new(comment['comment']).to_html
+              = Kramdown::Document.new(comment[:comment]).to_html
 
         #comment_form
           %form{:name=> 'comments', :method => 'POST', :action => "#{@config['action_url']}/assets/commentsubmit.php"}

@@ -13,7 +13,7 @@ title: #!dkm
         %h1 
           = link_to(post[:title], post.path)
         Posted at: 
-        %time{:pubtime => true, :datetime => "#{post[:created_at]}"}
+        %time{:pubtime => true, :datetime => get_pub_datetime(post)}
           = get_pretty_date(post)
 
       = get_post_start(post)
