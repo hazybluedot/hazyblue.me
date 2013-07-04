@@ -23,7 +23,7 @@
                   %span.photo
                     = comment['gravatar_image']
                   %span.fn
-                    = comment['author']
+                    = comment_author_link(comment)
                   on 
                   %time{:pubdate => true, :datetime => "#{comment['created_at']}"}
                     = attribute_to_time(comment['created_at']).strftime('%B %-d, %Y at %l:%M %P')
@@ -42,8 +42,8 @@
                   %label{:for => "name"} Name:
                   %input{:type => "text", :name => "name", :class => "text"}
                 %li
-                  %label{:for => "mail"} E-Mail*:
-                  %input{:type => "text", :name => "mail", :class => "text", :placeholder => "optional"}
+                  %label{:for => "email"} E-Mail*:
+                  %input{:type => "text", :name => "email", :class => "text", :placeholder => "optional"}
                   .hint
                     Will not be displayed anywhere on the page
                 %li
