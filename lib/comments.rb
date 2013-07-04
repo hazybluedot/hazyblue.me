@@ -4,10 +4,10 @@ include Nanoc::Toolbox::Helpers::Gravatar
 
 module StaticComments
   def comment_author_link(comment)
-    if comment['website']
-      link_to(comment['author'], comment['website'])
+    if comment[:website]
+      link_to(comment[:author], comment[:website])
     else
-      comment['author']
+      comment[:author]
     end
   end
   # Find all the comments for a post
@@ -20,10 +20,10 @@ module StaticComments
       meta['email'] = 'nobody@hazyblue.me' unless meta['email'] and meta['email'].length > 0
       meta['gravatar_image'] = gravatar_image(meta['email'], :size => '75', :default_icon => 'monsterid')
       meta['gravatar_url'] = gravatar_url(meta['email'])
-
+      meta = meta.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
       comments.push(meta)
     end
-    comments.sort_by { |a| attribute_to_time(a['created_at']) } 
+    comments.sort_by { |a| attribute_to_time(a[:created_at]) } 
   end
   
   # Read all the comments files in the site, and return them as a hash of
@@ -38,8 +38,7 @@ module StaticComments
       post_id = yaml_data.delete('post_id')
       comments[post_id] << yaml_data
     end
-    
-    comments
+    comments.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
   end
 
   def parse(content_filename)
