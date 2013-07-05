@@ -13,10 +13,8 @@
           %img{:src => '/assets/twitter-bird-light-bgs.png', :width => '32'}
           Tweet This
         #comments
-          - comments = comments_for_post(item)
-          - count_line = "#{comments.length} comments on #{item[:title]}"
-          = count_line
-          - comments.each do | comment |
+          = "#{item.comments.length} comments on #{item[:title]}"
+          - item.comments.each do | comment |
             %article.comment
               %header
                 .vcard
@@ -45,7 +43,10 @@
                   %label{:for => "email"} E-Mail*:
                   %input{:type => "text", :name => "email", :class => "text", :placeholder => "optional"}
                   .hint
-                    Will not be displayed anywhere on the page
+                    Will not be published
+                %li
+                  %label{:for => "website"} Website:
+                  %input{:type => 'text', :name => 'website', :class => 'text', :placeholder => 'http://'}
                 %li
                   %label{:for => "comment"} Message:
                   %textarea{:name => "comment"}
@@ -55,5 +56,5 @@
                 You may use [Markdown](http://daringfireball.net/projects/markdown/) formatting if you wish.  
                 Approved comments will be parsed with [kramdown](http://kramdown.rubyforge.org/).
                 
-                *email address is used only for contact purposes and for loading a gavatar image. It will not be displayed with the comment.
+                *email address is used only for contact purposes and for loading a gavatar image. It will not be displayed with the comment or elsewhere on this site.
               %input{:type => "submit", :value => "Send", :class => "button"}
