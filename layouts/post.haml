@@ -21,14 +21,14 @@
               %header
                 .vcard
                   %span.photo
-                    = comment[:gravatar_image]
+                    = gravatar_image_for_comment(comment)
                   %span.fn
                     = comment_author_link(comment)
                   on 
                   %time{:pubdate => true, :datetime => get_pub_datetime(comment)}
                     = attribute_to_time(comment[:created_at]).strftime('%B %-d, %Y at %l:%M %P')
                   said: 
-              = Kramdown::Document.new(comment[:comment]).to_html
+              = comment.compiled_content
 
         #comment_form
           %form{:name=> 'comments', :method => 'POST', :action => "#{@config['action_url']}/assets/commentsubmit.php"}
