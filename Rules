@@ -98,6 +98,10 @@ compile '*' do
   end
 end
 
+route '/comments/*/' do
+  nil
+end
+
 route '/posts/feed/' do
   '/feed.xml'
 end
