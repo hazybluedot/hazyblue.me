@@ -6,6 +6,7 @@ description 'Manually create a comment for an item'
 
 option :t, :created_at, 'post date of comment', :argument => :required
 option :a, :author, 'author of comment', :argument => :required
+option :c, :vcs, 'versioning control system', :argument => :required
 
 class CreateItemComment < Nanoc::CLI::Commands::CreateItem
   def parse_input data
@@ -33,6 +34,9 @@ class CreateItemComment < Nanoc::CLI::Commands::CreateItem
     puts "options: " + options.inspect
     self.require_site
 
+    # Set VCS if possible
+    self.set_vcs(options[:vcs])
+
     identifier = arguments[0].to_url
 
     parent = self.site.items.select { |i| !(i.identifier =~ /^\/comments/) and i.identifier =~ /#{identifier}/ and !i.binary? }
@@ -51,9 +55,9 @@ class CreateItemComment < Nanoc::CLI::Commands::CreateItem
 
     meta, content = parse_input(STDIN)
 
-    meta[:post_id] = parent.identifier
+    meta[:post_id] = parent[0].identifier
     created_at = meta[:created_at].strftime(datetime_format) || Time.now.strftime(datetime_format)
-    comment_id = "/comments/" + identifier + "/"
+    comment_id = "/comments/" + meta[:post_id] + "/"
     comment_id += [ meta[:author], created_at ].map { |a| a.to_url }.join('-')
     puts "creating comment: " + comment_id
 
