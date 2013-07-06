@@ -41,12 +41,12 @@
                   %input{:type => "text", :name => "name", :class => "text"}
                 %li
                   %label{:for => "email"} E-Mail*:
-                  %input{:type => "text", :name => "email", :class => "text", :placeholder => "optional"}
+                  %input{:type => "email", :name => "email", :class => "text", :placeholder => "optional"}
                   .hint
                     Will not be published
                 %li
                   %label{:for => "website"} Website:
-                  %input{:type => 'text', :name => 'website', :class => 'text', :placeholder => 'http://'}
+                  %input{:type => 'url', :name => 'website', :class => 'text', :placeholder => 'http://'}
                 %li
                   %label{:for => "comment"} Message:
                   %textarea{:name => "comment"}
