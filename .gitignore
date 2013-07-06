@@ -6,4 +6,7 @@ output/
 # Temporary file directory
 tmp/
 
+# Comments directory (since comments generally contain email and IP info
+content/comments/
+
 *~
