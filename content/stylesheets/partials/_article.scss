@@ -99,6 +99,8 @@ pre {
 
     display: block;
     clear: both;
+    @include leader;
+    @include trailer;
 }
 
 pre:not([class]) {
