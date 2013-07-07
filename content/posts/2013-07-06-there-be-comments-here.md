@@ -22,6 +22,8 @@ TL;DT: [show me the code](#source-files)
 
 <!-- more -->
 
+## Backstory
+
 Blogs are comprised of mostly static content and so there are a number
 of benefits to deploying them as static websites, some of which I
 outlined in a [previous post](/2013/05/new-site/). Well, static in the
@@ -65,6 +67,8 @@ structure as the rest of the content for the site, and so get
 incorporated naturally with whichever static site generator is used
 (in my case, [nanoc](http://www.nanoc.ws)).
 
+## Implementation
+
 Solving the problem is then easily broken into two parts.
 
 1. Assuming comments exist as regular local files alongsite the main
@@ -78,7 +82,7 @@ Lucky for me, both of these problems had already been
 for use with [Jekyll](http://jekyllrb.com/). The only thing I had to
 do was adapt his solution for use with nanoc.
 
-## Displaying comments stored as local files
+### Displaying comments stored as local files
 
 Being a n00b both to Ruby and nanoc, my first solution comprised of
 using [Matt's code](https://github.com/mpalmer/jekyll-static-comments)
@@ -191,7 +195,7 @@ by calling the `Item#comments` method. I may end up creating a
 calls as well, but I haven't decided if this would necessarily be a
 good thing quite yet.
 
-## Processing form data
+### Processing form data
 
 By it's nature this this step requires a bit of server-side
 code. Tomas Carnecky has written about
