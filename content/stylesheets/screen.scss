@@ -58,7 +58,7 @@ body {
                 @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
             }
             // One third of the grid columns, rounding down. With 24 cols, this is 8.
-            $sidebar-columns: floor($total-columns / 3);
+            $sidebar-columns: floor($total-columns / $column-divisor);
             @include span-columns($sidebar-columns);
         }
 
@@ -78,12 +78,37 @@ body {
     }
 }
 
-section#content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    @include span-columns($content-columns omega);
+article {
+    aside {
+        float: left;
+        $sidebar-columns: floor($total-columns / $column-divisor);
+        @include pull($sidebar-columns);
+        @include span-columns($sidebar-columns);
+    }
+}
 
-    @include rebase-headings(3,2);
+h1,h2,h3,h4 {
+    clear: both;
+}
+
+figure {
+    float: left;
+    padding: 3px 3px 3px 3px;
+    margin: 0px 10px 0px 0px;
+    display: table;
+    img {
+        display: block;
+    }
+    figcaption {
+        display: table-caption;
+        caption-side: bottom;
+        font-style: italic;
+        padding: 3px 3px 3px 3px;
+    }
+}
+
+section#content {
+    @include span-columns($content-columns omega);
 }
 
 %alert {

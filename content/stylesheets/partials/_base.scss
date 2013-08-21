@@ -19,7 +19,8 @@ $side-gutter-width  : $gutter-width;
 
 @import "susy";
 
-$content-columns: ceil(2 * $total-columns / 3);
+$column-divisor: 4;
+$content-columns: ceil(3 * $total-columns / $column-divisor);
 
 // Solarized Color Scheme
 $base03: #002b36;
@@ -88,6 +89,13 @@ $vmargin: 20px;
 /* light is default mode, so pair with general html definition */
 %light { @include rebase($base3,$base2,$base1,$base0,$base00,$base01,$base02,$base03)}
 %dark  { @include rebase($base03,$base02,$base01,$base00,$base0,$base1,$base2,$base3)}
+
+figure {
+    background-color: shade($base2, 10);
+    figcaption {
+        background: shade($base2, 10);
+    }
+}
 
 html * {
     color-profile: sRGB;

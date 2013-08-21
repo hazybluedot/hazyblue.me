@@ -1,4 +1,4 @@
-@import "blueprint/typography";
+//@import "blueprint/typography";
 
 @mixin rebase-headings($multiplier: 3, $line-height: 2) {
     $heading: 1;
@@ -14,11 +14,14 @@
 
 @include establish-baseline;
 
+
 body {
     font-family: $blueprint-font-family;
 }
 
+
 article,section {
+    @include rebase-headings(3,2);
     sub, sup {
         /* Specified in % so that the sup/sup is the
            right size relative to the surrounding text */
@@ -54,4 +57,11 @@ article,section {
     dt {
         font-weight: bold;
     }
+    #content {
+        @include rebase-headings(3,2);
+    }
+    aside {
+        @include rebase_headings(1.5,1);
+    }
+    @include trailer();
 }
