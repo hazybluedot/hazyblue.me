@@ -9,13 +9,13 @@ tags:
 - technology
 ---
 
-In defining how we interact with information, technology shapes the
+In affecting how we interact with information, technology shapes the
 way we think. This is one of the insights McLuhan makes in "The Medium
 is the Message", the first chapter of "Understanding Media: The
-Extension of Man". As educators, we must also be always aware of this
-fact: the way in which we present content will affect the way learners
+Extension of Man". As educators, we must always be aware of this fact:
+the way in which we present content will affect the way learners
 interact with the material. This will be the case regardless of
-whether or not we intend it.
+whether or not we are aware of it.
 
 Using digital technology in the classroom naively may restrict
 thinking and hinder learning, but making use of the digital mediums
@@ -30,7 +30,7 @@ around us, but we often forget that we have gone through medium
 revolutions in the past and many aspects of media use we now take for
 granted were once innovations.
 
-## From the printing press to books
+## From Gutenberg to McLuhan
 
 <figure>
 <img alt="Johannes Gutenberg" src="/assets/posts/Johannes_Gutenberg.jpg"/>
@@ -50,7 +50,7 @@ came across a superscript digit would you know to look to the bottom
 of the page, or end of the chapter (what the heck is a "chapter"?) to
 find the corresponding note?
 
-## From motion pictures to Citizen Kane
+## From Le Prince to Welles
 
 <figure>
 <img src="/assets/posts/Citizen_Kane.jpg" alt="Poster for Citizen Kane"/>
@@ -58,13 +58,13 @@ find the corresponding note?
 </figure>
 
 An entirely new medium came into existence with the invention of the
-motion picture camera, though it should come as no surprise that the
-earliest motion pictures were little more than plays recorded to
-film. Talkies quickly replaced silent films in the 1920s, but film of
-the era was still at its infancy as directors were learning the new
-flexibility of the medium. It was Orson Welles first feature film,
-Citizen Kane, that marks the new era of film based expression. Citizen
-Kane made
+motion picture camera by Louis Le Prince in 1888.  It should come as
+no surprise that the earliest motion pictures were little more than
+plays recorded to film. Talkies quickly replaced silent films in the
+1920s, but film of the era was still at its infancy as directors were
+learning the new flexibility of the medium. It was Orson Welles first
+feature film, Citizen Kane, that marks the new era of film based
+expression. Citizen Kane made
 [innovations](http://en.wikipedia.org/wiki/Citizen_Kane#Filmmaking_innovations)
 in nearly every aspect of film production:
 
@@ -72,16 +72,22 @@ cinematography
 : the use of deep-focus and low-angle shots
 
 storytelling
-: the entire story is told in a series of flashbacks and multiple narrators
+: the entire story is told in a series of flashbacks and multiple
+narrators
 
 special effects
-: the use of camera tricks to create the effect of crowds and interior spaces larger than they were in reality
+: the use of camera tricks to create the effect of crowds and interior
+spaces larger than they were in reality
 
 makeup
 : Welles played both the young, hansom Kane as well as old, wrinkled Kane
 
 soundtrack
-: sounds added richness and depth to the visual scenes. The use of the L-cut, in which the audio of the next scene starts before the video switches eased the transition of scene to scene, making it seem more natural and less jarring than a cut in which audio and video transitioned in unison.
+: sounds added richness and depth to the visual scenes. The use of the
+L-cut, in which the audio of the next scene starts before the video
+switches eased the transition of scene to scene, making it seem more
+natural and less jarring than a cut in which audio and video
+transitioned in unison.
 
 music
 : the use of musical cues to suggest or aid in the interpretation of
@@ -151,11 +157,17 @@ encyclopedic
 : the ability to quickly search through and access
   truly massive amounts of data
 
-<aside>
-<h1>Augmenting Human Intellect</h1>
-<p>Each of these complements nicely with the human brain's natural
-strengths and weaknesses. While our information retrieval system is remarkably efficent</p>
-</aside>
+<aside> <h1>Augmenting Human Intellect</h1> <p> The four properties of
+digital environments complement nicely with the human brain's natural
+strengths and weaknesses. In particular, evolution has shaped a brain
+predisposed to thinking spatially: think of the navigation skills
+needed for effective hunting and gathering. It is natural to use our
+innate spatial thinking when exploring digital environments.
+Likewise, cost-of-retrieval vs. relevance trade off in our memory
+retrieval abilities favors recent information over old and repeated
+information over infrequent. Our memory retrieval system is *not*
+encyclopedic so it behooves us to offload data storage and retrieval
+to a computer.</p> </aside>
 
 Think of your own experiences with technology in the classroom as a
 student? How often any of these properties exploited?
@@ -205,4 +217,27 @@ power in such an open-ended digital environment.
 http://www.youtube.com/watch?feature=player_embedded&v=yuMlhKI-pzE
 
 
+## Feign Ignorance and Innovate
 
+Remember, we are still in the early exploratory phase of digital
+media. Don't allow yourself to be trapped by conventions created by
+the restrictions of other media representations.  Keep in mind that
+how content is structured and displayed will affect how learners think
+about the ideas conveyed. Use this to your advantage! When presenting
+a collection of ideas that are connected, but not in a linear fashion,
+don't impose linearity if you can help it! Play into our natural
+ability to explore spatial environments and retain spatial
+relationships between objects. Recognize our limitations when it comes
+to retrieving arbitrary bits of information and let the computer do
+that work for the learner.
+
+Understand that mistakes will be made. Not all innovative uses of
+technology will be necessarily good. When trying something new, be
+open with the learners so that they know what to (and not to) expect,
+and solicit feedback! A digital representation of an idea space that
+may seem intuitive to you may be confusing to new learners (don't
+confuse true intuition with familiarity).
+
+Have you come across any innovative uses of digital media to convey
+ideas that utilized a combination of some or all of the four
+properties of digital environments? Share them in the comments!
