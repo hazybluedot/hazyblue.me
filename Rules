@@ -78,7 +78,12 @@ end
 
 compile '/posts/*' do
   filter :youtube
-  filter :kramdown, :options => {:fenced_code_blocks => true}
+  case item[:extension]
+    when 'md'
+      filter :kramdown, :options => {:fenced_code_blocks => true}
+    when 'org'
+      filter :orgmode
+    end
   filter :colorize_syntax, :default_colorizer => :pygmentsrb
   layout 'post'
 end
@@ -87,12 +92,15 @@ compile '*' do
   if item.binary?
     # don’t filter binary items
   else
-    if item[:extension] == 'haml'
-      filter :haml
-    elsif item[:extension] == 'md'
-      filter :kramdown
-    else
-      filter :erb
+    case item[:extension]
+      when 'haml'
+        filter :haml
+      when 'md'
+        filter :kramdown
+      when 'org'
+        filter :orgmode
+      else
+        filter :erb
     end
     layout 'default'
   end
