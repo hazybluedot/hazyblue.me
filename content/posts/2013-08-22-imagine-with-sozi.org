@@ -1,0 +1,49 @@
+---
+title: Imagine with Sozi
+published: true
+kind: article
+created_at: '2013-08-22 11:50:49 -0400'
+tags:
+  - sozi
+  - new media
+  - presentation
+---
+
+#+HTML_CONTAINER: div
+#+HTML_HTML5_FANCY:
+
+I started playing around with [[http://sozi.baierouge.fr/wiki/en:welcome][Sozi]], a plugin for [[http://inkscape.org][Inkscape]] that
+generates interactive presentations in the standard, open [[http://en.wikipedia.org/wiki/Scalable_Vector_Graphics][SVG]] format.
+The UI is still pretty young, so it's a little clunky but I was able
+to generate something with prezi-like qualities:
+
+- create a predefined sequence of frames that can be advanced forward and back
+- click on objects to zoom to that frame out of sequence
+
+Instructions: click on any of the nodes to zoom to that frame.  Once you have clicked one on the embedded SVG you will be able to use the left/right arrow keys to advance the frame forward/backward. Click and drag to scroll around. If you have a middle mouse button that will bring up the table of contents.
+
+#+HTML_COMMENT <!-- more -->
+
+#+BEGIN_HTML
+<embed height="350" width="450" src="/assets/posts/tech_in_education.svg"type=" image/svg+xml" /> <br/>
+<a href="/assets/posts/tech_in_education.svg">Full Screen</a>
+#+END_HTML
+
+There is also an option to embed video or audio that can be triggered
+to play when a frame is reached. This might work well for narration.
+
+The real power comes from the fact that this is a standard SVG
+file. The Sozi player is a collection of [[http://en.wikipedia.org/wiki/JavaScript][JavaScript]] functions that
+interact with the SVG [[http://en.wikipedia.org/wiki/Document_Object_Model][DOM]]. JavaScript is able to query the DOM of the
+SVG just as easily as the page itself. This means it should be
+possible to create interactions between presentation and page content,
+e.g. clicking on frames could bring up some overlay text, or clicking
+on links in the text of the page could zoom to a frame, or even toggle
+the visibility of specific objects. The possibilities are nearly
+endless, but it's unlikely that the existing Sozi interface will
+incorporate page interactions. Since it is a plugin for [[http://inkscape.org/][Inkscape]] it
+can only reasonably know about components in the SVG itself. But SVG
+is an open format and [[https://github.com/senshu/Sozi][Sozi]] is open source, perhaps someone will write
+an interface for Sozi/HTML5 interactions.  I guess this is a good
+excuse for me to [[http://www.codecademy.com/tracks/javascript][learn some JavaScript]]!
+
