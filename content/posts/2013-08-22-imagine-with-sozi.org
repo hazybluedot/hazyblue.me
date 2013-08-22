@@ -36,7 +36,7 @@ The real power comes from the fact that this is a standard SVG
 file. The Sozi player is a collection of [[http://en.wikipedia.org/wiki/JavaScript][JavaScript]] functions that
 interact with the SVG [[http://en.wikipedia.org/wiki/Document_Object_Model][DOM]]. JavaScript is able to query the DOM of the
 SVG just as easily as the page itself. This means it should be
-possible to create interactions between presentation and page content,
+possible to create [[http://www.w3.org/TR/SVGTiny12/interact.html#UIEvents][interactions between presentation and page content]],
 e.g. clicking on frames could bring up some overlay text, or clicking
 on links in the text of the page could zoom to a frame, or even toggle
 the visibility of specific objects. The possibilities are nearly
