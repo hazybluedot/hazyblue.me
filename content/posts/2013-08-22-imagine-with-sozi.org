@@ -3,6 +3,7 @@ title: Imagine with Sozi
 published: true
 kind: article
 created_at: '2013-08-22 11:50:49 -0400'
+author_name: 'hazybluedot'
 tags:
   - sozi
   - new media
@@ -22,12 +23,20 @@ to generate something with prezi-like qualities:
 
 Instructions: click on any of the nodes to zoom to that frame.  Once you have clicked one on the embedded SVG you will be able to use the left/right arrow keys to advance the frame forward/backward. Click and drag to scroll around. If you have a middle mouse button that will bring up the table of contents.
 
-#+HTML_COMMENT <!-- more -->
+#+BEGIN_HTML 
+<!-- more -->
+#+END_HTML
+
+#+INCLUDE: "~/Sites/hazyblue.me/static/posts/tech_in_education.svg" 
 
 #+BEGIN_HTML
-<embed height="350" width="450" src="/assets/posts/tech_in_education.svg"type=" image/svg+xml" /> <br/>
+<iframe height="350" width="500" src="/assets/posts/tech_in_education.svg" /> <br/>
 <a href="/assets/posts/tech_in_education.svg">Full Screen</a>
 #+END_HTML
+
+#+BEGIN_COMMENT
+<embed height="350" width="500" src="/assets/posts/tech_in_education.svg" type="image/svg+xml" /> <br/>
+#+END_COMMENT
 
 There is also an option to embed video or audio that can be triggered
 to play when a frame is reached. This might work well for narration.
