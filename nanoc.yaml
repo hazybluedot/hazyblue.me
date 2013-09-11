@@ -10,6 +10,7 @@ site_title: '#!/hazy/blue/.'
 site_subtitle: 'open to interpretation'
 twitter_username: '@hazybluedot'
 github_username: 'hazybluedot'
+author_name: 'hazybluedot'
 
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
