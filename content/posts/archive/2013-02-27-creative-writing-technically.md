@@ -22,7 +22,7 @@ by a chance encounter with an unfamiliar (to me) blogger's
 [post](http://craphound.com/?p=2171:ta) have all led me to believe I
 should write a bit about interface design and various tools available
 to aid in writing workflow.No matter our field, I'm willing to bet we
-all do some writing. Our writing workflow has undergon some changes
+all do some writing. Our writing workflow has undergone some changes
 since transitioning to the digital era, most notably for my interests
 is this quote from the
 [aforementioned blog post](http://craphound.com/?p=2171:ta):
@@ -56,8 +56,8 @@ in a STEM field, and we were discussing the unfortunate prevalence of
 the use of MS Word for scientific papers. I don't want to get into a
 long discussion of the demerits of MS Word in general, but suffice it
 to say, if you are interested in producing a professional quality
-paper, and enjoy the experience of shooting yourself in both foot
-followed by running a marathon, then by all means, use MS Word. There
+paper, and enjoy the experience of shooting yourself in both feet
+before running a marathon, then by all means, use MS Word. There
 are also a number of excuses of questionable validity that people use
 to defend their MS Word usage in scientific writing. The ones that are
 often brought up often involve the need to collaborate with other
