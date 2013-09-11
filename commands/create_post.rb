@@ -18,6 +18,7 @@ class CreateItemComment < Nanoc::CLI::Commands::CreateItem
       :published => false,
       :kind => 'article',
       :created_at => Time.now.strftime(datetime_format),
+      :author_name => @site[:author_name],
       :tags => nil
     }
 
@@ -37,11 +38,12 @@ EOF
     # Create the post
     data_source = self.site.data_sources[0]
     data_source.create_item( 
-    content,
+                            content,
                             meta,
                             identifier,
                             { :extension => file_extension }
                             )
+    puts "Opening in editor: content"+identifier+file_extension
     system(editor_cmd.gsub(/{}/, "content"+identifier+file_extension))
   end
 end
