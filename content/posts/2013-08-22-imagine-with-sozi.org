@@ -27,8 +27,6 @@ Instructions: click on any of the nodes to zoom to that frame.  Once you have cl
 <!-- more -->
 #+END_HTML
 
-#+INCLUDE: "~/Sites/hazyblue.me/static/posts/tech_in_education.svg" 
-
 #+BEGIN_HTML
 <iframe height="350" width="500" src="/assets/posts/tech_in_education.svg" /> <br/>
 <a href="/assets/posts/tech_in_education.svg">Full Screen</a>
