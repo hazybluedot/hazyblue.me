@@ -11,7 +11,7 @@ class CreateItemComment < Nanoc::CLI::Commands::CreateItem
     # Set VCS if possible
     self.set_vcs(options[:vcs])
 
-    datetime_format = '%Y-%m-%d %H:%M:%S %z'
+    datetime_format = @site.config[:datetime_format]
 
     meta = {
       :title => arguments[0],

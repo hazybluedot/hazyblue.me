@@ -11,6 +11,7 @@ site_subtitle: 'open to interpretation'
 twitter_username: '@hazybluedot'
 github_username: 'hazybluedot'
 author_name: 'hazybluedot'
+datetime_format: '%Y-%m-%d %H:%M:%S %z'
 
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
