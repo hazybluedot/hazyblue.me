@@ -38,6 +38,8 @@ $SUBJECT = "Blog comment received";
 // content.
 $COMMENT_RECEIVED = "/comment_received/index.html";
 
+$BOTGUARD_FIELD = "foo_name";
+
 /****************************************************************************
  * HERE BE CODE
  ****************************************************************************/
@@ -46,14 +48,25 @@ $post_id = $_POST["post_id"];
 unset($_POST["post_id"]);
 $comment = $_POST["comment"];
 unset($_POST["comment"]);
+$botguard="";
+if (isset($_POST["$BOTGUARD_FIELD"])) {
+    $botguard = $_POST["$BOTGUARD_FIELD"];
+    unset($_POST["$BOTGUARD_FIELD"]);
+}
 
 //if (isset($_POST['name'])) {
 //    $SUBJECT = "Blog comment received from $_POST['name']";
 //}
 
+if (!empty($botguard)) {
+//   //Spam managed
+   header( "Location: $COMMENT_RECEIVED" );
+   exit();
+}
+
 $msg = "---\n";
 $msg .= "post_id: $post_id\n";
-$msg .= "date: " . date($DATE_FORMAT) . "\n";
+$msg .= "created_at: " . date($DATE_FORMAT) . "\n";
 
 foreach ($_POST as $key => $value) {
 	if (strstr($value, "\n") != "") {
