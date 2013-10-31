@@ -12,59 +12,7 @@
         %a{:href => tweet_this_url(item), :target => '_blank'}
           %img{:src => '/assets/twitter-bird-light-bgs.png', :width => '32'}
           Tweet This
-        #comments
-          = "#{item.comments.length} comments on #{item[:title]}"
-          - item.comments.each do | comment |
-            %article.comment
-              %header
-                .vcard
-                  %span.photo
-                    = gravatar_image_for_comment(comment)
-                  %span.fn
-                    = comment_author_link(comment)
-                  on 
-                  %time{:pubdate => true, :datetime => get_pub_datetime(comment)}
-                    = attribute_to_time(comment[:created_at]).strftime('%B %-d, %Y at %l:%M %P')
-                  said: 
-              = comment.compiled_content
-
-        #comment_form
-          %form{:name=> 'comments', :method => 'POST', :action => "#{@config['action_url']}/assets/commentsubmit.php"}
-            %h1
-              Leave a Comment
-            %input{:type => 'hidden', :name => 'post_id', :value => "#{item.identifier}"}
-            %input{:type => 'hidden', :name => 'return_url', :value => "#{url_for(item)}"}
-
-            #botGuard
-              %label{:for =>'foo_name'} Leave this blank. It is to fool the Bots!
-              %input{:type => 'text', :name => 'foo_name'}
-            :javascript
-              (function () {
-                  var e = document.getElementById("botGuard");
-                  e.parentNode.removeChild(e);
-              })();
-
-            %fieldset
-              %ol
-                %li
-                  %label{:for => "name"} Name:
-                  %input{:type => "text", :name => "name", :class => "text"}
-                %li
-                  %label{:for => "email"} E-Mail*:
-                  %input{:type => "email", :name => "email", :class => "text", :placeholder => "optional"}
-                  .hint
-                    Will not be published
-                %li
-                  %label{:for => "website"} Website:
-                  %input{:type => 'url', :name => 'website', :class => 'text', :placeholder => 'http://'}
-                %li
-                  %label{:for => "comment"} Message:
-                  %textarea{:name => "comment"}              
-              :markdown
-                All comments are hand moderated.
-                
-                You may use [Markdown](http://daringfireball.net/projects/markdown/) formatting if you wish.  
-                Approved comments will be parsed with [kramdown](http://kramdown.rubyforge.org/).
-                
-                *email address is used only for contact purposes and for loading a gavatar image. It will not be displayed with the comment or elsewhere on this site.
-              %input{:type => "submit", :value => "Send", :class => "button"}
+        - render 'comments' do
+          = yield
+        - render 'comment_form' do
+          = yield
