@@ -65,3 +65,45 @@ article,section {
     }
     @include trailer();
 }
+
+blockquote {
+    @include leader;
+    @include trailer;
+    font-style: italic;
+
+    padding-left: 1em;
+    padding-right: 1em;
+
+    //quotes:"\201C""\201D""\2018""\2019";
+    quotes:"\201C""\201D";
+    &:before {
+        content:open-quote;
+        font-size:4em;
+        line-height:.1em;
+        margin-right:.25em;
+        vertical-align:-.4em;
+    }
+    
+    p:first-of-type {
+        display: inline;
+    }
+
+    p:nth-of-type(2) {
+        @include leader;
+    }
+
+    em {
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    cite {
+        font-size: em(14px);
+        display: block;
+        margin-top: em(5px);
+        &:before {
+            content: "\2014 \2009";
+        }
+    }
+    
+}
