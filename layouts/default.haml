@@ -15,7 +15,7 @@
     %meta{:name => 'twitter:creator', :content => "#{ @config[:twitter_username] }"}
     - if @item[:kind] == 'article'
       - twitter_title = "#{ @item[:title] }"
-      - twitter_description = "#{ get_post_summary(@item) }"
+      - twitter_description = "#{ post_summary(@item) }"
       - twitter_url = "#{ @config[:base_url] }#{ @item.path }"
     -else
       - twitter_title = "#{ @config[:site_title] }"

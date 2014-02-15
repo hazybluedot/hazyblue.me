@@ -4,8 +4,8 @@
       %h1 #{item[:title]}
       %p
         Published 
-        %time{:pubdate => true, :datetime => get_pub_datetime(item)}
-          = get_pretty_date(item)
+        %time{:pubdate => true, :datetime => pub_datetime(item)}
+          = pretty_date(item)
     = find_and_preserve(yield)
     %footer
       .twitter_image_text
@@ -14,5 +14,4 @@
           Tweet This
         - render 'comments' do
           = yield
-        - render 'comment_form' do
-          = yield
+        - render 'comment_form', :blurb => @items.select{ |i| i.identifier == '/comment_blurb/' }.first

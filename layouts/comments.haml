@@ -7,7 +7,7 @@
           %span.photo
             = gravatar_image_for_comment(comment)
           on 
-          %time{:pubdate => true, :datetime => get_pub_datetime(comment)}
+          %time{:pubdate => true, :datetime => pub_datetime(comment)}
             = attribute_to_time(comment[:created_at]).strftime('%B %-d, %Y at %l:%M %P')
           %span.fn
             = comment_author_link(comment)

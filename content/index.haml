@@ -4,12 +4,12 @@ title: #!dkm
 
 - sorted_articles.each do |post|
   - if post[:published]
-    %section
+    %article
       %header
         %h1 
           = link_to(post[:title], post.path)
         Posted at: 
-        %time{:pubtime => true, :datetime => get_pub_datetime(post)}
-          = get_pretty_date(post)
+        %time{:pubtime => true, :datetime => pub_datetime(post)}
+          = pretty_date(post)
 
-      = get_post_start(post)
+      = post_start(post)
