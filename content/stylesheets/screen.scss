@@ -59,22 +59,13 @@ body {
             }
             // One third of the grid columns, rounding down. With 24 cols, this is 8.
             $sidebar-columns: floor($total-columns / $column-divisor);
-            @include span-columns($sidebar-columns);
+            @include span-columns($sidebar-columns omega);
         }
 
         nav {
             @extend %sidenav;
             @include accentize($orange);
         }
-    /*
-      nav#about {
-      @include full;
-      ul {
-      @include horizontal-list;
-      }
-      @include accentize($orange);
-      }
-      */
     }
 }
 
@@ -108,7 +99,8 @@ figure {
 }
 
 main {
-    @include span-columns($content-columns omega);
+    @include span-columns($content-columns);
+    @include pre(1);
 }
 
 %alert {
