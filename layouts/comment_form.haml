@@ -25,11 +25,5 @@
         %li
           %label{:for => "comment"} Message:
           %textarea{:name => "comment"}              
-      :markdown
-        All comments are hand moderated.
-        
-        You may use [Markdown](http://daringfireball.net/projects/markdown/) formatting if you wish.  
-        Approved comments will be parsed with [kramdown](http://kramdown.rubyforge.org/).
-        
-        *email address is used only for contact purposes and for loading a gavatar image. It will not be displayed with the comment or elsewhere on this site.
+      = blurb.compiled_content
       %input{:type => "submit", :value => "Send", :class => "button"}

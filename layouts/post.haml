@@ -12,6 +12,5 @@
         %a{:href => tweet_this_url(item), :target => '_blank'}
           %img{:src => '/assets/twitter-bird-light-bgs.png', :width => '32'}
           Tweet This
-        - render 'comments' do
-          = yield
-        - render 'comment_form', :blurb => @items.select{ |i| i.identifier == '/comment_blurb/' }.first
+        = render 'comments'
+        = render 'comment_form', :blurb => @items.select{ |i| i.identifier == '/comment_blurb/' }.first
