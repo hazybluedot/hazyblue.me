@@ -76,7 +76,7 @@ deploy:
   public:
     kind: rsync
     dst: "dmaczka@hazybluedot.xen.prgmr.com:/srv/www/hazyblue.me/public_html"
-    options: [ '-aP', '--delete-after', '-O' ]
+    options: [ '-aP', '--no-o', '--no-g', '--no-p', '--delete-after', '-O' ]
   staging:
     kind: rsync
     dst: "dmaczka@hazybluedot.xen.prgmr.com:/srv/www/hazyblue.me/staging"
