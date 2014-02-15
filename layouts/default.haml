@@ -38,9 +38,7 @@
       %header
         %a{:href => '/'}
           %h1 #{ @config[:site_title] }
-          %h2 #{ @config[:site_subtitle] }
-      %section#content
-        = find_and_preserve(yield)
+          %p #{ @config[:site_subtitle] }
       %nav#about
         = link_to('Archive', '/archive/')
       %nav#social

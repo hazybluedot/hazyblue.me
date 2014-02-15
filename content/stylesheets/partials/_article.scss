@@ -42,7 +42,7 @@ article,section {
     }
 }
 
-section#content {
+main {
     article,section {
         header {
             @include trailing-border(1px, 1);
@@ -65,9 +65,7 @@ section#content {
             @include trailer;
         }
     }
-}
 
-section#content {
     section.archive {
         @include rebase-headings(1.5,.75);
         h1,h2 {

@@ -45,7 +45,7 @@ body {
             h1 {
                 @include adjust-font-size-to($base-font-size * 2, $lines:2);
             }                
-            h2 {
+            p {
                 @include adjust-font-size-to($base-font-size * 1, $lines:1);
                 font-style: italic;
                 @include trailer;
@@ -107,7 +107,7 @@ figure {
     }
 }
 
-section#content {
+main {
     @include span-columns($content-columns omega);
 }
 
