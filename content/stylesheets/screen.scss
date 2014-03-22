@@ -58,7 +58,7 @@ body {
                 @include adjust-font-size-to($base-font-size * 1.5, $lines:1);
             }
             // One third of the grid columns, rounding down. With 24 cols, this is 8.
-            $sidebar-columns: floor($total-columns / $column-divisor);
+            $sidebar-columns: floor($total-columns / $column-divisor) - 1;
             @include span-columns($sidebar-columns omega);
         }
 
