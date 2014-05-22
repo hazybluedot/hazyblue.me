@@ -23,6 +23,15 @@ end
 
 sass_options = Compass.sass_engine_options
 
+preprocess do
+  @items << item_index(sorted_articles[0..5], @site.config[:title], '/')
+end
+
+compile '/' do
+  layout 'default'
+  layout 'item_index'
+end
+
 compile '/stylesheets/partials/*/' do
  # Don’t compile partials
 end
