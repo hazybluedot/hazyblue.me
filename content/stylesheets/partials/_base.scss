@@ -29,7 +29,7 @@ article {
     }
     @include breakpoint($desktop) {
         header {
-            @include full;
+            @include span(4 narrow);
             time {
                 @include leader;
                 @include span(1);
