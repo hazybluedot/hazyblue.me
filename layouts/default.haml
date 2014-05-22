@@ -11,6 +11,7 @@
     %link{:rel => 'alternate', :type => 'application/rss+xml', :href => "#{ @config[:base_url]}/feed.xml", :title => "#{ @config[:site_title] } - Feed"}
     /[if lt IE 8]
       %link{:href => "/output/stylesheets/ie.css", :media => 'screen, projection', :rel => 'stylesheet', :type => 'text/css'}
+    %meta{:name => 'viewport', :content => 'initial-scale=1'}
     %meta{:name => 'twitter:card', :content => 'summary'}
     %meta{:name => 'twitter:creator', :content => "#{ @config[:twitter_username] }"}
     - if @item[:kind] == 'article'
