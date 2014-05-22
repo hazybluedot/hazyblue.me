@@ -28,7 +28,7 @@ module Nanoc::Helpers
     def gravatar_image_for_comment(comment)
       email = 'nobody@hazyblue.me'
       email = comment[:email] if comment[:email] and comment[:email].length > 0
-      gravatar_image(email, :size => '50')
+      gravatar_image(email, :size => '75')
     end
 
     # Find and return all the comments for a post
