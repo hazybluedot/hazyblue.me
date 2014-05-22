@@ -1,5 +1,6 @@
 ---
-title: When Linux Apps Mimic Windows Apps Are We Selling Ourselves Short?
+title: Limitations of the familiar
+subtitle: When Linux Apps Mimic Windows Apps Are We Selling Ourselves Short?
 published: true
 kind: article
 created_at: '2014-01-29 17:36:21 -0500'

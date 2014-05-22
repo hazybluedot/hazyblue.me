@@ -23,6 +23,8 @@ of the honor code violations that occur are a result of the fear of
 failure. We would rather risk the chance of getting caught cheating
 than turn in work that we suspect would result in a low grade.
 
+<!-- more -->
+
 Part of the problem is that it can be very difficult to recover from a
 low grade if there aren't clear pathways to do so. This increases the
 risk of failure and raises the incentive to get a high grade the first

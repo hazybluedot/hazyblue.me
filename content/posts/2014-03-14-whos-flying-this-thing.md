@@ -1,5 +1,6 @@
 ---
-title: Who's flying this thing? Lack of clear education goals result in sub-optimal learning experiences
+title: Who's flying this thing? 
+subtitle: Lack of clear education goals result in sub-optimal learning experiences
 published: true
 kind: article
 created_at: '2014-03-21 20:27:46 -0400'
