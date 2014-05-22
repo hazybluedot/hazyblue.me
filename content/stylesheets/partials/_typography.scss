@@ -1,4 +1,27 @@
-//@import "blueprint/typography";
+$base-font-size   : 16px;
+$base-line-height : 24px;
+
+@include establish-baseline;
+
+@function susy-global($key) {
+    @return map-get($susy, $key);
+}
+
+@function rel-gutter($mult:1) {
+    //@return gutter(susy-global(columns)) * $mult;
+    @return 0;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+
+$sans: "Helvetica Neue", "Lato", sans-serif;
+$serif: "Georgia", serif;
+$mono: 'Anonymous Pro', Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
+
+$title-font-family: $serif;
+$body-font-family: $sans;
+$code-font-family: $mono; 
 
 @mixin rebase-headings($multiplier: 3, $line-height: 2) {
     $heading: 1;
@@ -12,102 +35,124 @@
     }
 }
 
-@include establish-baseline;
-
 
 body {
-    font-family: $blueprint-font-family;
+    font-family: $body-font-family;
+    text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+}
 
-article,section {
-    @include rebase-headings(3,2);
-    sub, sup {
-        /* Specified in % so that the sup/sup is the
-           right size relative to the surrounding text */
-        font-size: 75%;
-        
-        /* Zero out the line-height so that it doesn't
-           interfere with the positioning that follows */
-        line-height: 0;
-        
-        /* Where the magic happens: makes all browsers position
-           the sup/sup properly, relative to the surrounding text */
-        position: relative;
-        
-        /* Note that if you're using Eric Meyer's reset.css, this
-           is already set and you can remove this rule */
-        vertical-align: baseline;
-    }
+sub, sup {
+    /* Specified in % so that the sup/sup is the
+       right size relative to the surrounding text */
+    font-size: 75%;
     
-    sup {
-        /* Move the superscripted text up */
-        top: -0.5em;
-    }
-
-    sub {
-        /* Move the subscripted text down, but only
-           half as far down as the superscript moved up */
-        bottom: -0.25em;
-    }
-
-    em {
-        font-style: italic;
-    }
-    dt {
-        font-weight: bold;
-    }
-    #content {
-        @include rebase-headings(3,2);
-    }
-    aside {
-        @include rebase_headings(1.5,1);
-    }
-    @include trailer();
+    /* Zero out the line-height so that it doesn't
+       interfere with the positioning that follows */
+    line-height: 0;
+    
+    /* Where the magic happens: makes all browsers position
+       the sup/sup properly, relative to the surrounding text */
+    position: relative;
+    
+    /* Note that if you're using Eric Meyer's reset.css, this
+       is already set and you can remove this rule */
+    vertical-align: baseline;
 }
 
-blockquote {
-    @include leader;
-    @include trailer;
+sup {
+    /* Move the superscripted text up */
+    top: -0.5em;
+}
+
+sub {
+    /* Move the subscripted text down, but only
+       half as far down as the superscript moved up */
+    bottom: -0.25em;
+}
+
+em {
     font-style: italic;
-
-    padding-left: 1em;
-    padding-right: 1em;
-
-    //quotes:"\201C""\201D""\2018""\2019";
-    quotes:"\201C""\201D";
-    &:before {
-        content:open-quote;
-        font-size:4em;
-        line-height:.1em;
-        margin-right:.25em;
-        vertical-align:-.4em;
-    }
-    
-    p:first-of-type {
-        display: inline;
-    }
-
-    p:nth-of-type(2) {
-        @include leader;
-    }
-
-    em {
-        font-style: normal;
-        font-weight: bold;
-    }
-
-    cite {
-        font-size: em(14px);
-        display: block;
-        margin-top: em(5px);
-        &:before {
-            content: "\2014 \2009";
-        }
-    }
-    
 }
 
-.footnotes ol {
-    list-style-type: decimal;
+dt {
+    font-weight: bold;
+}
+
+#container > header {
+    @include gutters;
+    @include padding-leader(1);
+    @include padding-trailer(1);
+    font-family: $code-font-family;
+    @include rebase-headings(2,1.5);
+    h1,h2 {
+        font-family: $code-font-family;
+    }
+}
+
+#container > main {
+    @include leader;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $title-font-family;
+}
+
+code {
+    font-family: $code-font-family;
+}
+
+article {
+    @include rebase-headings();
+    @include trailer;
+    main {
+        ul { list-style-type: disc;
+             ul { list-style-type: circle; margin-bottom: 0px;
+                  ul { list-style-type: square; margin-bottom: 0px; }}}
+
+        ol, ul {
+            @include trailer;
+        }
+
+        ol { list-style-type: decimal;
+             ol { list-style-type: lower-alpha; margin-bottom: 0px;
+                  ol { list-style-type: lower-roman; margin-bottom: 0px; }}}
+
+        ul, ol { &, ul, ol { @include gutter; }}
+    }
+}
+
+p {
+    @include trailer;
+}
+
+blockquote,pre {
+    @include gutters;
+    @include trailer;
+}
+
+p {
+    //margin-left: rel-gutter(1);
+    //margin-right: rel-gutter();
+}
+
+pre {
+    overflow: auto;
+}
+
+/* meta data */
+time {
+    font-style: italic;
+}
+
+.copyright {
+    text-align: center;
+    @include adjust-font-size-to(10pt);
+}
+
+span[property="dct:title"] {
+    font-style: italic;
 }

@@ -80,7 +80,7 @@ compile '/posts/*' do
   filter :youtube
   case item[:extension]
     when 'md'
-      filter :kramdown, :options => {:fenced_code_blocks => true}
+      filter :kramdown, :fenced_code_blocks => true, :enable_coderay => false
     when 'org'
       filter :orgmode, :options => {:colorizer => :external }
     end

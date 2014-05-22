@@ -1,27 +1,32 @@
-@import "blueprint/form";
-
 form {
-    @include blueprint-form;
-    background-color: $base2;
+    clear: both;
+    background-color: shade(color-for(container-bg), 10);
     margin:auto;
     position:relative;
-    font-weight: bold;
+    //font-weight: bold;
     text-decoration: none;
     border-radius: 10px;
-    padding:10px;
-    @include single-box-shadow();
+    padding: gutter();
 
     label {
         //@include span-columns(1, $content-columns);
     }
     input,textarea {
         //@include span-columns($content-columns - 1 omega, $content-columns);
+        width: 25em;
+        border: 1px solid shade(color-for(container-bg), 50);
+    }
+    textarea {
+        display: block;
+        width: 40em;
+        height: 15em;
     }
     li {
         //clear: both;
         .hint {
-            @include pad(1,1);
+            @include gutter;
             font-style: italic;
+            color: color-for(meta);
         }
     }
     #botGuard {

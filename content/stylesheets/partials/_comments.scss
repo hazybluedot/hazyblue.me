@@ -1,0 +1,75 @@
+#comments {
+    @include leading-border(1px, 1);
+    header {
+        //@include pull(1);
+        @include pre(0);
+        @include prefix(0);
+    }
+    /*
+    @include nested(4) {
+        article.comment {
+            img {
+                display: inline;
+            }
+            .photo {
+                //@include pull(1);
+                @include span(1);
+            }
+            .fn {
+                @include span(2);
+            }
+            time {
+                @include span(2);
+            }
+            time, .fn {
+                @include leader(0);
+                //@include trailer(0);
+            }
+        }
+        p {
+            clear: both;
+        }
+    }*/
+}
+
+.vcard {
+    @include container(4 inside-static);
+    @include nested(4) {
+        img {
+            display: inline;
+        }
+        .photo {
+            //@include pull(1);
+            @include span(1 wide);
+        }
+        .fn {
+            @include span(2);
+        }
+        time {
+            @include span(2);
+        }
+        time, .fn {
+            @include leader(0);
+            //@include trailer(0);
+        }
+    }
+}
+    /*
+      .vcard {
+      img {
+      display: inline;
+      clear: none;
+      }
+      .photo {
+      @include span(1);
+      }
+      time {
+      @include span(3);
+      //clear: none;
+      }
+      .fn {
+      @include span(3);
+      //clear: none;
+      }
+      }
+      */

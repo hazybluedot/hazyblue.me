@@ -1,0 +1,82 @@
+$primary-3: #053d4a;
+$complement-3: #773f08;
+
+$primary-1 : #20798E;
+$primary-2 : #2E545D;
+$primary-3 : #053D4A;
+$primary-4 : #6BC5DB;
+$primary-5 : #99CEDB;
+
+$complement-1 : #E5892F;
+$complement-2 : #966F48;
+$complement-3 : #773F08;
+$complement-4 : #F7B575;
+$complement-5 : #F7D0AA;
+
+$scheme : (
+    header-bg: $primary-3,
+    header-fg: $primary-4,
+    container-text: $primary-3,
+    container-bg: tint($complement-5,25),
+    body-bg: tint($complement-5,75),
+    meta-text: scale-saturation(scale-lightness($primary-3, -50), -50),
+    link: $primary-1, 
+    title: $complement-2,
+    debug: #aa3333,
+    accent: $complement-1,
+);
+
+@function color-for($element) {
+    @return map-get($scheme, $element);
+}
+
+a {
+    color: color-for(link);
+}
+
+body {
+    background-color: color-for(body-bg);
+}
+
+#container {
+    //> main { 
+        background-color: color-for(container-bg);
+        color: color-for(container-text);
+    //}
+}
+
+#container > header {
+    color: color-for(header-fg);
+    background-color: color-for(header-bg);
+    //@include bars(color-for(header-bg));
+    h1,h2,a {
+        color: color-for(header-fg);
+    }
+}
+
+article {
+    h1,h2,h3,h4,h5,h6 {
+        color: color-for(title);
+        a {
+            color: color-for(title);
+        }
+    }
+}
+
+time {
+    color: color-for(meta-text);
+}
+
+blockquote {
+    color: adjust-saturation(color-for(container-text), -20);
+    border: 1px color-for(accent);
+    border-style: none none none solid;
+}
+
+pre {
+    //background-color: scale-lightness(color-for(container-bg), -25);
+    background-color: tint(color-for(container-bg), 25);
+}
+
+@import "partials/solarized";
+@import "partials/pygments";
