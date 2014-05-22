@@ -23,6 +23,15 @@ end
 
 sass_options = Compass.sass_engine_options
 
+preprocess do
+  @items << item_index(sorted_articles[0..5], @site.config[:title], '/')
+end
+
+compile '/' do
+  layout 'default'
+  layout 'item_index'
+end
+
 compile '/stylesheets/partials/*/' do
  # Don’t compile partials
 end
@@ -80,7 +89,7 @@ compile '/posts/*' do
   filter :youtube
   case item[:extension]
     when 'md'
-      filter :kramdown, :options => {:fenced_code_blocks => true}
+      filter :kramdown, :fenced_code_blocks => true, :enable_coderay => false
     when 'org'
       filter :orgmode, :options => {:colorizer => :external }
     end

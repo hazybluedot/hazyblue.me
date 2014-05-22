@@ -1,0 +1,20 @@
+- render 'default' do
+  - @item[:items].each do |post|
+    - if post[:published]
+      %article
+        %header
+          %h1 
+            = link_to(post[:title], post.path)
+          - if post[:subtitle]
+            %p #{post[:subtitle]}
+          %time{:pubtime => true, :datetime => pub_datetime(post)}
+            = pretty_date(post)
+        %main
+          = post_start(post)
+        %footer
+          - if post[:previous]
+            %div{:class => 'nav previous'}
+              = link_to('previous', post[:previous])
+          - if post[:next]
+            %div{:class => 'nav next'}
+              = nav_link('next', post[:next])
