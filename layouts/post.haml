@@ -2,6 +2,8 @@
   %article
     %header
       %h1 #{item[:title]}
+      - if item[:subtitle]
+        %p #{item[:subtitle]}
       %time{:pubdate => true, :datetime => pub_datetime(item)}
         = pretty_date(item)
     %main

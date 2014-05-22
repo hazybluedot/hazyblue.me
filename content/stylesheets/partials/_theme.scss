@@ -49,7 +49,7 @@ body {
     color: color-for(header-fg);
     background-color: color-for(header-bg);
     //@include bars(color-for(header-bg));
-    h1,h2,a {
+    h1,h2,a,p {
         color: color-for(header-fg);
     }
 }
@@ -76,6 +76,12 @@ blockquote {
 pre {
     //background-color: scale-lightness(color-for(container-bg), -25);
     background-color: tint(color-for(container-bg), 25);
+}
+
+header {
+    p {
+        color: tint(color-for(title), 20);
+    }
 }
 
 @import "partials/solarized";

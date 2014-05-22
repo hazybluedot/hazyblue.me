@@ -13,7 +13,7 @@ $base-line-height : 24px;
 }
 
 @import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700,400italic);
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+//@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 
 $sans: "Helvetica Neue", "Lato", sans-serif;
 $serif: "Georgia", serif;
@@ -91,6 +91,20 @@ dt {
     h1,h2 {
         font-family: $code-font-family;
     }
+    p {
+        margin-left: 0;
+        padding-left: 0;
+        font-weight: normal;
+        @include trailer(0);
+    }
+}
+
+header {
+    p {
+        @include gutters();
+        font-weight: bold;
+        @include trailer(0);
+    }
 }
 
 #container > main {
@@ -106,7 +120,10 @@ code {
 }
 
 article {
-    @include rebase-headings();
+    @include rebase-headings(1.25,1.25);
+    @include breakpoint($desktop) {
+        @include rebase-headings();
+    }
     @include trailer;
     main {
         ul { list-style-type: disc;

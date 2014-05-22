@@ -1,7 +1,8 @@
 @import "susy";
+@import "breakpoint";
 @import "partials/bars";
 
-$desktop: 950px;
+$desktop: 800px;
 
 $susy: (
     columns: 4,
@@ -20,6 +21,9 @@ body {
     > header {
         //@include full;
     }
+    > main {
+        @include gutters;
+        }
 }
 
 article {

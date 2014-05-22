@@ -5,6 +5,8 @@
         %header
           %h1 
             = link_to(post[:title], post.path)
+          - if post[:subtitle]
+            %p #{post[:subtitle]}
           %time{:pubtime => true, :datetime => pub_datetime(post)}
             = pretty_date(post)
         %main
