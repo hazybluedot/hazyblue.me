@@ -1,52 +1,19 @@
 @import "susy";
 @import "breakpoint";
-@import "partials/bars";
 
 $desktop: 800px;
 
 $susy: (
-    columns: 4,
+    columns: 12,
     gutters: 1/4,
-    column-width: 12em,
+    column-width: 4em,
     global-box-sizing: border-box,
     gutter-position: inside-static,
 );
 
-body { 
-    //@include container(show);  
+$mobile: layout( $susy );
+
+%single-transition {
+  @include single-transition(all, .3s, ease, 0s);
 }
 
-#container {
-    @include container();
-    > header {
-        //@include full;
-    }
-    > main {
-        @include gutters;
-        }
-}
-
-article {
-    //@include full;
-    footer .read-more {
-        text-align: right;
-    }
-    @include breakpoint($desktop) {
-        header {
-            @include span(4 narrow);
-            time {
-                @include leader;
-                @include span(1);
-            }
-        }
-        main {
-            @include leader(-1);
-            @include span(3 last); 
-        }
-        footer {
-            @include span(3 last);
-        }
-    }
-}
-
-nav { @include span(4); }

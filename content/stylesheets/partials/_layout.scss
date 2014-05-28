@@ -1,0 +1,101 @@
+html, body {
+    height: 100%;
+}
+
+#container {
+    @include container($mobile);
+    height: 100%;
+    height: auto !important;
+    min-height: 100%;
+    > footer {
+        position: relative;
+        margin-top: -101px;
+        clear: both;
+    }
+}
+
+nav { 
+    //@include full; 
+}
+
+[class^="inner"] {
+    @include container;
+    overflow: hidden;
+    height: 100%;
+}
+
+[role="navigation"] {
+    @extend %single-transition;
+    
+    @include span(4 static isolate);
+    //height: 100%;
+    // If JavaScript is present, hide this section off-canvas
+    .js & {
+        margin-left: -100%;
+        @include span(2 static);
+        float: left;
+        z-index: 2;
+    }
+    
+    .active & {
+        margin-left: 0;
+        @include span(2 static);
+    }
+}
+
+html, body {
+    height: 100%;
+}
+
+.inner-content {
+    height: 100%;
+    padding-bottom: 100px;
+}
+
+.nav-container {
+    height: 100%;
+}
+
+.main-content {
+    height: 100%;
+    @include gutters;
+}
+
+#sidebar_button {
+  position: relative;
+  padding-left: 1.25em;
+}
+
+
+article {
+    //@include full;
+    footer .read-more {
+        text-align: right;
+    }
+    @include breakpoint($desktop) {
+        > header {
+            @include span(9 narrow);
+            time {
+                @include leader;
+                @include span(3);
+            }
+        }
+        section.main {
+            @include leader(-1);
+            @include span(9 last); 
+        }
+        > footer {
+            @include span(9 last);
+        }
+    }
+}
+
+aside {
+    @include breakpoint($desktop) {
+        display: block;
+        @include pull(4 narrow);
+        @include span(3);
+        //@include gutters;
+        @include post(.125);
+    }
+}
