@@ -85,11 +85,22 @@ if (mail($EMAIL_ADDRESS, $SUBJECT, $msg, "From: $EMAIL_ADDRESS"))
 {
         //header( "refresh:5;url=$_POST['return_url']" );
         //include $COMMENT_RECEIVED;
-        header( "Location: $COMMENT_RECEIVED" );
+        if ($use_json) {
+           $output = json_encode(array('type'=>'message', 'text' => 'awaiting moderation'));
+           die($output);
+        } else {
+          header( "Location: $COMMENT_RECEIVED" );
+        }
 }
 else
 {
-	echo "There was a problem sending the comment. Please contact the site's owner.";
+        error = "There was a problem sending the comment. Please contact the site's owner.";
+        if ($use_json) {
+           $output = json_encode(array('type'=>'error', 'text' => $error));
+           die($output);
+        } else {  
+	  die($error);
+        }    
 }
 
 exit();

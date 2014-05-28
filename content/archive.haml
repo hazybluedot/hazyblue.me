@@ -1,20 +1,24 @@
 ---
 title: Archive
+nav: top
 ---
 
-%section.archive
-  %h1 Once upon a time...
-  - grouped_articles.each do |yearmonth, articles_this_month|
-    - month_header = "#{yearmonth.last} #{yearmonth.first}"
-    %section
-      %h2
-        = month_header
-      
-      %ul
-        - articles_this_month.each do |post|
-          - if post[:published]
-            %li
-              = link_to post[:title], post.path
-              %time{:pubdate => true, :datetime => "#{post[:created_at]}"}
-                = pretty_date(post)
+%article.archive
+  %header
+    %h1 Once upon a time...
+  %main
+    - grouped_articles.each do |yearmonth, articles_this_month|
+      - month_header = "#{yearmonth.last} #{yearmonth.first}"
+      %section
+        %header
+          %h2
+            = month_header
+        %main
+          %ul
+            - articles_this_month.each do |post|
+              - if post[:published]
+                %li
+                  = link_to post[:title], post.path
+                  %time{:pubdate => true, :datetime => "#{post[:created_at]}"}
+                    = pretty_date(post)
 

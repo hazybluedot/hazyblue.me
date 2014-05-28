@@ -1,7 +1,8 @@
 #comment_form
-  %form{:name=> 'comments', :method => 'POST', :action => "#{@config['action_url']}/assets/commentsubmit.php"}
+  %form{:name=> 'comments', :id => 'comment_form', :method => 'POST', :action => "#{@config['action_url']}/assets/commentsubmit.php"}
     %h1
       Leave a Comment
+    #post_result
     %input{:type => 'hidden', :name => 'post_id', :value => "#{item.identifier}"}
     %input{:type => 'hidden', :name => 'return_url', :value => "#{url_for(item)}"}
 
@@ -12,8 +13,8 @@
     %fieldset
       %ol
         %li
-          %label{:for => "name"} Name:
-          %input{:type => "text", :name => "name", :class => "text"}
+          %label{:for => "name" } Name:
+          %input{:type => "text", :name => "name", :class => "text", :required => true}
         %li
           %label{:for => "email"} E-Mail*:
           %input{:type => "email", :name => "email", :class => "text", :placeholder => "optional"}
@@ -24,6 +25,6 @@
           %input{:type => 'url', :name => 'website', :class => 'text', :placeholder => 'http://'}
         %li
           %label{:for => "comment"} Message:
-          %textarea{:name => "comment"}              
+          %textarea{:name => "comment", :required => true}              
       = blurb.compiled_content
       %input{:type => "submit", :value => "Send", :class => "button"}

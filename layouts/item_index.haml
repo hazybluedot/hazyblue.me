@@ -9,7 +9,7 @@
             %p #{post[:subtitle]}
           %time{:pubtime => true, :datetime => pub_datetime(post)}
             = pretty_date(post)
-        %main
+        %section.main
           = post_start(post)
         %footer
           - if post[:previous]

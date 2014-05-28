@@ -7,15 +7,10 @@ $base-line-height : 24px;
     @return map-get($susy, $key);
 }
 
-@function rel-gutter($mult:1) {
-    //@return gutter(susy-global(columns)) * $mult;
-    @return 0;
-}
-
 @import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700,400italic);
-//@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+            //@import url(http://fonts.googleapis.com/css?family=Lato:400,700,400italic);
 
-$sans: "Helvetica Neue", "Lato", sans-serif;
+            $sans: "Helvetica Neue", "Lato", sans-serif;
 $serif: "Georgia", serif;
 $mono: 'Anonymous Pro', Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
 
@@ -78,8 +73,21 @@ em {
     font-style: italic;
 }
 
-dt {
+dt,th {
     font-weight: bold;
+}
+
+
+td,th {
+    @include gutters;
+}
+
+table {
+    @include trailer;
+}
+
+#recent_posts {
+    @include adjust-font-size-to(10pt);
 }
 
 #container > header {
@@ -123,23 +131,34 @@ article {
     @include rebase-headings(1.25,1.25);
     @include breakpoint($desktop) {
         @include rebase-headings();
-    }
-    @include trailer;
-    main {
-        ul { list-style-type: disc;
-             ul { list-style-type: circle; margin-bottom: 0px;
-                  ul { list-style-type: square; margin-bottom: 0px; }}}
-
-        ol, ul {
-            @include trailer;
+        &.archive {
+            @include rebase-headings(1.5,2);
         }
-
-        ol { list-style-type: decimal;
-             ol { list-style-type: lower-alpha; margin-bottom: 0px;
-                  ol { list-style-type: lower-roman; margin-bottom: 0px; }}}
-
-        ul, ol { &, ul, ol { @include gutter; }}
     }
+    ul, ol {
+        padding-left: 0;
+        margin-left: gutter() * 2;
+    }
+
+    @include trailer;
+    &:not(.archive) {
+        section.main {
+            ul { list-style-type: disc;
+                 ul { list-style-type: circle; margin-bottom: 0px;
+                      ul { list-style-type: square; margin-bottom: 0px; }}}
+
+            ol, ul {
+                @include trailer;
+            }
+
+            ol { list-style-type: decimal;
+                 ol { list-style-type: lower-alpha; margin-bottom: 0px;
+                      ol { list-style-type: lower-roman; margin-bottom: 0px; }}}
+
+            ul, ol { &, ul, ol { @include gutter; }}
+        }
+    }
+    margin: gutter();
 }
 
 p {
@@ -151,9 +170,14 @@ blockquote,pre {
     @include trailer;
 }
 
+blockquote {
+    quotes: "\201C""\201D""\2018""\2019";
+    p {
+        display: inline;
+    }
+}
+
 p {
-    //margin-left: rel-gutter(1);
-    //margin-right: rel-gutter();
 }
 
 pre {
@@ -173,3 +197,14 @@ time {
 span[property="dct:title"] {
     font-style: italic;
 }
+
+aside {
+    font-size: 14px;
+    header {
+        margin-left: 0;
+        padding-left: 0;
+        font-weight: bold;
+    }
+    @include trailer;
+}
+

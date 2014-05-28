@@ -11,7 +11,7 @@ $susy: (
     gutter-position: inside-static,
 );
 
-$mobile: layout( $susy );
+//$mobile: layout( $susy );
 
 %single-transition {
   @include single-transition(all, .3s, ease, 0s);
