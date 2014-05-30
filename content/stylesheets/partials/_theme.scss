@@ -57,42 +57,11 @@ body {
     color: color-for(container-text);
 }
 
-/* top banner */
-
-[role='banner'], #outer-container > footer {
-    color: color-for(banner-fg);
-    background-color: color-for(banner-bg);
-    h1,h2,a,p {
-        color: color-for(header-fg);
-    }
-}
-
-#sidebar_button:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.25em;
-    width: 1em;
-    height: 0.15em;
-    background: color-for(header-fg);
-    box-shadow: 
-    0 0.25em 0 0 color-for(header-fg),
-    0 0.5em 0 0 color-for(header-fg);
-}
-
 
 .nav-container a {
         color: color-for(title);
 }
 
-article {
-    h1,h2,h3,h4,h5,h6 {
-        color: color-for(title);
-        a {
-            color: color-for(title);
-        }
-    }
-}
 
 time {
     color: color-for(meta);

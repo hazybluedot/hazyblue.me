@@ -1,0 +1,41 @@
+article {
+    @include rebase-headings(1.25,1.25);
+    @include breakpoint($large) {
+        @include rebase-headings();
+        &.archive {
+            @include rebase-headings(1.5,2);
+        }
+    }
+    ul, ol {
+        padding-left: 0;
+        margin-left: gutter() * 2;
+    }
+
+    @include trailer;
+    &:not(.archive) {
+        section.main {
+            ul { list-style-type: disc;
+                 ul { list-style-type: circle; margin-bottom: 0px;
+                      ul { list-style-type: square; margin-bottom: 0px; }}}
+
+            ol, ul {
+                @include trailer;
+            }
+
+            ol { list-style-type: decimal;
+                 ol { list-style-type: lower-alpha; margin-bottom: 0px;
+                      ol { list-style-type: lower-roman; margin-bottom: 0px; }}}
+
+            ul, ol { &, ul, ol { @include gutter; }}
+        }
+    }
+    margin: gutter();
+
+    h1,h2,h3,h4,h5,h6 {
+        color: color-for(title);
+        a {
+            color: color-for(title);
+        }
+    }
+
+}

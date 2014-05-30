@@ -1,0 +1,50 @@
+/* top banner */
+
+%banner {
+    color: color-for(banner-fg);
+    background-color: color-for(banner-bg);
+    h1,h2,a,p {
+        color: color-for(header-fg);
+    }
+    @include gutters;
+    @include padding-leader(1);
+    @include padding-trailer(1);
+}
+
+[role='banner'] {
+    @extend %banner;
+
+    font-family: $code-font-family;
+    @include rebase-headings(2,1.5);
+    h1,h2 {
+        font-family: $code-font-family;
+    }
+    p {
+        margin-left: 0;
+        padding-left: 0;
+        font-weight: normal;
+        @include trailer(0);
+    }
+}
+
+#sidebar_button {
+  position: relative;
+  padding-left: 1.25em;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 1em;
+    height: 0.15em;
+    background: color-for(header-bg);
+    box-shadow: 
+    0 0.25em 0 0 color-for(header-fg),
+    0 0.5em 0 0 color-for(header-fg);
+  }
+}
+
+#outer-container > footer {
+    @extend %banner;
+}

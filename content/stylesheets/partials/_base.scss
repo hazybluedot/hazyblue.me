@@ -53,8 +53,6 @@ $layouts: (
     @return span(map-fetch($map, $args));
 }
 
-//$mobile: layout( $susy );
-
 %single-transition {
     @include single-transition(all, .3s, ease, 0s);
 }
