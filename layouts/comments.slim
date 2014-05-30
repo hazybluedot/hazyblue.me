@@ -1,0 +1,9 @@
+- item.comments.each do |comment|
+  article class='comment'
+    header
+      .vcard
+        == render 'vcard', :comment => comment
+      == pubtime_tag(pub_datetime(comment))
+
+    section class='main'
+      == comment.compiled_content

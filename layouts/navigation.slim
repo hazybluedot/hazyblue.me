@@ -1,0 +1,9 @@
+section
+  == link_to('Archive', '/archive/')
+section
+  header
+    h1 Recent Posts
+  - sorted_articles[0..5].select{ |i| i[:published] }.each do |item|
+    li
+      == link_to(item[:title], item, { :class=>'nav-link' })
+

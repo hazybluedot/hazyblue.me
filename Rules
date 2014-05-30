@@ -103,8 +103,8 @@ compile '*' do
     # don’t filter binary items
   else
     case item[:extension]
-      when 'haml'
-        filter :haml
+      when 'slim'
+        filter :slim
       when 'md'
         filter :kramdown
       when 'org'
@@ -151,4 +151,4 @@ route '*' do
   end
 end
 
-layout '*', :haml, :filter => :html5
+layout '*', :slim

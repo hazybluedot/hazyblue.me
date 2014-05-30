@@ -1,0 +1,27 @@
+doctype 5
+html lang='en'
+  head
+    meta charset="utf-8"
+    title #{@config[:site_title]} - #{@item[:title]}
+    link rel='stylesheet' type='text/css' href='/stylesheets/screen.css' media='screen,projection'
+    link rel='alternate' type='application/rss+xml' href=("#{ @config[:base_url]}/feed.xml") title=("#{ @config[:site_title] } - Feed")
+    meta name='viewport' content='initial-scale=1'
+    meta name='generator'  content=("nanoc #{Nanoc::VERSION}")
+    script type='text/javascript' src='//code.jquery.com/jquery-1.11.1.min.js'
+    script type='text/javascript' src='/assets/scripts/webtoolkit.md5.js'
+    script type='text/javascript' src='/assets/scripts/modernizr.custom.31918.js'
+    script type='text/javascript' src='/assets/scripts/comments.js'
+  body
+    div id='outer-container'
+      header role='banner'
+        h1 #{ @config[:site_title] }
+        p #{ @config[:site_subtitle] }
+        div class='inner-header'
+          a id='sidebar_button' href='#sidebar'
+      div id='inner-container'
+        main id='main-container' role='main'
+          == yield
+        nav id='nav-container' role='navigation'
+          == render 'navigation'
+      footer id='main-footer'
+        | a dkm production

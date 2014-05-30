@@ -1,0 +1,17 @@
+- render 'default' do
+  article class='post'
+    header class='post-header'
+      h1 #{item[:title]}
+      - if item[:subtitle]
+        p #{item[:subtitle]}
+      time pubdate=true datetime=pub_datetime(item)
+        == pretty_date(item)
+    section class='post-main'
+      == yield
+    footer class='post-footer'
+      .copyright
+        == render 'copyright'
+      .comments
+        == render 'comments'
+        .comment-form
+          == render 'comment_form', :blurb => @items.select{ |i| i.identifier == '/comment_blurb/' }.first

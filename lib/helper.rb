@@ -15,6 +15,12 @@ module PostHelper
     DateTime.parse(attribute_to_time(post[:created_at]).strftime('%B %-d, %Y %H:%M %z')).rfc3339
   end
 
+  def pubtime_tag(time)
+    "<time pubdate datetime='#{time}'>" +
+      attribute_to_time(time).strftime('%B %-d, %Y at %l:%M %P') +
+      "</time>"
+  end
+
   def post_raw_start(post)
     raw_content = post.raw_content
     if raw_content =~ /\s<!-- more -->\s/

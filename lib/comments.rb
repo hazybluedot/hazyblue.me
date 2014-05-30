@@ -19,13 +19,13 @@ module Nanoc::Helpers
 
     def comment_author_link(comment)
       if comment[:website] and comment[:website].length > 0
-        link_to(comment[:author], external_url(comment[:website]))
+        link_to(comment[:author], external_url(comment[:website]), :class => 'url fn')
       else
-        comment[:author]
+        "<span class='fn'>#{comment[:author]}</span>"
       end
     end
 
-    def gravatar_image_for_comment(comment)
+    def comment_gravatar_image(comment)
       email = 'nobody@hazyblue.me'
       email = comment[:email] if comment[:email] and comment[:email].length > 0
       gravatar_image(email, :size => '75')
