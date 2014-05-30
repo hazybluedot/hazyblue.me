@@ -1,47 +1,53 @@
 $form: layout( (1 2) .25 4em );
 
-form {
-    clear: both;
-    background-color: shade(color-for(container-bg), 10);
-    margin:auto;
-    position:relative;
-    //font-weight: bold;
-    text-decoration: none;
-    border-radius: 10px;
-    padding: gutter();
+.comment-form {
+    @extend %single-transition;
 
-    fieldset {
-        @include container( $form );
+    clear: both;
+    background-color: color-for(comment-form-bg);
+    @include get-layout(comment_form small);
+    @include breakpoint($large) {
+        @include push(3);
+        @include get-layout(comment_form large);
     }
 
-    @include nested( (1 2) ) {
+    margin:auto;
+    position:relative;
+    text-decoration: none;
+    border-radius: 10px;
+    @include gutter;
+
+    @include nested(9) {
         label {
             //@include span-columns(1, $content-columns);
-            @include span(1 of (1 2));
+            @include span(2);
         }
         input:not([type=submit]),textarea {
             //@include span-columns($content-columns - 1 omega, $content-columns);
             width: 200px;
             border: 1px solid shade(color-for(container-bg), 50);
-            @include pull(10%);
+            height: rhythm();
         }
         textarea {
             display: block;
-            width: 350px;
+            width: 275px;
+            @include breakpoint($medium) {
+                width: 350px;
+            }
             height: 15em;
             clear: both;
             margin: gutter();
         }
         li {
-            //clear: both;
             .hint {
                 @include gutter;
                 font-style: italic;
                 color: color-for(meta);
             }
         }
-        #botGuard {
-            display: none;
-        }
     }
+}
+
+#botGuard {
+    display: none;
 }

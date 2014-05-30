@@ -13,18 +13,30 @@ $complement-3 : #773F08;
 $complement-4 : #F7B575;
 $complement-5 : #F7D0AA;
 
-$scheme : (
-    header-bg: $primary-3,
-    header-fg: $primary-4,
-    container-text: $primary-3,
+$scheme-base : (
+    accent      : $complement-1,
+    banner-bg   : $primary-3,
+    banner-fg   : $primary-4,
+    body-bg     : tint($complement-5,75),
+    container   : $primary-3,
     container-bg: tint($complement-5,25),
-    body-bg: tint($complement-5,75),
-    meta-text: scale-saturation(scale-lightness($primary-3, -50), -50),
-    link: adjust-lightness($primary-1, 15), 
-    title: $complement-2,
-    debug: #aa3333,
-    accent: $complement-1,
+    link        : adjust-lightness($primary-1, 15), 
+    title       : $complement-2,
+    debug       : #aa3333,
 );
+
+$scheme-derived : (
+    pre-bg   : tint(map-get($scheme-base, container-bg), 25),
+    aside    : tint(map-get($scheme-base, container), 25),
+    aside-bg : tint(map-get($scheme-base, container-bg), 25),
+    block    : adjust-saturation(map-get($scheme-base, container), -20),
+    block-bg : map-get($scheme-base, container-bg),
+    header   : tint(map-get($scheme-base, title), 20),
+    meta     : scale-saturation(scale-lightness(map-get($scheme-base, container), -50), -50),
+    comment-form-bg :  shade(map-get($scheme-base, container-bg), 10),
+);
+
+$scheme : map-merge($scheme-base, $scheme-derived);
 
 @function color-for($element) {
     @return map-get($scheme, $element);
@@ -38,14 +50,16 @@ body {
     background-color: color-for(body-bg);
 }
 
-#container {
+#main-container {
     background-color: color-for(container-bg);
     color: color-for(container-text);
 }
 
-#container > header, #container > footer {
-    color: color-for(header-fg);
-    background-color: color-for(header-bg);
+/* top banner */
+
+[role='banner'], #outer-container > footer {
+    color: color-for(banner-fg);
+    background-color: color-for(banner-bg);
     h1,h2,a,p {
         color: color-for(header-fg);
     }
@@ -64,10 +78,9 @@ body {
     0 0.5em 0 0 color-for(header-fg);
 }
 
-.nav-container {
-    a {
+
+.nav-container a {
         color: color-for(title);
-    }
 }
 
 article {
@@ -80,23 +93,22 @@ article {
 }
 
 time {
-    color: color-for(meta-text);
+    color: color-for(meta);
 }
 
 blockquote {
-    color: adjust-saturation(color-for(container-text), -20);
+    color: color-for(block);
+    background-color: color-for(block-bg);
     border: 1px color-for(accent);
     border-style: none none none solid;
 }
 
 pre {
-    background-color: tint(color-for(container-bg), 25);
+    background-color: color-for(pre-bg);
 }
 
 header {
-    p {
-        color: tint(color-for(title), 20);
-    }
+    color: color-for(header); 
 }
 
 table {
@@ -105,14 +117,8 @@ table {
 }
 
 aside {
-    color: tint(color-for(container-text), 25);
-    background-color: tint(color-for(container-bg), 25);
-    header {
-        color: color-for(title);
-    }
-    a {
-        color: adjust-saturation(color-for(link), 45);
-    }
+    color: color-for(aside);
+    background-color: color-for(aside-bg);
 }
 
 @import "partials/solarized";

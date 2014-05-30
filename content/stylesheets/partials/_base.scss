@@ -1,7 +1,8 @@
 @import "susy";
 @import "breakpoint";
 
-$desktop: 800px;
+$medium: 600px; 
+$large: 950px;
 
 $susy: (
     columns: 12,
@@ -11,9 +12,54 @@ $susy: (
     gutter-position: inside-static,
 );
 
+$layouts: (
+    comments: (
+        small: full,
+        large: 9 of 12
+    ),
+    comment_form: (
+        small: full,
+        large: 9 of 12
+    ),
+);
+
+//
+// map-fetch($map, $keys)
+//
+// An easy way to fetch a deep value in a multi-level map. Works much like
+// map-get() except that you pass multiple keys as the second parameter to
+// go down multiple levels in the nested map.
+//
+@function map-fetch($map, $keys) {
+    $key: nth($keys, 1);
+    $length: length($keys);
+    $value: map-get($map, $key);
+    @if ($length > 1) {
+        $rest: ();
+        @for $i from 2 through $length {
+            $rest: append($rest, nth($keys, $i))
+        }
+        @return map-fetch($value, $rest)
+    } @else {
+        @return $value;
+    }
+}
+
+@mixin get-layout($args, $map: $layouts) {
+    @include span(map-fetch($map, $args));
+}
+
+@function get-layout($args, $map: $layouts) {
+    @return span(map-fetch($map, $args));
+}
+
 //$mobile: layout( $susy );
 
 %single-transition {
-  @include single-transition(all, .3s, ease, 0s);
+    @include single-transition(all, .3s, ease, 0s);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}

@@ -90,7 +90,7 @@ table {
     @include adjust-font-size-to(10pt);
 }
 
-#container > header {
+[role='banner'] {
     @include gutters;
     @include padding-leader(1);
     @include padding-trailer(1);
@@ -115,10 +115,6 @@ header {
     }
 }
 
-#container > main {
-    @include leader;
-}
-
 h1,h2,h3,h4,h5,h6 {
     font-family: $title-font-family;
 }
@@ -129,7 +125,7 @@ code {
 
 article {
     @include rebase-headings(1.25,1.25);
-    @include breakpoint($desktop) {
+    @include breakpoint($large) {
         @include rebase-headings();
         &.archive {
             @include rebase-headings(1.5,2);

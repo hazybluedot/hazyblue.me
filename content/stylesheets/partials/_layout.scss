@@ -105,12 +105,3 @@ article {
     }*/
 }
 
-aside {
-    @include breakpoint($desktop) {
-        display: block;
-        @include pull(4 narrow);
-        @include span(3);
-        //@include gutters;
-        @include post(.125);
-    }
-}

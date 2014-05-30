@@ -1,4 +1,10 @@
-#comments {
+.comments {
+    @include get_layout(comments small);
+    @include breakpoint($large) {
+        @include get_layout(comments large);
+        @include push(1);
+   }
+
     @include leading-border(1px, 1);
     header {
         //@include pull(1);
@@ -7,35 +13,21 @@
     }
 }
 
-/*
-.vcard {
-    @include container(4 inside-static);
-    @include nested(4) {
-        img {
-            display: inline;
-        }
-        .photo {
-            //@include pull(1);
-            @include span(1 wide);
-        }
-        .fn {
-            @include span(2);
-        }
-        time {
-            @include span(2);
-        }
-        time, .fn {
-            @include leader(0);
-            //@include trailer(0);
+.comment {    
+    clear: both;
+    @include nested(9) {
+        @include breakpoint($large) {
+            > header {
+                @include span(3 narrow);
+            }
+            
+            .main {
+                @include span(6 narrow last);
+            }
         }
     }
-}
-*/
-
-.comment {
-    section.main {
-        @include leader(0);
-        @include clearfix;
-        clear: both;
+    &.pending {
+        opacity: 0.6;
+        background-color: tint(color-for(container-bg), 25);
     }
 }

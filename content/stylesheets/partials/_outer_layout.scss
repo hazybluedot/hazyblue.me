@@ -1,0 +1,78 @@
+body {
+    height: 100%;
+}
+
+[class^="inner"] {
+    overflow: hidden;
+    height: 100%;
+}
+
+#outer-container {
+    @include container(100%);
+}
+
+#inner-container {
+    @include clearfix;
+}
+
+#outer-container, #inner-container, header {
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#sidebar_button {
+  position: relative;
+  padding-left: 1.25em;
+}
+
+.inner-header {
+    @include span(1 last);
+    @include breakpoint($large) {
+        display: none;
+    }
+}
+
+[role="navigation"] {
+    @extend %single-transition;
+
+    @include leader;
+    @include span(8 narrow last);
+
+    // If JavaScript is present, hide this section off-canvas
+    .js & {
+        margin-right: -100%;
+        float: right;
+        z-index: 2;
+    }
+    
+    .active & {
+        //@include span(4 narrow);
+        margin-right: 0;
+    }
+    
+    @include breakpoint($large) {
+        @include span(3 narrow last);
+        .js & {
+            margin-right: 0;
+        }
+    }
+}
+
+#main-container {
+    @extend %single-transition;
+
+    @include span(full);
+
+    .active & {
+        @include pull(9);
+        //@include span(3 narrow);
+        //margin-left: -span(8);
+    }
+
+    @include breakpoint($large) {
+        @include push(1);
+        @include span(8 narrow);
+    }
+}

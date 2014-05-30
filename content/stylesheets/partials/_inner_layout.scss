@@ -1,0 +1,7 @@
+aside {
+    @include breakpoint($large) {
+        display: block;
+        @include span(4 narrow last);
+        margin-right: span(4 wider) * -1;
+    }
+}
