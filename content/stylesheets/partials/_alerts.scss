@@ -1,0 +1,19 @@
+@import "compass/css3/border-radius";
+
+%alert {
+    @include border-radius();
+    @include span(50%);
+    @include squish(25%);
+    clear: both;
+    @include trailer(1);
+}
+
+.notice {
+    @extend %alert;
+    background-color: color-for(notice-bg);
+}
+
+.error {
+    @extend %alert;
+    background-color: color-for(error-bg);
+}

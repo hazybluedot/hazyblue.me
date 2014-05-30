@@ -34,6 +34,8 @@ $scheme-derived : (
     header   : tint(map-get($scheme-base, title), 20),
     meta     : scale-saturation(scale-lightness(map-get($scheme-base, container), -50), -50),
     comment-form-bg :  shade(map-get($scheme-base, container-bg), 10),
+    notice-bg: adjust-lightness(map-get($scheme-base, accent), 25),
+    error-bg : adjust-lightness(map-get($scheme-base, accent), 25),
 );
 
 $scheme : map-merge($scheme-base, $scheme-derived);
