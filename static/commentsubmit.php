@@ -44,6 +44,13 @@ $BOTGUARD_FIELD = "foo_name";
  * HERE BE CODE
  ****************************************************************************/
 
+if (!$_POST) {
+	$data = array('typpe'=>'error', 'text'=>'check API');
+	header('Content-Type: application/json');
+	echo json_encode($data);
+	exit();
+}
+
 $post_id = $_POST["post_id"];
 unset($_POST["post_id"]);
 $comment = $_POST["comment"];
@@ -54,12 +61,18 @@ if (isset($_POST["$BOTGUARD_FIELD"])) {
     unset($_POST["$BOTGUARD_FIELD"]);
 }
 
+$use_json = False;
+if (isset($_POST["use_json"])) {
+   $use_json = True;
+   unset($_POST["use_json"]);
+}
+
 //if (isset($_POST['name'])) {
 //    $SUBJECT = "Blog comment received from $_POST['name']";
 //}
 
 if (!empty($botguard)) {
-//   //Spam managed
+   //Spam managed
    header( "Location: $COMMENT_RECEIVED" );
    exit();
 }
@@ -67,6 +80,11 @@ if (!empty($botguard)) {
 $msg = "---\n";
 $msg .= "post_id: $post_id\n";
 $msg .= "created_at: " . date($DATE_FORMAT) . "\n";
+
+$received = array();
+
+$received['created_at'] = date($DATE_FORMAT);
+$received['comment'] = $comment;
 
 foreach ($_POST as $key => $value) {
 	if (strstr($value, "\n") != "") {
@@ -78,29 +96,27 @@ foreach ($_POST as $key => $value) {
 	// out what might need quoting
 	$value = "'" . str_replace("'", "''", $value) . "'";
 	$msg .= "$key: $value\n";
+        $received[$key] = $value;
 }
 $msg .= "---\n$comment";
 
+$result = array('type'=>'error', 'text'=>'unknown error', 'status'=>-1);
+
 if (mail($EMAIL_ADDRESS, $SUBJECT, $msg, "From: $EMAIL_ADDRESS"))
 {
-        //header( "refresh:5;url=$_POST['return_url']" );
-        //include $COMMENT_RECEIVED;
-        if ($use_json) {
-           $output = json_encode(array('type'=>'message', 'text' => 'awaiting moderation'));
-           die($output);
-        } else {
-          header( "Location: $COMMENT_RECEIVED" );
-        }
+        $result = array('type'=>'message', 'text' => 'awaiting moderation', 'received'=>$received, 'status'=>0);
 }
 else
 {
-        error = "There was a problem sending the comment. Please contact the site's owner.";
-        if ($use_json) {
-           $output = json_encode(array('type'=>'error', 'text' => $error));
-           die($output);
-        } else {  
-	  die($error);
-        }    
+        $error = "There was a problem sending the comment. Please contact the site's owner.";
+        $result = array('type'=>'error', 'text'=>$error, 'status'=>0);
 }
 
-exit();
+//if ($use_json) {
+     	header('Content-Type: application/json');
+	echo json_encode($result);
+//} else {        
+//    header( "Location: $COMMENT_RECEIVED" );
+//}
+
+exit(0);

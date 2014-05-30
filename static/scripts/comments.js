@@ -1,3 +1,5 @@
+if (!window.console) console = {log: function(msg) {}};
+
 var hbd = {
     makeGravatar: function(email) {
         return $('<img>').attr({src: 'http://www.gravatar.com/avatar/' + MD5(email) + '?size=75'});
@@ -8,7 +10,6 @@ var hbd = {
                       { "class": "vcard" });
         vcard.append( $('<span class="photo">' ).append( hbd.makeGravatar(data.email) ) );
         vcard.append('<span class="fn">'+data.name+'</span>');
-        vcard.append('<time>Some time in the future</time>');
 
         return vcard;
     },
@@ -34,7 +35,9 @@ var hbd = {
             html: '<header></header>' + '<section class="main">' + data.comment + '</section>'
         });
 
-        commentObj.find( 'header' ).append( hbd.makeVcard( data ) );
+        var headerObj = commentObj.find( 'header' );
+        headerObj.append( hbd.makeVcard( data ) );
+        headerObj.append('<time pubtime>' + data.created_at + '</time>');
         commentObj.data( 'md5id', MD5(data.comment) );
         
         return commentObj;
@@ -54,38 +57,41 @@ var hbd = {
         });
     },
     
+    onSuccess: function(response) {
+        if ( response.type == 'error' )
+        {
+            output = '<div class="error">'+response.text+'</div>';
+            $( '#post_result' ).hide().html(output).slideDown();
+        } else { 
+            var comment = hbd.makeComment(response.received);
+            comment.insertBefore( $( ".comment-form" ) ).slideDown();
+        }
+    },
+    
     onReady: function(){
         hbd.commentIds();
 
-        $( 'article.comment' ).each(function() {
-            var item = $( this );
-            console.log( "md5: " + item.data('md5id') );
-        });
+        $('<input/>', {
+            type: 'hidden',
+            name: 'use_json',
+            value: 'true',
+        }).insertAfter( $('#post_result') );
 
-        $( "form#comment_form" ).submit(function( eventObject ) {
+        $( "#comment_form" ).submit(function( eventObject ) {
             
+            eventObject.preventDefault();
             var post_data = hbd.makePostData( $(eventObject.target) );
-            var comment = hbd.makeComment(post_data)
+            var comment = hbd.makeComment(post_data);
             
             if ( hbd.findComment(comment.data('md5id')).length ) {
                 $( '#post_result' ).hide().html('<div class="alert">You already posted that!</div>').slideDown();
-            } else {
-                comment.appendTo( $( "div#comments" ) ).slideDown();
-            }
-            /*
-            $.post('/assets/commentsubmit.php', post_data, function(response) {
-                if ( response.type == 'error' )
-                {
-                    output = '<div class="error">'+response.text+'</div>';
-                    $("#result").hide().html(output).slideDown();
-                } else {
-                    //var comment = makeComment();
-                    //$( "div#comments" ).append( comment ).slideDown();
-                    console.log('successfully posted comment');
-                }
-            }, 'json');
-            */
-            eventObject.preventDefault();
+                return 0;
+            } 
+
+            $.post('/assets/commentsubmit.php', post_data, hbd.onSuccess, 'json').error(function(e) { 
+                console.log(e); 
+            });
+
         });
     }
 };
