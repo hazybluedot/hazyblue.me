@@ -14,7 +14,8 @@ html lang='en'
   body
     div id='outer-container'
       header role='banner'
-        h1 #{ @config[:site_title] }
+        h1 
+          a href='/' #{ @config[:site_title] }
         p #{ @config[:site_subtitle] }
         div class='inner-header'
           a id='sidebar_button' href='#sidebar'
