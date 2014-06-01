@@ -19,6 +19,6 @@ article.archive
           - if post[:published]
             li
               == link_to post[:title], post.path
-              time pubdate=true datetime="#{post[:created_at]}"
-                == pretty_date(post)
+              time datetime="#{post[:created_at]}"
+                == pretty_date(post, '%-d')
 

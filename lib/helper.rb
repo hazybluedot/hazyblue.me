@@ -7,8 +7,8 @@ require 'uri'
 require 'summarize'
 
 module PostHelper
-  def pretty_date(post)
-    attribute_to_time(post[:created_at]).strftime('%B %-d, %Y')
+  def pretty_date(post, format='%B %-d, %Y')
+    attribute_to_time(post[:created_at]).strftime(format)
   end
 
   def pub_datetime(post)

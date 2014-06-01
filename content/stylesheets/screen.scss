@@ -2,11 +2,17 @@
 @import "compass/reset";
 
 @import "partials/base";
+@import "partials/theme";
+@import "partials/typography";
+@import "partials/lists";
 @import "partials/outer_layout";
 @import "partials/inner_layout";
-@import "partials/typography";
-@import "partials/theme";
+@import "partials/banner";
+@import "partials/blocks";
+@import "partials/tables";
+@import "partials/article";
 @import "partials/alerts";
+@import "partials/archive";
 
 @import "partials/comments";
 @import "partials/forms";
