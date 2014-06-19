@@ -24,6 +24,7 @@ end
 sass_options = Compass.sass_engine_options
 
 preprocess do
+  @items.delete_if { |i| i.identifier.chop =~ /.*\/\#/ } # emacs leaves files containing '#' all over the place
   @items << item_index(sorted_articles[0..5], @site.config[:title], '/')
 end
 
@@ -89,12 +90,13 @@ compile '/posts/*' do
   filter :youtube
   case item[:extension]
     when 'md'
-      filter :kramdown, :fenced_code_blocks => true, :enable_coderay => false
+      filter :dkramdown, :fenced_code_blocks => true, :enable_coderay => false
+      #filter :pandoc
     when 'org'
       filter :orgmode, :options => {:colorizer => :external }
     end
-  filter :aside
   filter :colorize_syntax, :default_colorizer => :pygmentsrb
+  #filter :aside
   layout 'post'
 end
 
