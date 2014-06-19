@@ -19,7 +19,7 @@ $scheme-base : (
     banner-fg   : $primary-4,
     body-bg     : tint($complement-5,75),
     container   : $primary-3,
-    container-bg: tint($complement-5,25),
+    container-bg: tint($complement-5,35),
     link        : adjust-lightness($primary-1, 15), 
     title       : $complement-2,
     debug       : #aa3333,
@@ -28,11 +28,11 @@ $scheme-base : (
 $scheme-derived : (
     pre-bg   : tint(map-get($scheme-base, container-bg), 25),
     aside    : tint(map-get($scheme-base, container), 25),
-    aside-bg : tint(map-get($scheme-base, container-bg), 25),
+    aside-bg : map-get($scheme-base, container-bg),
     block    : adjust-saturation(map-get($scheme-base, container), -20),
     block-bg : map-get($scheme-base, container-bg),
     header   : tint(map-get($scheme-base, title), 20),
-    meta     : scale-saturation(scale-lightness(map-get($scheme-base, container), -50), -50),
+    meta     : scale-saturation(scale-lightness(map-get($scheme-base, container), 25), -50),
     comment-form-bg :  shade(map-get($scheme-base, container-bg), 10),
     notice-bg: adjust-lightness(map-get($scheme-base, accent), 25),
     error-bg : adjust-lightness(map-get($scheme-base, accent), 25),
@@ -67,13 +67,6 @@ time {
     color: color-for(meta);
 }
 
-blockquote {
-    color: color-for(block);
-    background-color: color-for(block-bg);
-    border: 1px color-for(accent);
-    border-style: none none none solid;
-}
-
 pre {
     background-color: color-for(pre-bg);
 }
@@ -85,11 +78,6 @@ header {
 table {
     border-top: 1px solid color-for(accent);
     border-bottom: 1px solid color-for(accent);
-}
-
-aside {
-    color: color-for(aside);
-    background-color: color-for(aside-bg);
 }
 
 @import "partials/solarized";

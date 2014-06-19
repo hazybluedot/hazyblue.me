@@ -1,0 +1,37 @@
+%block {
+    @include gutters;
+    @include trailer;
+}
+
+pre {
+    @extend %block;
+    overflow: auto;
+}
+
+blockquote {
+    @extend %block;
+    quotes: "\201C""\201D""\2018""\2019";
+    color: color-for(block);
+    background-color: color-for(block-bg);
+    border: 1px color-for(accent);
+    border-style: none none none solid;
+    p {
+        display: inline;
+    }
+}
+
+.callout {
+    @extend blockquote;
+}
+
+article {
+    aside {
+        @include rebase-headings(1,1);
+        h1,header {
+            margin-left: 0;
+            padding-left: 0;
+            font-weight: bold;
+        }
+        @include trailer;
+    }
+}

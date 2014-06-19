@@ -1,0 +1,8 @@
+.archive time {
+    @include pad(1em);
+    @include span(1 isolate);
+}
+
+.archive a {
+    @include span(6 at 1.5 isolate);
+}

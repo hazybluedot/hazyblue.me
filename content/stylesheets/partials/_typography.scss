@@ -73,19 +73,6 @@ em {
     font-style: italic;
 }
 
-dt,th {
-    font-weight: bold;
-}
-
-
-td,th {
-    @include gutters;
-}
-
-table {
-    @include trailer;
-}
-
 #recent_posts {
     @include adjust-font-size-to(10pt);
 }
@@ -111,25 +98,6 @@ p {
     @include trailer;
 }
 
-blockquote,pre {
-    @include gutters;
-    @include trailer;
-}
-
-blockquote {
-    quotes: "\201C""\201D""\2018""\2019";
-    p {
-        display: inline;
-    }
-}
-
-p {
-}
-
-pre {
-    overflow: auto;
-}
-
 /* meta data */
 time {
     font-style: italic;
@@ -144,13 +112,4 @@ span[property="dct:title"] {
     font-style: italic;
 }
 
-aside {
-    font-size: 14px;
-    header {
-        margin-left: 0;
-        padding-left: 0;
-        font-weight: bold;
-    }
-    @include trailer;
-}
 

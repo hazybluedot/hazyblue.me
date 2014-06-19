@@ -41,6 +41,7 @@ $form: layout( (1 2) .25 4em );
         li {
             .hint {
                 @include gutter;
+                @include adjust-font-size-to(8pt);
                 font-style: italic;
                 color: color-for(meta);
             }

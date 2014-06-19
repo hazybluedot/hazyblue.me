@@ -1,0 +1,12 @@
+dt,th {
+    font-weight: bold;
+}
+
+
+td,th {
+    @include gutters;
+}
+
+table {
+    @include trailer;
+}

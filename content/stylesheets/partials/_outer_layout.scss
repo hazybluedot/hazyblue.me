@@ -67,7 +67,7 @@ body {
     }
 
     @include breakpoint($large) {
-        @include push(1);
-        @include span(8 narrow);
+        @include push(2);
+        @include span(7 narrow);
     }
 }
