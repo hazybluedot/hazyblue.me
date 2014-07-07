@@ -1,0 +1,65 @@
+main.cv {
+    @include rebase-headings(2,2);
+
+    section {
+        @include clearfix;
+    }
+
+    dl {
+        //@include container(10);
+    }
+    
+    dt {
+        @include span(2);
+        clear: left;
+
+    }
+    
+    ul {
+        padding-left: span(2);
+        margin-left: gutter()*2;
+    }
+
+    li {
+        padding-left: gutter();
+    }
+
+    dd { 
+        @include span(7 at 2);
+        
+        ul {
+            @include leader();
+            padding-left: 0;
+            margin-left: 0;
+        }
+        @include trailer();
+    }
+    
+    h2 {
+        color: color-for(title);
+    }
+
+    h2:before {
+            content: "";
+            display: inline-block;
+            margin-right: gutter()*2;
+            width: span(2);
+            height: 10px;
+            background-color: color-for(title);
+    }
+
+    /*
+    h2 {
+        clear: both;
+        @include leader();
+        &:before {
+            content: "";
+            display: inline-block;
+            margin-right:1%;
+            width: 16%;
+            height: 10px;
+            background-color: color-for(accent);
+        }
+    }
+    */
+}

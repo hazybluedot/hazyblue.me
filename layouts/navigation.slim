@@ -1,9 +1,13 @@
-section
-  == link_to('Archive', '/archive/')
-section
-  header
-    h1 Recent Posts
-  - sorted_articles[0..5].select{ |i| i[:published] }.each do |item|
+nav.main
+  ol
     li
-      == link_to(item[:title], item, { :class=>'nav-link' })
+      == link_to('Archive', '/archive/')
+    li
+      == link_to('CV', '/cv/')
+nav.recent
+  h1 Recent Posts
+  ol
+    - sorted_articles[0..5].select{ |i| i[:published] }.each do |item|
+      li
+        == link_to(item[:title], item, { :class=>'nav-link' })
 

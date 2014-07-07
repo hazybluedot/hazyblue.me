@@ -20,9 +20,9 @@ html lang='en'
         div class='inner-header'
           a id='sidebar_button' href='#sidebar'
       div id='inner-container'
-        main id='main-container' role='main'
+        main id='main-container' role='main' class=("#{@item[:main_class]}")
           == yield
-        nav id='nav-container' role='navigation'
+        aside id='nav-container' role='navigation'
           == render 'navigation'
       footer id='main-footer'
         | a dkm production
