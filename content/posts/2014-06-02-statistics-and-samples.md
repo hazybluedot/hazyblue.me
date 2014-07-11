@@ -1,6 +1,6 @@
 ---
 title: Samples, Statistics, Central Limit Theorem, oh my!
-subtitle: A deeper look at the 'Central Liit Theorem' final project, and what some typical uses of a statistical tool might be
+subtitle: A deeper look at the 'Central Limit Theorem' final project, and what some typical uses of a statistical tool might be
 kind: article
 published: true
 created_at: '2014-06-02 18:38:00 -0400'
