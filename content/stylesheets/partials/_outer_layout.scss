@@ -59,7 +59,6 @@ body {
     @extend %single-transition;
 
     @include span(full);
-
     .active & {
         @include pull(9);
         //@include span(3 narrow);

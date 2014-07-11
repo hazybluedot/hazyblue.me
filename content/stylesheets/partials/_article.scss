@@ -8,7 +8,7 @@ article {
     }
 
     @include trailer;
-    margin: gutter();
+    @include pad(1);
 
     h1,h2,h3,h4,h5,h6 {
         color: color-for(title);
@@ -21,4 +21,10 @@ article {
         color: color-for(aside);
         background-color: color-for(aside-bg);
     }
+
+    header {
+        @include leader(1);
+        @include trailer(1);
+    }
 }
+

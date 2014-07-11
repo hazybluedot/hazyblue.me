@@ -2,6 +2,7 @@ body {
     height: 100%;
 }
 
+/*
 #container {
     @include container();
     height: 100%;
@@ -13,6 +14,7 @@ body {
         clear: both;
     }
 }
+*/
 
 nav { 
     //@include full; 
@@ -65,17 +67,20 @@ nav {
 }
 
 
-.main-content {
+/*
+#main-container {
     //height: 100%;
     //display: table-cell;
 
-    @include gutters(2);
+    @include gutters(1);
+    @include squish(25%);
     @include span(full narrow);
     
     @include breakpoint($desktop) {
         @include span(8 wide last);
     }
 }
+*/
 
 #sidebar_button {
   position: relative;
