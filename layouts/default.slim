@@ -4,13 +4,33 @@ html lang='en'
     meta charset="utf-8"
     title #{@config[:site_title]} - #{@item[:title]}
     link rel='stylesheet' type='text/css' href='/stylesheets/screen.css' media='screen,projection'
-    link rel='alternate' type='application/rss+xml' href=("#{ @config[:base_url]}/feed.xml") title=("#{ @config[:site_title] } - Feed")
+    link rel='alternate' type='application/rss+xml' href=("#{ @config[:base_url]}/feed.xml") title=("#{ @config[:site_title] } - Feed") 
+    link rel='openid2.provider' href='https://www.google.com/accounts/o8/ud?source=profiles'
+    link rel='openid2.local_id' href='https://plus.google.com/102713723625651639398'
     meta name='viewport' content='initial-scale=1'
     meta name='generator'  content=("nanoc #{Nanoc::VERSION}")
+
+    script type='text/javascript' src='https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'
     script type='text/javascript' src='//code.jquery.com/jquery-1.11.1.min.js'
     script type='text/javascript' src='/assets/scripts/webtoolkit.md5.js'
     script type='text/javascript' src='/assets/scripts/modernizr.custom.31918.js'
     script type='text/javascript' src='/assets/scripts/comments.js'
+
+    /! Piwik Image Tracker
+    javascript:
+      var _paq = _paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.hazyblue.me/piwik/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', 1]);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+      g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    noscript
+      img src="https://hazyblue.me/piwik/piwik.php?idsite=1&rec=1" style="border:0" alt=""
+    /! End Piwik 
   body
     div id='outer-container'
       header role='banner'
@@ -25,4 +45,4 @@ html lang='en'
         aside id='nav-container' role='navigation'
           == render 'navigation'
       footer id='main-footer'
-        | a dkm production
+        == render 'footer'

@@ -14,11 +14,13 @@ form name='comments' id='comment_form' method='POST' action="#{@config['action_u
       li
         label for='name'
           | Name:
-        input type='text' name='name' class='text' required=true
+        input type='text' name='name' class='text' autocomplete='name' required=true
       li
         label for='email'
           | E-mail:
-        input type='email' name='email' class='text' placeholder='optional'
+        input type='email' name='email' autocomplete='email' class='text' placeholder='optional'
+        .hint
+          | Used to fetch avatar, if available. Your email address will <em>not</em> be displayed.
       li
         label for='website'
           | Website:

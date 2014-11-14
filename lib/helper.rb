@@ -1,3 +1,4 @@
+include Nanoc::Helpers::StaticComments
 include Nanoc::Helpers::Tagging
 include Nanoc::Helpers::Blogging
 include Nanoc::Helpers::LinkTo
@@ -69,7 +70,7 @@ module PostHelper
   end
 
   def grouped_articles
-    sorted_articles.group_by do |post|
+    sorted_articles.select{ |post| post[:published] }.group_by do |post|
       [ attribute_to_time(post[:created_at]).strftime('%Y'), attribute_to_time(post[:created_at]).strftime('%B') ]
     end
   end
@@ -77,6 +78,11 @@ module PostHelper
   def tweet_this_url(post)
     post_url = URI::encode(url_for(post))
     "https://twitter.com/intent/tweet?original_referer=#{post_url}&text=#{post[:title]}&url=#{post_url}&via=hazybluedot"
+  end
+
+  def share_on_gplus_url(post)
+    post_url = URI::encode(url_for(post))
+    "https://plus.google.com/share?url=#{post_url}"
   end
 end
 

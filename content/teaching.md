@@ -6,7 +6,7 @@ tags:
 
 ## The Bard
 
-In _Hamlet on the Holodeck_ Janet Murray explores what interactive
+In [_Hamlet on the Holodeck_][hamlet-holodeck] [Janet Murray] explores what interactive
 narrative may look like in the near future. A university education
 should be thought of as an interactive narrative and a teacher has the
 role of the bard from the oral traditions of story telling.
@@ -166,3 +166,6 @@ experience while sitting in on a Public Planning and Policy class and
 noticed a parallel between a specific public planning policy and an
 optimal control algorithm I had been studying for a robotic navigation
 problem).
+
+[Janet Murray]: http://lmc.gatech.edu/~murray/
+[hamlet-holodeck]: https://mitpress.mit.edu/books/hamlet-holodeck

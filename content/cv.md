@@ -25,9 +25,15 @@ main_class: cv
 <section markdown="1">
 ## Education
 
+2014-?
+:   *Engineering Education at Virginia Polytechnic and Statue University* (Blacksburg, VA)
+
+    - Ph.D. in progress
+    
 2014
 :   *M.S. in Electrical Engineering at Virginia Polytechnic and State University* (Blacksburg, VA)
-    - projected completion: August 2014
+
+    - anticipated completion: January 2015
 
 2004
 :   *BS in Computer Systems Engineering at University of Massachusetts* (Amherst, MA)
@@ -40,6 +46,12 @@ main_class: cv
 
 ### Virginia Polytechnic and State University (Blacksburg, VA)
 
+2014-present
+:  *Research Assistent*, [LEWAS Lab](http://http://www.lewas.centers.vt.edu/)
+
+   - design and maintain IT infrastructure
+   - design learning modules
+   
 2011-2014
 :  *Instructor*
 
@@ -49,9 +61,9 @@ main_class: cv
     - Revised syllabus to reflect changes in technology and industry
     
 2010-2011
-:  *VaCAS Executive Officer*
+:  *[VaCAS] Executive Officer*
 
-    - Liaison to visiting faculty during visits between VaCAS labs
+    - Liaison to visiting faculty during visits between [VaCAS] labs
     - Worked with faculty from the ECE, Aerospace, ME and CS departments along with industry representatives to design an "Autonomous Systems" undergraduate minor program.
     
 2005-2010
@@ -86,3 +98,5 @@ main_class: cv
     
 </section>
 </section>
+
+[VaCAS]: http://www.unmanned.vt.edu/

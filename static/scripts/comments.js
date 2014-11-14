@@ -19,8 +19,10 @@ var hbd = {
         var email   = $('input[name=email]').val();
         var comment = $('textarea[name=comment]').val();
         var website = $('input[name=website]').val();
+        var post_id = $('input[name=post_id]').val();
 
         return {
+            'post_id': post_id,
             'email': email,
             'name': name,
             'website': website,
@@ -88,7 +90,7 @@ var hbd = {
                 return 0;
             } 
 
-            $.post('/assets/commentsubmit.php', post_data, hbd.onSuccess, 'json').error(function(e) { 
+            $.post('https://www.hazyblue.me/assets/commentsubmit.php', post_data, hbd.onSuccess, 'json').error(function(e) { 
                 console.log(e); 
             });
 
@@ -122,12 +124,35 @@ var nav = {
             }
             */
         });
+    },
+
+    onReady: function() {
+        $('.popup').click(function(event) {
+            event.preventDefault();
+            window.open($(this).attr("href"), "popupWindow", "width=550,height=420,scrollbars=yes");
+        });
     }
 };
+
+var analytics = {
+    onReady: function() {
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u=(("https:" == document.location.protocol) ? "https" : "http") + "://www.hazyblue.me/piwik/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 1]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+            g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+    }
+}
 
 var site = {
     onReady: function() {
         hbd.onReady();
+        nav.onReady();
         nav.toggle();
     }
 }

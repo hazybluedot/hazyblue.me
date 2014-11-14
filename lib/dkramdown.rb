@@ -1,6 +1,7 @@
 require 'kramdown/parser/base'
 require 'kramdown/parser/kramdown'
 
+unless defined?(Kramdown::Parser::DKMramdown) 
 class Kramdown::Parser::DKMramdown < Kramdown::Parser::Kramdown
 
   def initialize(source, options)
@@ -105,4 +106,5 @@ module Nanoc::DKramdown
       Kramdown::Document.new(content, params.merge( {:input => 'DKMramdown'} ) ).to_html
     end 
   end
+end
 end

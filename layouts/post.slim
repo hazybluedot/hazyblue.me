@@ -9,6 +9,9 @@
     section class='post-main'
       == yield
     footer class='post-footer'
+      .share
+        a href="#{tweet_this_url(item)}" class="popup"
+          img src="/assets/bird_blue_16.png" width="16" height="16"
       .copyright
         == render 'copyright'
       .comments

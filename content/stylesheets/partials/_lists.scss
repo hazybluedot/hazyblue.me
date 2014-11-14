@@ -2,7 +2,8 @@ dl {
     @include trailer();
 }
 
-article:not[class=archive] {
+//article:not[class=archive],
+#main-container {
     ol, ul {
         @include trailer;
         padding-left: 0;
@@ -22,7 +23,7 @@ article:not[class=archive] {
 
 .archive {
     ol, ul {
-        list-style-type: none;
+        @include no-bullets;
     }
     li {
         @include clearfix;

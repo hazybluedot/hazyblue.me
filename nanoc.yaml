@@ -5,13 +5,14 @@ text_extensions: [ 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'h
 
 # config
 base_url: 'http://www.hazyblue.me'
-action_url: 'http://action.hazyblue.me'
+action_url: 'https://www.hazyblue.me'
 site_title: '#!/hazy/blue/.'
 site_subtitle: 'open to interpretation'
 twitter_username: '@hazybluedot'
 github_username: 'hazybluedot'
 author_name: 'Darren Maczka'
 datetime_format: '%Y-%m-%d %H:%M:%S %z'
+pgp_pubkey: '0xFB6123663410B368'
 
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path

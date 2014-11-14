@@ -51,6 +51,8 @@ if (!$_POST) {
 	exit();
 }
 
+//file_put_contents("/tmp/post.log", print_r($_POST,true));
+
 $post_id = $_POST["post_id"];
 unset($_POST["post_id"]);
 $comment = $_POST["comment"];
@@ -77,9 +79,10 @@ if (!empty($botguard)) {
    exit();
 }
 
-$msg = "---\n";
-$msg .= "post_id: $post_id\n";
-$msg .= "created_at: " . date($DATE_FORMAT) . "\n";
+$headers = array('Content-type: text/plain; charset=UTF-8; format=flowed');
+array_push($headers, "From: $EMAIL_ADDRESS");
+
+$meta = array("post_id: $post_id", "created_at: " . date($DATE_FORMAT) );
 
 $received = array();
 
@@ -95,14 +98,15 @@ foreach ($_POST as $key => $value) {
 	// It's easier just to single-quote everything than to try and work
 	// out what might need quoting
 	$value = "'" . str_replace("'", "''", $value) . "'";
-	$msg .= "$key: $value\n";
+        array_push($meta, "$key: $value");
         $received[$key] = $value;
 }
-$msg .= "---\n$comment";
+
+$msg = "---\n" . implode("\n", $meta) . "\n---\n$comment";
 
 $result = array('type'=>'error', 'text'=>'unknown error', 'status'=>-1);
 
-if (mail($EMAIL_ADDRESS, $SUBJECT, $msg, "From: $EMAIL_ADDRESS"))
+if (mail($EMAIL_ADDRESS, $SUBJECT, $msg, implode( "\r\n", $headers) ))
 {
         $result = array('type'=>'message', 'text' => 'awaiting moderation', 'received'=>$received, 'status'=>0);
 }
